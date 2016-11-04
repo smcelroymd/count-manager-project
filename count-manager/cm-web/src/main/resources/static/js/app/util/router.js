@@ -9,6 +9,23 @@ define(['jquery',
 		'view/submenuviews/subMenuItem2',
 		'view/submenuviews/subMenuItem3',], function ($, signals, hasher, crossroads, home, view1, view2, subMenuItem1, subMenuItem2, subMenuItem3) {
 	
+	
+	/**
+	 * Gets the current route
+	 * @returns
+	 */
+	function getRoute() {
+		return hasher.getHash();
+	}
+	
+	/**
+	 * Sets the current route
+	 * @returns
+	 */
+	function setRoute(route) {
+		hasher.setHash(route);
+	}
+	
 	/**
 	 * Setup hasher parse function
 	 */
@@ -66,4 +83,9 @@ define(['jquery',
 		 */
 		hasher.setHash('/home');
 	})();
+	
+	return {
+		getRoute : getRoute,
+		setRoute : setRoute
+	};
 });

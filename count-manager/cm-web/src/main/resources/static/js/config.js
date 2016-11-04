@@ -6,6 +6,7 @@ require.config({
 		crossroads : 'lib/crossroads.min',
 		hasher : 'lib/hasher.min',
 		signals : 'lib/signals.min',
+		Cookies : 'lib/js.cookie',		
 		util : 'app/util',
 		view : 'app/view',
 		command : 'app/command',

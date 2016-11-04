@@ -1,7 +1,8 @@
 define(['jquery',
-		'bootstrap',
+    	'Cookies',
 		'util/router',
-		'util/controller'], function ($) {
+		'util/controller',
+		'bootstrap'], function ($, Cookies, router) {
 	
 	(function initialise() {												
 		
@@ -19,6 +20,27 @@ define(['jquery',
 			}
 		});
 
+		/**
+		 * If a user refreshes the browser (presses F5) remember the current page
+		 * TODO - For security reason we need to mark this cookie as secure
+		 */
+		$( window ).on('beforeunload', function() {
+			if(router === undefined) {
+				var a = 1;
+			}
+			Cookies.set('mdl-count-mamanger-current-page', router.getRoute());
+		});
+		
+		/**
+		 * If a user refreshed the browser (presses F5) show the correct page
+		 * TODO - For security reason we need to mark this cookie as secure
+		 */
+		var route = Cookies.get('mdl-count-mamanger-current-page');
+		if(route !== undefined) {
+			router.setRoute(route);
+			Cookies.remove('mdl-count-mamanger-current-page');
+		}		
+		
 		console.log('Application Initialised');
 	})();
 	
