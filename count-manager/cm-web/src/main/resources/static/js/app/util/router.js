@@ -3,12 +3,7 @@ define(['jquery',
 		'hasher',
 		'crossroads',
 		'view/home',
-		'view/view1',
-		'view/view2',
-		'view/ballotPaperAccount',
-		'view/submenuviews/subMenuItem1',
-		'view/submenuviews/subMenuItem2',
-		'view/submenuviews/subMenuItem3',], function ($, signals, hasher, crossroads, home, view1, view2, ballotPaperAccount, subMenuItem1, subMenuItem2, subMenuItem3) {
+		'view/ballotPaperAccount'], function ($, signals, hasher, crossroads, home, ballotPaperAccount) {
 	
 	
 	/**
