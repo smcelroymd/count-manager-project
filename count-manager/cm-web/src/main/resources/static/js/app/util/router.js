@@ -5,10 +5,10 @@ define(['jquery',
 		'view/home',
 		'view/view1',
 		'view/view2',
-		'view/bpa',
+		'view/ballotPaperAccount',
 		'view/submenuviews/subMenuItem1',
 		'view/submenuviews/subMenuItem2',
-		'view/submenuviews/subMenuItem3',], function ($, signals, hasher, crossroads, home, view1, view2, bpa, subMenuItem1, subMenuItem2, subMenuItem3) {
+		'view/submenuviews/subMenuItem3',], function ($, signals, hasher, crossroads, home, view1, view2, ballotPaperAccount, subMenuItem1, subMenuItem2, subMenuItem3) {
 	
 	
 	/**
@@ -51,8 +51,8 @@ define(['jquery',
 			view2.show();
 		});
 		
-		crossroads.addRoute('/bpa', function(){
-			bpa.show();
+		crossroads.addRoute('/ballotPaperAccount', function(){
+			ballotPaperAccount.show();
 		});
 		
 		crossroads.addRoute('/submenuviews/subMenuItem1', function() {

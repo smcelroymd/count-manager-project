@@ -1,4 +1,4 @@
-define(['text!view/bpa.html',
+define(['text!view/ballotPaperAccount.html',
 		'util/viewResolver'], function (view, viewResolver) {
 	
 	function show() {
