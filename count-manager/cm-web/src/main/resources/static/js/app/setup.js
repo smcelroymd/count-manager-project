@@ -1,5 +1,5 @@
 define(['jquery',
-    	'Cookies',
+	    'Cookies', 
 		'util/router',
 		'util/controller',
 		'bootstrap'], function ($, Cookies, router) {
@@ -19,27 +19,33 @@ define(['jquery',
 				$(this).addClass('active');
 			}
 		});
-
+		
+		/**
+		 * Collapse the menu if shown and a link is clicked
+		 */
+		$(".nav-pills-menu li a").click(function(event) {
+			if($(this).attr('href') !== '#') {
+				$(".navbar-collapse").collapse('hide');
+			}
+		});
+		
 		/**
 		 * If a user refreshes the browser (presses F5) remember the current page
 		 * TODO - For security reason we need to mark this cookie as secure
 		 */
 		$( window ).on('beforeunload', function() {
-			if(router === undefined) {
-				var a = 1;
-			}
-			Cookies.set('mdl-count-mamanger-current-page', router.getRoute());
+			Cookies.set('mdl-register-manager-current-page', router.getRoute());
 		});
 		
 		/**
 		 * If a user refreshed the browser (presses F5) show the correct page
 		 * TODO - For security reason we need to mark this cookie as secure
 		 */
-		var route = Cookies.get('mdl-count-mamanger-current-page');
+		var route = Cookies.get('mdl-register-manager-current-page');
 		if(route !== undefined) {
 			router.setRoute(route);
-			Cookies.remove('mdl-count-mamanger-current-page');
-		}		
+			Cookies.remove('mdl-register-manager-current-page');
+		}
 		
 		console.log('Application Initialised');
 	})();
