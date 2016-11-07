@@ -45,6 +45,12 @@ define(['jquery',
 		if(route !== undefined) {
 			router.setRoute(route);
 			Cookies.remove('mdl-register-manager-current-page');
+			
+			/**
+			 * Highlight the correct menu option 
+			 */
+			$('.sidenav ul.nav-pills li.active').removeClass('active');
+			$('a[href^="' + route + '"').parent().addClass('active');			
 		}
 		
 		console.log('Application Initialised');
