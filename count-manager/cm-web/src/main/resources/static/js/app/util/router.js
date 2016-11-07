@@ -5,9 +5,10 @@ define(['jquery',
 		'view/home',
 		'view/view1',
 		'view/view2',
+		'view/bpa',
 		'view/submenuviews/subMenuItem1',
 		'view/submenuviews/subMenuItem2',
-		'view/submenuviews/subMenuItem3',], function ($, signals, hasher, crossroads, home, view1, view2, subMenuItem1, subMenuItem2, subMenuItem3) {
+		'view/submenuviews/subMenuItem3',], function ($, signals, hasher, crossroads, home, view1, view2, bpa, subMenuItem1, subMenuItem2, subMenuItem3) {
 	
 	
 	/**
@@ -48,6 +49,10 @@ define(['jquery',
 	
 		crossroads.addRoute('/view2', function() {
 			view2.show();
+		});
+		
+		crossroads.addRoute('/bpa', function(){
+			bpa.show();
 		});
 		
 		crossroads.addRoute('/submenuviews/subMenuItem1', function() {
