@@ -3,7 +3,8 @@ define(['jquery',
 		'hasher',
 		'crossroads',
 		'view/home',
-		'view/ballotPaperAccount'], function ($, signals, hasher, crossroads, home, ballotPaperAccount) {
+		'view/verification',
+		'view/ballotPaperAccount'], function ($, signals, hasher, crossroads, home, verification, ballotPaperAccount) {
 	
 	
 	/**
@@ -38,28 +39,12 @@ define(['jquery',
 			home.show();
 		});
 		
-		crossroads.addRoute('/view1', function() {
-			view1.show();
-		});
-	
-		crossroads.addRoute('/view2', function() {
-			view2.show();
-		});
-		
 		crossroads.addRoute('/ballotPaperAccount', function(){
 			ballotPaperAccount.show();
 		});
 		
-		crossroads.addRoute('/submenuviews/subMenuItem1', function() {
-			subMenuItem1.show();
-		});
-
-		crossroads.addRoute('/submenuviews/subMenuItem2', function() {
-			subMenuItem2.show();
-		});
-
-		crossroads.addRoute('/submenuviews/subMenuItem3', function() {
-			subMenuItem3.show();
+		crossroads.addRoute('/verification', function(){
+			verification.show();
 		});
 
 		/**
