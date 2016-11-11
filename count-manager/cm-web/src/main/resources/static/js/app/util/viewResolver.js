@@ -15,7 +15,17 @@ define(['Ractive',
 		}));
 	}
 	
+	function createDialog(containerId, dialogView, model, onComplete) {
+		   return new Ractive({
+		    el : containerId,
+		    template : dialogView,
+		    oncomplete : onComplete,
+		    data : model
+		   });
+		 }
+	
 	return {
-		show : show
+		show : show,
+		createDialog : createDialog
 	};
 });

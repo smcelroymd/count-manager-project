@@ -1,0 +1,131 @@
+<div id="ballotPaperAccountDialog" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<ul class="nav nav-pills nav-justified">
+						<li class="active"><a data-toggle="tab"
+							href="#ordinaryBallotsInput">Ordinary Ballots</a></li>
+						<li><a data-toggle="tab" href="#tenderedBallotsInput">Tendered</a></li>
+						<li><a data-toggle="tab" href="#postalVotesInput">Postal</a></li>
+					</ul>
+				</div>
+				<div class="modal-body">
+					<div class="tab-content">
+						<div id="ordinaryBallotsInput" class="tab-pane fade in active">
+							<form>
+								<div class="form-group form-group-sm">
+									<label for="receivedTotalLabel" class="control-label">Total
+										received by Presiding Officer:</label> <input class="form-control"
+										type="number" id="totalReceived"
+										value='{{totalReceived}}' />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="serialNumberLabel" class="control-label">Serial
+										number on the back of the next ballot paper to be issued:</label> <input
+										class="form-control" type="number"
+										id="nextSerialNumber"
+										value="{{nextSerialNumber}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="serialCorrespondingLabel">Serial number on
+										the first ballot paper issued on the corresponding number
+										list:</label> <input class="form-control" type="number"
+										id="serialCorresponding"
+										value="{{serialCorresponding}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="totalBallotsIssuedLabel">Total ballot
+										papers issued:</label> <input id="totalBallotsIssued" type="number"
+										class="form-control"
+										value="{{totalBallotsIssued}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="spoiltReplacementLabel">How many spoilt
+										ballot papers did you issue replacements for?</label> <input
+										class="form-control" type="number" id="spoiltReplacement"
+										value="{{spoiltReplacement}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="issuedNotSpoiltLabel">Total ballot papers
+										issued and not spoilt:</label> <input class="form-control"
+										type="number" id="issuedNotSpoilt"
+										value="{{issuedNotSpoilt}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="totalUnusedBallotLabel">Total unused ballot
+										papers:</label> <input class="form-control" type="number"
+										id="totalUnusedBallot"
+										value="{{totalUnusedBallot}}" />
+								</div>
+							</form>
+						</div>
+						<div id="tenderedBallotsInput" class="tab-pane fade">
+							<form>
+								<div class="form-group form-group-sm">
+									<label for="tenderedReceivedTotalLabel" class="control-label">Total
+										received by Presiding Officer:</label> <input class="form-control"
+										type="number" id="tenderedTotalReceived"
+										value="{{tenderedTotalReceived}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="totalMarkedPlacedLabel" class="control-label">Total
+										tendered ballot papers marked by a voter and placed by the
+										Presiding Officer in the appropriate envelope:</label> <input
+										class="form-control" type="number" id="totalMarkedPlaced"
+										value="{{totalMarkedPlaced}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="totalSpoiltPlacedLabel" class="control-label">Total
+										spoilt tendered ballot papers (to be placed by the Presiding
+										Officer in the appropriate envelope):</label> <input
+										class="form-control" type="number" id="totalSpoiltPlaced"
+										value="{{totalSpoiltPlaced}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="totalUnusedPlacedLabel" class="control-label">Total
+										unused tendered ballot papers (to be placed by the Presiding
+										Officer in the appropriate envelope):</label> <input
+										class="form-control" type="number" id="totalUnusedPlaced"
+										value="{{totalUnusedPlaced}}" />
+								</div>
+							</form>
+						</div>
+						<div id="postalVotesInput" class="tab-pane fade">
+							<form>
+								<div class="form-group form-group-sm">
+									<label for="postalEarlyTotalLabel" class="control-label">Postal
+										Vote (Early) total:</label> <input class="form-control" type="number"
+										id="postalEarlyTotal"
+										value="{{postalEarlyTotal}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="postalSweepTotalLabel" class="control-label">Postal
+										Vote (Sweep) total:</label> <input class="form-control" type="number"
+										id="postalSweepTotal"
+										value="{{postalSweepTotal}}" />
+								</div>
+								<div class="form-group form-group-sm">
+									<label for="postalLateTotalLabel" class="control-label">Postal
+										Vote (Late) total:</label> <input class="form-control" type="number"
+										id="postalLateTotal"
+										value="{{postalLateTotal}}" />
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+				{{#if update}}
+					<button type="button" class="btn btn-default btn-sm" id="editBallotPaperAccountBtn"
+						data-dismiss="modal">Edit</button>
+				{{else}}
+					<button type="button" class="btn btn-default btn-sm" id="addBallotPaperAccountBtn"
+						data-dismiss="modal">Add</button>
+				{{/if}}
+					<button type="button" class="btn btn-default btn-sm"
+						data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
