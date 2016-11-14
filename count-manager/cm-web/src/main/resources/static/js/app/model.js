@@ -22,6 +22,20 @@ define([], function(){
 	return {
 		'data' : {
 			'message' : '',
+			'verificationCount' : {
+				'ballots': [
+		            { 'id': '123'},
+		            { 'id': '456'},
+		            { 'id': '987'},
+		            { 'id': '123'}],
+				'electoralArea': [
+			        { 'area': 'Belfast'},
+			        { 'area': 'Derry'},
+			        { 'area': 'Dublin'},
+			        { 'area': 'Mexico'}],	
+			    'tableData': [
+			    	]
+			},
 			'ballotPaperAccount':{
 				'data':[],
 				'electoralArea': [
@@ -38,6 +52,5 @@ define([], function(){
 		'getRactive' : getRactive,
 		'set' : set,
 		'get' :get
-	};
-	
+	}	
 });
