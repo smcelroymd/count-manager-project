@@ -4,7 +4,8 @@ define(['jquery',
 		'crossroads',
 		'view/home',
 		'view/verification',
-		'view/ballotPaperAccount'], function ($, signals, hasher, crossroads, home, verification, ballotPaperAccount) {
+		'view/ballotPaperAccount',
+		'view/analytics'], function ($, signals, hasher, crossroads, home, verification, ballotPaperAccount, analytics) {
 	
 	
 	/**
@@ -35,16 +36,24 @@ define(['jquery',
 	 */
 	(function initialise() {
 	
-		crossroads.addRoute('/home', function() {
+		crossroads.addRoute('home', function() {
 			home.show();
 		});
 		
-		crossroads.addRoute('/ballotPaperAccount', function(){
+		crossroads.addRoute('ballotPaperAccount', function(){
 			ballotPaperAccount.show();
 		});
 		
-		crossroads.addRoute('/verification', function(){
+		crossroads.addRoute('verification', function(){
 			verification.show();
+		});
+
+		crossroads.addRoute('ballotPaperStats', function(){
+			ballotPaperStats.show();
+		});
+
+		crossroads.addRoute('analytics', function(){
+			analytics.show();
 		});
 
 		/**
@@ -66,7 +75,7 @@ define(['jquery',
 		/**
 		 * update URL fragment generating new history record
 		 */
-		hasher.setHash('/home');
+		hasher.setHash('home');
 	})();
 	
 	return {

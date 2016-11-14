@@ -14,6 +14,10 @@
 	padding: 0 !important;
 }
 
+.logo-small {
+    font-size: 20px;
+}
+
 /**
  * Navbar styling
  */
@@ -186,4 +190,31 @@
 
 .red {
 	color: red;	
+}
+
+.panel-heading {
+	border-top-right-radius: 0 !important;
+	border-top-left-radius: 0 !important;
+}
+
+/*Dash board information panels*/
+
+.panel-primary {
+    color: #337ab7;
+}
+
+.panel-success a {
+    color: #3c763d !important;
+}
+
+.panel-info a {
+    color: #31708f;
+}
+
+.panel-warning a {
+    color: #8a6d3b;
+}
+
+.panel-danger a {
+    color: #a94442;
 }
