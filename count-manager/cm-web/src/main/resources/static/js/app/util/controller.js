@@ -3,8 +3,12 @@ define(['jquery',
         'command/exampleCommand',
 	    'command/addVerificationCountCommand',
 	    'command/editVerificationCountCommand',
-	    'command/deleteVerificationCountCommand'], function($, eventHandler, exampleCommand, addVerificationCountCommand, editVerificationCountCommand, deleteVerificationCountCommand) {	
+	    'command/deleteVerificationCountCommand',
+        'command/addBallotPaperAccountCommand',
+        'command/editBallotPaperAccountCommand',
+        'command/deleteBallotPaperAccountsCommand'], function($, eventHandler, exampleCommand, addVerificationCountCommand, editVerificationCountCommand, deleteVerificationCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand) {	
 			(function initialise() {
+				
 				eventHandler.bind('exampleEvent', function() {
 					exampleCommand.execute().fail(function(jqXHR, textStatus, errorThrown) {
 						var errors = JSON.parse(jqXHR.responseText);
@@ -21,7 +25,16 @@ define(['jquery',
 				eventHandler.bind('deleteVerificationCount', function(){
 					deleteVerificationCountCommand.execute();
 					console.log("Calling delete Command");
+				});	
+				eventHandler.bind('addBallotPaperAccountEvent', function(event){
+					addBallotPaperAccountCommand.execute(event);
 				});
-			})(); 
+				eventHandler.bind('editBallotPaperAccountEvent', function(event){
+					editBallotPaperAccountCommand.execute(event);
+				});
+				eventHandler.bind('deleteBallotPaperAccountsEvent', function(event){
+					deleteBallotPaperAccountsCommand.execute(event);
+				});
+			})();
 		}
 );

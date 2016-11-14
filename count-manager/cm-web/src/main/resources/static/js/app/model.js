@@ -38,6 +38,14 @@ define([], function(){
 			    	'bpaValue': '200',
 			    	'countValue': '',
 			    	'status': 'false',
+				'message' : '',
+				'ballotPaperAccount':{
+					'data':[],
+					'electoralArea': [
+						{'area':'Belfast','value':'1'},
+						{'area':'Derry','value':'2'},
+						{'area':'Mexico','value':'3'}],
+						'selectedElectoralArea': '0'
 			}
 		},
 		'urls' : {
@@ -46,7 +54,7 @@ define([], function(){
 		'setRactive' : setRactive,
 		'getRactive' : getRactive,
 		'set' : set,
-		'get' : get
+		'get' :get
 	};
 	
 });

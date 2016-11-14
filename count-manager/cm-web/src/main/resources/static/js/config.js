@@ -27,4 +27,4 @@ require.config({
    }	
 });
 
-require(['app/setup']);
+require([ 'app/setup' ]);
