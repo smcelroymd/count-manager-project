@@ -34,11 +34,7 @@ define([], function(){
 			        { 'area': 'Dublin'},
 			        { 'area': 'Mexico'}],	
 			    'tableData': [
-			    	],
-			    	'countID': '1',
-			    	'bpaValue': '200',
-			    	'countValue': '',
-			    	'status': 'false'
+			    	]
 			},
 			'ballotPaperAccount':{
 				'data':[],

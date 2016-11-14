@@ -1,14 +1,17 @@
 define(['app/model'], function(model, ajaxService){
 	function execute(event) {
-		var countValue = model.get('verificationCount.countValue');
-		var bpaValue = model.get('verificationCount.bpaValue');
-		var count = model.get('verificationCount.countID');
-		var status = false;
 		
-		if(countValue == bpaValue){status = true;}
+		var row = $.extend({"id" : new Date().getUTCMilliseconds()}, event.eventData);
 		
-		model.getRactive().push('verificationCount.tableData',{'countID' : count, 'countValue' : countValue, 'status' : status});
-		model.set({'verificationCount.countID' : ++count, 'verificationCount.countValue' : '', 'verificationCount.status' : status});
+//		var countValue = event.eventData.countValue;
+//		var bpaValue = event.eventData.bpaValue;
+//		var countID = event.eventData.countID;
+//		var status = (countValue == bpaValue);
+//		event.eventData["id"]=new Date().getUTCMilliseconds();		
+		
+		model.getRactive().push('verificationCount.tableData',row);
+//		model.getRactive().push('verificationCount.tableData',{'countID' : ++countID, 'countValue' : countValue, 'status' : status});
+		//model.set({'verificationCount.countID' : countID, 'verificationCount.countValue' : '', 'verificationCount.status' : status});
 	};
 	
 	return {

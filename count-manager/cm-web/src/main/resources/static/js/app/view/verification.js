@@ -71,17 +71,7 @@ define(['jquery',
 			table.rows.add(newValue);
 			table.rows().invalidate().draw();
 		},{'init':false});
-		
-		$('#addCountValueModal').off('click').on('click', '#addBtn', '#addAndCloseBtn', function (e) {
-			//eventHandler.trigger({'type' : 'addVerificationCount'});
-			//$('#countValue').focus();
-		});
-		
-		$('#editCountValueModal').off('click').on('click', '#editbtn', function (e){
-			//eventHandler.trigger({'type' : 'editVerificationCount'});
-			//console.log("Edit triggered");
-		});
-		
+				
 		$('#deleteCountRowModal').off('click').on('click', '#deletebtn', function (e){
 			eventHandler.trigger({'type' : 'deleteVerificationCount'})
 			console.log("Delete triggered");
@@ -89,16 +79,45 @@ define(['jquery',
 	}
 	
 	function newAction() {
-		showDialog({});
+		var model = {
+			'update' : false,
+			"derry" : {
+				'123' : {
+					'countID': '1',
+		    		'bpaValue': '200',
+		    		'countValue': '',
+		    		'status': 'false'
+				}
+			}
+		};
+		
+		showDialog({'update' : false,
+	    			'countID': '1',
+	    			'bpaValue': '200',
+	    			'countValue': '',
+	    			'status': 'false'});
 	}
 	
-	function editAction() {
-		showDialog({});
+	function editAction(event, datatable, buttonClicked, buttonConfig){				
+		var model = datatable.row( { selected: true } ).data();
+		model["update"] = true;
+		showDialog(model);
 	}
 	
 	function showDialog(model) {
 		var dialog = viewResolver.createDialog('#verificationDialogContainer', verificationDialog, model, function(){
 		
+			/**
+			 * 
+			 */
+			$('#verificationCountEditBtn').off('click').on('click', function() {
+				eventHandler.trigger({'type' : 'editVerificationCount', 'eventData' : model});
+		    });
+
+			$('#verificationCountAddBtn, #verificationCountBtnAddAndCloseBtn').off('click').on('click', function() {
+				eventHandler.trigger({'type' : 'addVerificationCount', 'eventData' : model});
+		    });
+
 			/**
 		     * Tear down the view once hidden
 		     */
