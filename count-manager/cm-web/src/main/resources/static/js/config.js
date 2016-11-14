@@ -9,6 +9,7 @@ require.config({
 		'Cookies' : 'lib/js.cookie',		
 		'util' : 'app/util',
 		'view' : 'app/view',
+		'dialog' : 'app/view/dialog',
 		'command' : 'app/command',
 		'service' : 'app/service',
 		'datatables.net' : 'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min',

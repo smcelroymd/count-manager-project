@@ -21,6 +21,7 @@ define([], function(){
    	
 	return {
 		'data' : {
+			'message' : '',
 			'verificationCount' : {
 				'ballots': [
 		            { 'id': '123'},
@@ -37,15 +38,15 @@ define([], function(){
 			    	'countID': '1',
 			    	'bpaValue': '200',
 			    	'countValue': '',
-			    	'status': 'false',
-				'message' : '',
-				'ballotPaperAccount':{
-					'data':[],
-					'electoralArea': [
-						{'area':'Belfast','value':'1'},
-						{'area':'Derry','value':'2'},
-						{'area':'Mexico','value':'3'}],
-						'selectedElectoralArea': '0'
+			    	'status': 'false'
+			},
+			'ballotPaperAccount':{
+				'data':[],
+				'electoralArea': [
+					{'area':'Belfast','value':'1'},
+					{'area':'Derry','value':'2'},
+					{'area':'Mexico','value':'3'}],
+					'selectedElectoralArea': '0'
 			}
 		},
 		'urls' : {
@@ -55,6 +56,5 @@ define([], function(){
 		'getRactive' : getRactive,
 		'set' : set,
 		'get' :get
-	};
-	
+	}	
 });

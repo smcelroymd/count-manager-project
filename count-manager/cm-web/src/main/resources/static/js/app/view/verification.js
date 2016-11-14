@@ -1,5 +1,6 @@
 define(['jquery',
 		'text!view/verification.html',
+		'text!dialog/verificationDialog.html',
 		'util/viewResolver',
 		'app/model',
 		'util/eventHandler',
@@ -10,7 +11,7 @@ define(['jquery',
 		'datatables.net-responsive-bs',
 		'datatables.net-select',
 		'datatables.net-buttons',
-		'datatables.net-buttons-bs'], function ($, view, viewResolver, model, eventHandler) {
+		'datatables.net-buttons-bs'], function ($, view, verificationDialog, viewResolver, model, eventHandler) {
 	
 	function onComplete(){
 		var table = $('#verificationCountTable').DataTable({
@@ -31,16 +32,11 @@ define(['jquery',
 				},
 				{
 					text: 'New',
-					action: function (e, dt, node, config){
-						$("#addCountValueModal").modal()
-					}
+					action: newAction
 				},
 				{
 					text: 'Edit',
-					action: function (e, dt, node, config){
-						$("#editCountValueModal").modal()
-						console.log("Opening Edit modal");
-					}
+					action: editAction
 				},
 				{
 					text: 'Delete',
@@ -77,19 +73,41 @@ define(['jquery',
 		},{'init':false});
 		
 		$('#addCountValueModal').off('click').on('click', '#addBtn', '#addAndCloseBtn', function (e) {
-			eventHandler.trigger({'type' : 'addVerificationCount'});
-			$('#countValue').focus();
+			//eventHandler.trigger({'type' : 'addVerificationCount'});
+			//$('#countValue').focus();
 		});
 		
 		$('#editCountValueModal').off('click').on('click', '#editbtn', function (e){
-			eventHandler.trigger({'type' : 'editVerificationCount'});
-			console.log("Edit triggered");
+			//eventHandler.trigger({'type' : 'editVerificationCount'});
+			//console.log("Edit triggered");
 		});
 		
 		$('#deleteCountRowModal').off('click').on('click', '#deletebtn', function (e){
 			eventHandler.trigger({'type' : 'deleteVerificationCount'})
 			console.log("Delete triggered");
 		});
+	}
+	
+	function newAction() {
+		showDialog({});
+	}
+	
+	function editAction() {
+		showDialog({});
+	}
+	
+	function showDialog(model) {
+		var dialog = viewResolver.createDialog('#verificationDialogContainer', verificationDialog, model, function(){
+		
+			/**
+		     * Tear down the view once hidden
+		     */
+		    $('#verificationDialog').on('hidden.bs.modal', function (e) {
+		    	dialog.teardown();
+		    });
+		    
+			$('#verificationDialog').modal();
+		});		
 	}
 	
 	function show() {
