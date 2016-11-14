@@ -2,6 +2,7 @@ define(['jquery',
 	    'Cookies', 
 		'util/router',
 		'util/controller',
+		'util/jquery.md.object.util',
 		'bootstrap'], function ($, Cookies, router) {
 	
 	(function initialise() {												
