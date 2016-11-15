@@ -14,13 +14,48 @@ define([ 'jquery',
 		'datatables.net-buttons-bs' ], function($, view, ballotPaperAccountDialog, viewResolver, model, eventHandler) {
 
 	function onComplete() {
+				
+		var table = populateTable();			
 		
+		model.getRactive().observe('electionData[1].ballotPaperAccounts', function(newValue, oldValue, keypath) {
+		    table.clear();
+		    table.rows.add(newValue);
+		    table.rows().invalidate().draw();
+		   }, {'init':false});
+
+		model.getRactive().observe('electionData[2].ballotPaperAccounts', function(newValue, oldValue, keypath) {
+		    table.clear();
+		    table.rows.add(newValue);
+		    table.rows().invalidate().draw();
+		   }, {'init':false});
+
+		model.getRactive().observe('electionData[3].ballotPaperAccounts', function(newValue, oldValue, keypath) {
+		    table.clear();
+		    table.rows.add(newValue);
+		    table.rows().invalidate().draw();
+		   }, {'init':false});
+
+		$( "#electionSelect" ).change(function() {
+			var selectedElection = model.get('selectedElection');	
+			var newData = model.get('electionData[' + selectedElection + '].ballotPaperAccounts');
+		    table.clear();
+		    table.rows.add(newData);
+		    table.rows().invalidate().draw();
+		});
+		
+	}
+	
+	function populateTable() {
+		var selectedElection = model.get('selectedElection');	
 		var table = $('#ballotPaperAccountTbl').DataTable({
-			lengthChange : false,
-			select: {
+			"lengthChange" : false,
+			"search": {
+			    "regex": true
+			},
+			"select": {
 			     style: 'multi'
 			    },
-			data: model.get('ballotPaperAccount.data'),
+			"data": model.get('electionData[' + selectedElection + '].ballotPaperAccounts'),
 				buttons: [
 				 {extend : 'selectAll',text : 'Select All'},
 				 {extend : 'selectNone', text : 'Select None'},
@@ -28,50 +63,62 @@ define([ 'jquery',
 				 {text: 'Edit', action: editAction},
 				 {text: 'Delete', action: deleteAction}
 			],
-			columnDefs : [
-				{'targets' : 0,'data' : 'totalReceived'},
-				{'targets' : 1,'data' : 'nextSerialNumber'},
-				{'targets' : 2,'data' : 'serialCorresponding'},
-				{'targets' : 3,'data' : 'totalBallotsIssued'},
-				{'targets' : 4,'data' : 'spoiltReplacement'},
-				{'targets' : 5,'data' : 'issuedNotSpoilt'},
-				{'targets' : 6,'data' : 'totalUnusedBallot'},
-				{'targets' : 7,'data' : 'tenderedTotalReceived'},
-				{'targets' : 8,'data' : 'totalMarkedPlaced'},
-				{'targets' : 9,'data' : 'totalSpoiltPlaced'},
-				{'targets' : 10,'data' : 'totalUnusedPlaced'},
-				{'targets' : 11,'data' : 'postalEarlyTotal'},
-				{'targets' : 12,'data' : 'postalSweepTotal'}
+			"columnDefs" : [
+				{'targets' : 0,'data' : 'electoralArea'},
+				{'targets' : 1,'data' : 'totalOrdinaryBallots'},
+				{'targets' : 2,'data' : 'nextSerialNumber'},
+				{'targets' : 3,'data' : 'firstSerialNumber'},
+				{'targets' : 4,'data' : null, //'totalOrdinaryIssued', 
+					"render" : function ( data, type, obj, meta ) {
+						return (obj.nextSerialNumber - obj.firstSerialNumber);
+					}
+				},
+				{'targets' : 5,'data' : 'totalOrdinarySpoiltReplacement'},
+				{'targets' : 6,'data' : null, //'totalOrdinaryIssuedNotSpoilt',
+					"render" : function ( data, type, obj, meta ) {
+						return ((obj.nextSerialNumber - obj.firstSerialNumber) - obj.totalOrdinarySpoiltReplacement);
+					}									
+				},
+				{'targets' : 7,'data' : null, //'totalOrdinaryUnused',
+					"render" : function ( data, type, obj, meta ) {
+						return (obj.totalOrdinaryBallots - (obj.nextSerialNumber - obj.firstSerialNumber));
+					}					
+				},
+				{'targets' : 8,'data' : 'totalTendered'},
+				{'targets' : 9,'data' : 'totalTenderedMarked'},
+				{'targets' : 10,'data' : 'totalTenderedSpoilt'},
+				{'targets' : 11,'data' : 'totalTenderedUnused'},
+				{'targets' : 12,'data' : 'postalEarly'},
+				{'targets' : 13,'data' : 'postalSweep'},
+				{'targets' : 14,'data' : 'postalLate'}
 				]
-			   });
+		});	
 		
 		table.buttons().container().appendTo( '#ballotPaperAccountTbl_wrapper .col-sm-6:eq(0)' );
 		
-		model.getRactive().observe('ballotPaperAccount.data', function(newValue, oldValue, keypath) {
-		    table.clear();
-		    table.rows.add(newValue);
-		    table.rows().invalidate().draw();
-		   }, {'init':false});
-
+		return table;
 	}
 	
 	function newAction(){
-		var model = {'update':false,
-				'totalReceived' : '',
+		var selectedElection = model.get('selectedElection');
+		var electionDataExpression = 'electionData[' + selectedElection + ']';
+		var dialogModel = {'update':false,
+				'electoralArea' : '',
+				'ballotBoxNumber' : '',
+				'totalOrdinaryBallots' : '',
 				'nextSerialNumber' :'',
-				'serialCorresponding' : '',
-				'totalBallotsIssued' : '',
-				'spoiltReplacement' : '',
-				'issuedNotSpoilt' : '',
-				'totalUnusedBallot' : '',
-				'tenderedTotalReceived' : '',
-				'totalMarkedPlaced' : '',
-				'totalSpoiltPlaced' : '',
-				'totalUnusedPlaced' : '',
-				'postalEarlyTotal' : '',
-				'postalSweepTotal' : '',
-				'postalLateTotal' : ''};
-		showDialog(model);
+				'firstSerialNumber' : '',
+				'totalOrdinarySpoiltReplacement' : '',
+				'totalTendered' : '',
+				'totalTenderedMarked' : '',
+				'totalTenderedSpoilt' : '',
+				'totalTenderedUnused' : '',
+				'postalEarly' : '',
+				'postalSweep' : '',
+				'postalLate' : '',
+				'electionData' : model.get(electionDataExpression),
+				'selectedElection' : selectedElection};
+		showDialog(dialogModel);
 	}
 	
 	function editAction(event, datatable, buttonClicked, buttonConfig){		
@@ -83,19 +130,24 @@ define([ 'jquery',
 	}
 	
 	function deleteAction(event, datatable, buttonClicked, buttonConfig ) {
-		  var objectsToDelete = datatable.rows( { selected: true } ).data();
-		  eventHandler.trigger({'type' : 'deleteBallotPaperAccountsEvent', 'objectsToDelete' : objectsToDelete});
-		 }
+		var objectsToDelete = datatable.rows( { selected: true } ).data();
+		var eventData = {
+				"selectedElection": model.get('selectedElection'),
+				"objectsToDelete" : objectsToDelete
+		};
+		eventHandler.trigger({'type' : 'deleteBallotPaperAccountsEvent', 'eventData' : eventData});
+	}
 	
 	function showDialog(model){
-		var dialog = viewResolver.createDialog('#ballotPaperAccountDialogContainer', ballotPaperAccountDialog, model, function(){
-				$('#addBallotPaperAccountBtn').off('click').on('click', function() {
-					eventHandler.trigger({'type' : 'addBallotPaperAccountEvent', 'eventData' : model});
-			    });
+		var dialog = viewResolver.createDialog('#ballotPaperAccountDialogContainer', ballotPaperAccountDialog, model, function() {
+			
+			$('#addBallotPaperAccountBtn').off('click').on('click', function() {
+				eventHandler.trigger({'type' : 'addBallotPaperAccountEvent', 'eventData' : model});
+			});
 			    
-			    $('#editBallotPaperAccountBtn').off('click').on('click', function (e) {
-			    	eventHandler.trigger({'type' : 'editBallotPaperAccountEvent', 'eventData' : model});
-			    });
+			$('#editBallotPaperAccountBtn').off('click').on('click', function (e) {
+				eventHandler.trigger({'type' : 'editBallotPaperAccountEvent', 'eventData' : model});
+			});
 			
 			/**
 		     * Tear down the view once hidden
@@ -103,6 +155,10 @@ define([ 'jquery',
 		    $('#ballotPaperAccountDialog').on('hidden.bs.modal', function (e) {
 		    	dialog.teardown();
 		    });
+		    
+		    /**
+		     * Show the dialog
+		     */
 			$('#ballotPaperAccountDialog').modal();
 		});
 	}

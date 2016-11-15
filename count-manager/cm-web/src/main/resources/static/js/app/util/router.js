@@ -5,7 +5,9 @@ define(['jquery',
 		'view/home',
 		'view/verification',
 		'view/ballotPaperAccount',
-		'view/analytics'], function ($, signals, hasher, crossroads, home, verification, ballotPaperAccount, analytics) {
+		'view/analytics',
+		'view/analytics2',
+		'view/analytics3'], function ($, signals, hasher, crossroads, home, verification, ballotPaperAccount, analytics, analytics2, analytics3) {
 	
 	
 	/**
@@ -54,6 +56,14 @@ define(['jquery',
 
 		crossroads.addRoute('analytics', function(){
 			analytics.show();
+		});
+
+		crossroads.addRoute('analytics2', function(){
+			analytics2.show();
+		});
+
+		crossroads.addRoute('analytics3', function(){
+			analytics3.show();
 		});
 
 		/**

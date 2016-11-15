@@ -18,6 +18,10 @@
     font-size: 20px;
 }
 
+.logo-medium {
+    font-size: 30px;
+}
+
 /**
  * Navbar styling
  */
@@ -73,7 +77,7 @@
 }
 
 .badge {
-	background-color: #0ca597;
+	background-color: #0ca597 !important;
 }
 
 .label-success {
@@ -217,4 +221,16 @@
 
 .panel-danger a {
     color: #a94442;
+}
+
+#ballotPaperAccountDialog .tab-content {
+	margin-top: 15px;
+}
+
+#ballotPaperAccountDialog .form-inline select {
+	margin-right:10px;
+}
+
+#ballotPaperAccountDialog .form-inline {
+	margin-bottom:10px;	
 }

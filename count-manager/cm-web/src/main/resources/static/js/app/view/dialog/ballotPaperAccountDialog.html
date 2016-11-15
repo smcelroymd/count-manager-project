@@ -1,115 +1,101 @@
 <div id="ballotPaperAccountDialog" class="modal fade" role="dialog">
 		<div class="modal-dialog modal-md">
 			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<ul class="nav nav-pills nav-justified">
-						<li class="active"><a data-toggle="tab"
-							href="#ordinaryBallotsInput">Ordinary Ballots</a></li>
-						<li><a data-toggle="tab" href="#tenderedBallotsInput">Tendered</a></li>
-						<li><a data-toggle="tab" href="#postalVotesInput">Postal</a></li>
-					</ul>
+				<div class="modal-header">		
+					<button type="button" class="close" data-dismiss="modal">&times;</button>										
+					<span class="logo-medium">New Ballot Paper Account</span>
 				</div>
+															
 				<div class="modal-body">
+				
+					<form class="form-inline">
+						<div class="form-group form-group-sm">
+    						<label for="electoralArea">Electoral Area: </label>    						
+    						<select class="form-control input-medium" id="electionSelect" value='{{electoralArea}}'>
+  							{{#each electionData.electoralAreas}}
+	    						<option value="{{.}}">{{.}}</option>
+							{{/each}}
+		  					</select>
+    						
+  						</div>
+						<div class="form-group form-group-sm">
+    						<label for="ballotBoxNumber">Box No:</label>
+    						<input class="form-control" id="ballotBoxNumber" value='{{ballotBoxNumber}}'> 
+  						</div>
+					</form>
+				
+					<ul class="nav nav-pills nav-pills-as-tabs">
+			  			<li class="active"><a data-toggle="tab" href="#ordinaryBallotsInput">Ordinary Ballots</a></li>
+			  			<li><a data-toggle="tab" href="#tenderedBallotsInput">Tendered</a></li>
+			  			<li><a data-toggle="tab" href="#postalVotesInput">Postal</a></li>
+					</ul>  								
+									
 					<div class="tab-content">
 						<div id="ordinaryBallotsInput" class="tab-pane fade in active">
 							<form>
 								<div class="form-group form-group-sm">
-									<label for="receivedTotalLabel" class="control-label">Total
-										received by Presiding Officer:</label> <input class="form-control"
-										type="number" id="totalReceived"
-										value='{{totalReceived}}' />
+									<label for="receivedTotalLabel" >Total ordinary ballots received by Presiding Officer:</label> 
+									<input class="form-control" id="totalOrdinaryBallots" value='{{totalOrdinaryBallots}}' data-toggle="tooltip" title="Total ordinary ballots received by Presiding Officer"/>
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="serialNumberLabel" class="control-label">Serial
-										number on the back of the next ballot paper to be issued:</label> <input
-										class="form-control" type="number"
-										id="nextSerialNumber"
-										value="{{nextSerialNumber}}" />
+									<label for="serialNumberLabel">Serial number on the back of the next ballot paper to be issued:</label> 
+									<input class="form-control" id="nextSerialNumber" value="{{nextSerialNumber}}" data-toggle="tooltip" title="Serial number on the back of the next ballot paper to be issued"/>
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="serialCorrespondingLabel">Serial number on
-										the first ballot paper issued on the corresponding number
-										list:</label> <input class="form-control" type="number"
-										id="serialCorresponding"
-										value="{{serialCorresponding}}" />
+									<label for="serialCorrespondingLabel">Serial number on the first ballot paper issued on the corresponding number list:</label> 
+									<input class="form-control" id="firstSerialNumber" value="{{firstSerialNumber}}" data-toggle="tooltip" title="Serial number of the first ballot paper issued on the corresponding number list"/>
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="totalBallotsIssuedLabel">Total ballot
-										papers issued:</label> <input id="totalBallotsIssued" type="number"
-										class="form-control"
-										value="{{totalBallotsIssued}}" />
+									<label for="totalBallotsIssuedLabel">Total ballot papers issued:</label> 
+									<input class="form-control" id="totalOrdinaryIssued"  value="{{nextSerialNumber - firstSerialNumber}}" data-toggle="tooltip" title="Total ballot papers issued" disabled/>
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="spoiltReplacementLabel">How many spoilt
-										ballot papers did you issue replacements for?</label> <input
-										class="form-control" type="number" id="spoiltReplacement"
-										value="{{spoiltReplacement}}" />
+									<label for="spoiltReplacementLabel">How many spoilt ballot papers did you issue replacements for?</label> 
+									<input class="form-control" id="totalOrdinarySpoiltReplacement" value="{{totalOrdinarySpoiltReplacement}}" data-toggle="tooltip" title="How many spoilt ballot papers did you issue replacements for?"/>
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="issuedNotSpoiltLabel">Total ballot papers
-										issued and not spoilt:</label> <input class="form-control"
-										type="number" id="issuedNotSpoilt"
-										value="{{issuedNotSpoilt}}" />
+									<label for="issuedNotSpoiltLabel">Total ballot papers issued and not spoilt:</label> 
+									<input class="form-control" id="totalOrdinaryIssuedNotSpoilt" value="{{(nextSerialNumber - firstSerialNumber) - totalOrdinarySpoiltReplacement}}" data-toggle="tooltip" title="Total ballot papers issued and not spoilt" disabled/>
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="totalUnusedBallotLabel">Total unused ballot
-										papers:</label> <input class="form-control" type="number"
-										id="totalUnusedBallot"
-										value="{{totalUnusedBallot}}" />
+									<label for="totalUnusedBallotLabel">Total unused ballot papers:</label> 
+									<input class="form-control" id="totalOrdinaryUnused" value="{{totalOrdinaryBallots - (nextSerialNumber - firstSerialNumber)}}" data-toggle="tooltip" title="Total unused ballot papers" disabled/>
 								</div>
 							</form>
 						</div>
 						<div id="tenderedBallotsInput" class="tab-pane fade">
 							<form>
 								<div class="form-group form-group-sm">
-									<label for="tenderedReceivedTotalLabel" class="control-label">Total
-										received by Presiding Officer:</label> <input class="form-control"
-										type="number" id="tenderedTotalReceived"
-										value="{{tenderedTotalReceived}}" />
+									<label for="tenderedReceivedTotalLabel" class="control-label">Total received by Presiding Officer:</label> 
+									<input class="form-control" id="totalTendered" value="{{totalTendered}}" />
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="totalMarkedPlacedLabel" class="control-label">Total
-										tendered ballot papers marked by a voter and placed by the
-										Presiding Officer in the appropriate envelope:</label> <input
-										class="form-control" type="number" id="totalMarkedPlaced"
-										value="{{totalMarkedPlaced}}" />
+									<label for="totalMarkedPlacedLabel" class="control-label">Total tendered ballot papers marked by a voter and placed by the Presiding Officer in the appropriate envelope:</label> 
+									<input class="form-control" id="totalTenderedMarked" value="{{totalTenderedMarked}}" />
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="totalSpoiltPlacedLabel" class="control-label">Total
-										spoilt tendered ballot papers (to be placed by the Presiding
-										Officer in the appropriate envelope):</label> <input
-										class="form-control" type="number" id="totalSpoiltPlaced"
-										value="{{totalSpoiltPlaced}}" />
+									<label for="totalSpoiltPlacedLabel" class="control-label">Total spoilt tendered ballot papers (to be placed by the Presiding Officer in the appropriate envelope):</label> 
+									<input class="form-control" id="totalTenderedSpoilt" value="{{totalTenderedSpoilt}}" />
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="totalUnusedPlacedLabel" class="control-label">Total
-										unused tendered ballot papers (to be placed by the Presiding
-										Officer in the appropriate envelope):</label> <input
-										class="form-control" type="number" id="totalUnusedPlaced"
-										value="{{totalUnusedPlaced}}" />
+									<label for="totalUnusedPlacedLabel" class="control-label">Total unused tendered ballot papers (to be placed by the Presiding Officer in the appropriate envelope):</label> 
+									<input class="form-control" id="totalTenderedUnused" value="{{totalTenderedUnused}}" />
 								</div>
 							</form>
 						</div>
 						<div id="postalVotesInput" class="tab-pane fade">
 							<form>
 								<div class="form-group form-group-sm">
-									<label for="postalEarlyTotalLabel" class="control-label">Postal
-										Vote (Early) total:</label> <input class="form-control" type="number"
-										id="postalEarlyTotal"
-										value="{{postalEarlyTotal}}" />
+									<label for="postalEarlyTotalLabel" class="control-label">Postal Vote (Early) total:</label> 
+									<input class="form-control" id="postalEarly" value="{{postalEarly}}" />
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="postalSweepTotalLabel" class="control-label">Postal
-										Vote (Sweep) total:</label> <input class="form-control" type="number"
-										id="postalSweepTotal"
-										value="{{postalSweepTotal}}" />
+									<label for="postalSweepTotalLabel" class="control-label">Postal Vote (Sweep) total:</label> 
+									<input class="form-control" id="postalSweep" value="{{postalSweep}}" />
 								</div>
 								<div class="form-group form-group-sm">
-									<label for="postalLateTotalLabel" class="control-label">Postal
-										Vote (Late) total:</label> <input class="form-control" type="number"
-										id="postalLateTotal"
-										value="{{postalLateTotal}}" />
+									<label for="postalLateTotalLabel" class="control-label">Postal Vote (Late) total:</label> 
+									<input class="form-control" id="postalLate" value="{{postalLate}}" />
 								</div>
 							</form>
 						</div>

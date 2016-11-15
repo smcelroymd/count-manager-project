@@ -1,0 +1,88 @@
+<div id="home" class="tab-pane fade in active">
+    <div class="page-header">
+		<span class="logo-medium">Analytics</span>
+		<form class="form-inline pull-right">
+		 	<div class="form-group">
+				<label for="electionSelect">Select Election:</label>
+		  		<select class="form-control input-medium" id="electionSelect"  value="{{selectedElection}}" >
+  				{{#each elections}}
+	    			<option value="{{id}}">{{name}}</option>
+				{{/each}}
+		  		</select>
+			</div>
+		</form>	
+		<div class="clearfix"></div>	
+	</div>
+
+<!-- 	<div class="list-group">
+	  <a href="#demo" class="list-group-item" data-toggle="collapse">Total Number of Ballot Boxes<span class="badge">{{electionData[selectedElection].numberOfBallotBoxes}}</span>
+	  	<div id="demo" class="collapse">
+			<h2>Hello world!</h2>
+		</div>
+	  </a>
+	  <a href="#" class="list-group-item">Number Received<span class="badge">{{electionData[selectedElection].numberReceived}}</span></a>
+	  <a href="#" class="list-group-item">Number in Progess<span class="badge">{{electionData[selectedElection].numberInProgress}}</span></a>
+	  <a href="#" class="list-group-item">Number Completed<span class="badge">{{electionData[selectedElection].numberCompleted}}</span></a>
+	  <a href="#" class="list-group-item">Awaiting Verification<span class="badge">{{electionData[selectedElection].numberAwaitingVerification}}</span></a>
+	</div>	 -->
+	
+	
+	
+	
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">        	
+          <a data-toggle="collapse" data-parent="#accordion" href="#ballotBoxData">Total Number of Ballot Boxes<span class="badge pull-right">{{electionData[selectedElection].numberOfBallotBoxes}}</span></a>
+        </h4>
+      </div>
+      <div id="ballotBoxData" class="panel-collapse collapse">
+        <div class="panel-body">Hello world.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">        	
+          <a data-toggle="collapse" data-parent="#accordion" href="#numberReceivedData">Number Received<span class="badge pull-right">{{electionData[selectedElection].numberReceived}}</span></a>
+        </h4>
+      </div>
+      <div id="numberReceivedData" class="panel-collapse collapse">
+        <div class="panel-body">Hello world.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">        	
+          <a data-toggle="collapse" data-parent="#accordion" href="#numberInProgressData">Number in Progess<span class="badge pull-right">{{electionData[selectedElection].numberInProgress}}</span></a>
+        </h4>
+      </div>
+      <div id="numberInProgressData" class="panel-collapse collapse">
+        <div class="panel-body">Hello world.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">        	
+          <a data-toggle="collapse" data-parent="#accordion" href="#numberCompletedData">Number Completed<span class="badge pull-right">{{electionData[selectedElection].numberCompleted}}</span></a>
+        </h4>
+      </div>
+      <div id="numberCompletedData" class="panel-collapse collapse">
+        <div class="panel-body">Hello world.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">        	
+          <a data-toggle="collapse" data-parent="#accordion" href="#numberAwaitingVerificationData">Number Awaiting Verification<span class="badge pull-right">{{electionData[selectedElection].numberAwaitingVerification}}</span></a>
+        </h4>
+      </div>
+      <div id="numberAwaitingVerificationData" class="panel-collapse collapse">
+        <div class="panel-body">Hello world.</div>
+      </div>
+    </div>
+  </div> 
+	
+	
+</div>
+
+

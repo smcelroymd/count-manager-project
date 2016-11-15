@@ -1,78 +1,39 @@
 <div id="template">
-	<div>
-		<h2>Ballot Paper Account</h2>
-	</div>
-
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<a data-toggle="collapse" href="#collapse1">Summary <span
-						class="glyphicon glyphicon-menu-down"></span></a>
-				</h4>
+    <div class="page-header">
+		<span class="logo-medium">Ballot Paper Account</span>
+		<form class="form-inline pull-right">
+		 	<div class="form-group">
+				<label for="electionSelect">Select Election:</label>
+		  		<select class="form-control input-medium" id="electionSelect" value="{{selectedElection}}" >
+  				{{#each elections}}
+	    			<option value="{{id}}">{{name}}</option>
+				{{/each}}
+		  		</select>
 			</div>
-			<div id="collapse1" class="panel-collapse collapse">
-				<div class="panel-body">
-					<ul class="list-group">
-						<li class="list-group-item"><span class="badge">15000</span>Total
-							Ballots Issued</li>
-						<li class="list-group-item"><span class="badge">15000</span>Total
-							Ballots Spoilt</li>
-						<li class="list-group-item"><span class="badge">25000</span>Total
-							Issued and Not Spoilt</li>
-						<li class="list-group-item"><span class="badge">25000</span>Total
-							Unused</li>
-						<li class="list-group-item"><span class="badge">25000</span>Total
-							Postal</li>
-						<li class="list-group-item"><span class="badge">25000</span>Total
-							Tendered</li>
-						<li class="list-group-item"><span class="badge">25000</span>Total
-							Tendered Spoilt</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div>
-		<h3>Account Per Area</h3>
+		</form>		
 	</div>
 	
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<select id="electoralAreaSelect"class="form-control form-group-sm" value='{{ballotPaperAccount.selectedElectoralArea}}'>
-					<option selected value="All Areas">Filter By</option>
-					{{#ballotPaperAccount.electoralArea}}
-						<option value='{{value}}'>{{area}}</option> 
-					{{/ballotPaperAccount.electoralArea}}
-			</select>
-		</div>
-	</div>
-	
-	<div class="panel panel-default">
-		<div class="panel-body">
-			
-			<h5>
-				Ballot Paper Account for <span>{{electoralAreaValue}}</span>
-			</h5>
 			<div class="panel-body">
-				<table id="ballotPaperAccountTbl"
-					class="table table-striped table-bordered dt-responsive nowrap"
-					cellspacing="0">
+				<table id="ballotPaperAccountTbl" class="table table-striped table-bordered dt-responsive table-condensed nowrap" cellspacing="0">
 					<thead>
 						<tr>
-							<th>Council/Ward/District</th>
-							<th>Place</th>
-							<th>Box Number</th>
-							<th>Ballot Papers Issued</th>
-							<th>Spoils</th>
-							<th>Issued and Not Spoiled</th>
-							<th>Unusued</th>
-							<th>Postal - Early</th>
-							<th>Postal - Sweep</th>
-							<th>Postal - Late</th>
-							<th>Tendered - Issued</th>
-							<th>Tendered - Spoiled</th>
-							<th>Tendered - Unused</th>
+ 							<th>Electoral Area</th>
+							<th>Total Ordinary Ballots</th>
+							<th>Next Serial Number</th>
+							<th>First Serial Number</th>
+							<th>Total issued</th>
+							<th>Spoilt Replacements</th>
+							<th>Issued and not spoilt</th>
+							<th>Total unused </th>
+							<th>Tendered ballots</th>
+							<th>Total Marked</th>
+							<th>Total spoilt</th>
+							<th>Unused tendered</th>
+							<th>Postal Early</th>
+							<th>Postal Sweep</th>	
+							<th>Postal Late</th>					
 						</tr>
 					</thead>
 				</table>

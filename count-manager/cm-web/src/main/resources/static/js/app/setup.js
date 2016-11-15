@@ -54,7 +54,7 @@ define(['jquery',
 			$('a[href^="' + route + '"').parent().addClass('active');			
 		}
 		
-		console.log('Application Initialised');
+		$('[data-toggle="tooltip"]').tooltip(); 
 	})();
 	
 });

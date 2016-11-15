@@ -1,10 +1,13 @@
 define(['app/model'], function(model){
 	function execute(event) {     
-		  var objIndex = $.mdInArray(event.eventData, model.get('ballotPaperAccount.data'), "id");
-		  if(objIndex !== -1) {  
-			  model.set('ballotPaperAccount.data[' + objIndex + ']', event.eventData);
-		  }
-		 };
+		var ballotPaperAccountsExpression = 'electionData[' + event.eventData.selectedElection + '].ballotPaperAccounts';
+		var objIndex = $.mdInArray(event.eventData, model.get(ballotPaperAccountsExpression), "id");
+		
+		if(objIndex !== -1) {  
+			ballotPaperAccountsExpression = 'electionData[' + event.eventData.selectedElection + '].ballotPaperAccounts[' + objIndex + ']';
+			model.set(ballotPaperAccountsExpression, event.eventData);
+		}
+	};
 	
 	return {
 		execute : execute
