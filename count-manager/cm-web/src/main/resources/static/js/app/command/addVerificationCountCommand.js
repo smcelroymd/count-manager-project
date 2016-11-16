@@ -1,7 +1,9 @@
-define(['app/model'], function(model, ajaxService){
+define([ 'app/model','command/findBallotPaperAccountCommand'], function(model, findBallotPaperAccountCommand) {
+
 	function execute(event) {
 
 		var obj = $.extend({"id" : new Date().getUTCMilliseconds()}, event.eventData);
+		obj.matchesBpa = matchesBpa(obj);
 		
 		var electoralAreaExpression = 'electionData[' + obj.selectedElection + '].verificationCount[' +  obj.electoralArea + ']';
 		var selectBoxExpression = electoralAreaExpression + '[' + obj.ballotBoxNumber + ']';
@@ -12,10 +14,16 @@ define(['app/model'], function(model, ajaxService){
 				
 		model.getRactive().push(selectBoxExpression, obj);		
 		model.set('refreshVerificationCountTable', new Date().getUTCMilliseconds());
-				
-		var ballotPaperAccountsExpression = 'electionData[' + obj.slectedElection + '].ballotPaperAccounts';
-		model.get();
 	};
+	
+	function matchesBpa(obj) {
+		var ballotPaperAccount = findBallotPaperAccountCommand.execute({'electoralArea': obj.electoralArea, 'ballotBoxNumber' : obj.ballotBoxNumber});
+		return (parseInt(obj.count) === parseInt(totalBallotPapersIssuedAndNotSpoilt(ballotPaperAccount)));
+	}
+	
+	function totalBallotPapersIssuedAndNotSpoilt(ballotPaperAccount) {
+		return ((ballotPaperAccount.nextSerialNumber - ballotPaperAccount.firstSerialNumber) - ballotPaperAccount.totalOrdinarySpoiltReplacement);
+	} 
 	
 	return {
 		execute : execute

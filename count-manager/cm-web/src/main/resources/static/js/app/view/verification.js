@@ -59,7 +59,7 @@ define(['jquery',
 						'width' : "10%",
 						'className': "text-center",
 						'render' : function ( data, type, full, meta ) {
-							return (data === true ? "<span class='glyphicon glyphicon-remove'/>" : "<span class='glyphicon glyphicon-ok'/>");
+							return (data === true ? "<span class='glyphicon glyphicon-ok'/>" : "<span class='glyphicon glyphicon-remove'/>");
 						}
 					}
 				]
@@ -78,6 +78,10 @@ define(['jquery',
 		
 		$( "#electoralAreaSelect" ).change(function(event) {
 			updateBallotBoxSelect();		
+		});
+		
+		$('#ballotBoxSelect').change(function(event) {
+			updateTable();
 		});
 		
 		updateBallotBoxSelect();
@@ -124,7 +128,7 @@ define(['jquery',
 			'ballotBoxNumber' : model.get('verificationScreenBallotBoxNumber'),
 			'selectedElection' : model.get('selectedElection'),
 			'count' : '',
-			'matchesBpa' : ''
+			'matchesBpa' : false
 		};
 		
 		showDialog(dialogModel);

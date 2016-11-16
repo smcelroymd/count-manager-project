@@ -67,6 +67,11 @@
 	color: #0ca597;
 }
 
+.glyphicon-remove {
+	font-size: 20px;
+	color: #e60000;
+}
+
 .btn-md {
 	background-color: #0ca597;
 	border-color: #008678;
