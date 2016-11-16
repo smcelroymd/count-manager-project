@@ -1,17 +1,20 @@
 define(['app/model'], function(model, ajaxService){
 	function execute(event) {
+
+		var obj = $.extend({"id" : new Date().getUTCMilliseconds()}, event.eventData);
 		
-		var row = $.extend({"id" : new Date().getUTCMilliseconds()}, event.eventData);
+		var electoralAreaExpression = 'electionData[' + obj.selectedElection + '].verificationCount[' +  obj.electoralArea + ']';
+		var selectBoxExpression = electoralAreaExpression + '[' + obj.ballotBoxNumber + ']';
 		
-//		var countValue = event.eventData.countValue;
-//		var bpaValue = event.eventData.bpaValue;
-//		var countID = event.eventData.countID;
-//		var status = (countValue == bpaValue);
-//		event.eventData["id"]=new Date().getUTCMilliseconds();		
-		
-		model.getRactive().push('verificationCount.tableData',row);
-//		model.getRactive().push('verificationCount.tableData',{'countID' : ++countID, 'countValue' : countValue, 'status' : status});
-		//model.set({'verificationCount.countID' : countID, 'verificationCount.countValue' : '', 'verificationCount.status' : status});
+		if(model.get(selectBoxExpression) === undefined) {
+			model.set(selectBoxExpression, []);
+		}
+				
+		model.getRactive().push(selectBoxExpression, obj);		
+		model.set('refreshVerificationCountTable', new Date().getUTCMilliseconds());
+				
+		var ballotPaperAccountsExpression = 'electionData[' + obj.slectedElection + '].ballotPaperAccounts';
+		model.get();
 	};
 	
 	return {

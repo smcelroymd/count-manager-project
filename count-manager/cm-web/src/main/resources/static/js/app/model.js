@@ -23,6 +23,7 @@ define([], function(){
 		'data' : {
 			'message' : '',
 			'selectedElection' : 1,
+			'refreshVerificationCountTable' : 1,
 			'elections' : [
 				{
 					'id' : 1,
@@ -47,7 +48,12 @@ define([], function(){
 						'Aldershot',
 						'Basingstoke',
 						'Eastleigh'],
-					'ballotPaperAccounts' : []	
+					'ballotPaperAccounts' : [],
+					'verificationCount' : {
+						'Aldershot' : {},
+						'Basingstoke' : {},
+						'Eastleigh' : {}
+					}
 				},
 				'2' : {
 					'numberOfBallotBoxes' : 200,
@@ -59,7 +65,12 @@ define([], function(){
 						'Aldridge-Brownhills',
 						'Edgbaston',
 						'Yardley'],
-					'ballotPaperAccounts' : []
+					'ballotPaperAccounts' : [],
+					'verificationCount' : {
+						'Aldridge-Brownhills' : {},
+						'Edgbaston' : {},
+						'Yardley' : {}
+					}
 				},
 				'3' : {
 					'numberOfBallotBoxes' : 300,
@@ -71,22 +82,13 @@ define([], function(){
 						'Altrincham and Sale West',
 						'Ashton-under-Lyne',
 						'Blackley and Broughton'],
-                     'ballotPaperAccounts' : []
+                    'ballotPaperAccounts' : [],
+ 					'verificationCount' : {
+						'Altrincham and Sale West' : {},
+						'Ashton-under-Lyne' : {},
+						'Blackley and Broughton' : {} 						
+ 					}
 				}
-			},
-			'verificationCount' : {
-				'ballots': [
-		            { 'id': '123'},
-		            { 'id': '456'},
-		            { 'id': '987'},
-		            { 'id': '123'}],
-				'electoralArea': [
-			        { 'area': 'Belfast'},
-			        { 'area': 'Derry'},
-			        { 'area': 'Dublin'},
-			        { 'area': 'Mexico'}],	
-			    'tableData': [
-			    	]
 			}
 		},
 		'urls' : {

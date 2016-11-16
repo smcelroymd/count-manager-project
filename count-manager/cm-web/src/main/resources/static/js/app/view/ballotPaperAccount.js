@@ -116,8 +116,9 @@ define([ 'jquery',
 				'postalEarly' : '',
 				'postalSweep' : '',
 				'postalLate' : '',
-				'electionData' : model.get(electionDataExpression),
-				'selectedElection' : selectedElection};
+				'electionData' : model.get(electionDataExpression), //check if this is needed
+				'selectedElection' : selectedElection,
+				'verified' : false};
 		showDialog(dialogModel);
 	}
 	

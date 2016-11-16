@@ -13,10 +13,13 @@ define(['jquery',
 		'datatables.net-buttons',
 		'datatables.net-buttons-bs'], function ($, view, verificationDialog, viewResolver, model, eventHandler) {
 	
+	var table = null;
+	
 	function onComplete(){
-		var table = $('#verificationCountTable').DataTable({
+		
+		table = $('#verificationCountTable').DataTable({
 			lengthChange: false,
-			data : model.get('verificationCount.tableData'),
+			data : getData(), 
 			select: {
 				style: 'multi'
 			},
@@ -42,66 +45,92 @@ define(['jquery',
 					text: 'Delete',
 					action: function (e, dt, node, config){
 						$("#deleteCountValueModal").modal()
-						console.log("Opening Delete modal");
 					}
 				}],
 				columnDefs : [
 					{
 						'targets' : 0,
-						'data' : "countID",
-						'width' : "30%"
+						'data' : 'count',
+						'width' : "90%"
 					},
 					{
 						'targets' : 1,
-						'data' : 'countValue',
-						'width' : "50%"
-					},
-					{
-						'targets' : 2,
-						'data' : 'status',
-						'width' : "20%"
+						'data' : 'matchesBpa',
+						'width' : "10%",
+						'className': "text-center",
+						'render' : function ( data, type, full, meta ) {
+							return (data === true ? "<span class='glyphicon glyphicon-remove'/>" : "<span class='glyphicon glyphicon-ok'/>");
+						}
 					}
 				]
 		});
 		
 		table.buttons().container().appendTo('#verificationCountTable_wrapper .col-sm-6:eq(0)');
 		
-		model.getRactive().observe('verificationCount.tableData', function(newValue, oldValue, keypath){
-			table.clear();
-			table.rows.add(newValue);
-			table.rows().invalidate().draw();
+		model.getRactive().observe('refreshVerificationCountTable', function(newValue, oldValue, keypath){
+			updateTable();
 		},{'init':false});
-				
-		$('#deleteCountRowModal').off('click').on('click', '#deletebtn', function (e){
-			eventHandler.trigger({'type' : 'deleteVerificationCount'})
-			console.log("Delete triggered");
+		
+		
+		$( "#electionSelect" ).change(function() {
+			updateBallotBoxSelect();					
 		});
+		
+		$( "#electoralAreaSelect" ).change(function(event) {
+			updateBallotBoxSelect();		
+		});
+		
+		updateBallotBoxSelect();
+	}
+	
+	function updateTable() {
+		table.clear();
+		table.rows.add(getData());
+		table.rows().invalidate().draw();		
+	}
+	
+	function getData() {
+		var verificationCountElectoralAreaExpression = 'electionData[' + model.get('selectedElection') + '].verificationCount[' +  model.get('verificationScreenElectoralArea') + ']';
+		var verificationCountBallotBoxExpression = verificationCountElectoralAreaExpression + '[' + model.get('verificationScreenBallotBoxNumber') + ']';		
+		return (model.get(verificationCountBallotBoxExpression) || [] );
+	}
+	
+	function updateBallotBoxSelect() {
+		
+		/**
+		 * Reset ballot box select
+		 */
+		$('#ballotBoxSelect').html('');
+		
+		var selectedElection = model.get('selectedElection');
+		var selectedElectoralArea = model.get('verificationScreenElectoralArea'); //set in verification.html
+		var ballotPaperAccounts = model.get('electionData[' + selectedElection + '].ballotPaperAccounts');
+		
+		var ballotPaperAccountsRequiringValidation = $.grep(ballotPaperAccounts, function(ballotPaperAccount, index) {
+			return ((ballotPaperAccount.electoralArea == selectedElectoralArea) && !ballotPaperAccount.verified);
+		});
+		
+		$.each(ballotPaperAccountsRequiringValidation, function(index, obj) { 
+			model.getRactive().push('verificationScreenBallotBoxes', obj.ballotBoxNumber); 
+		});				
+		
+		updateTable();
 	}
 	
 	function newAction() {
-		var model = {
+		var dialogModel = {
 			'update' : false,
-			"derry" : {
-				'123' : {
-					'countID': '1',
-		    		'bpaValue': '200',
-		    		'countValue': '',
-		    		'status': 'false'
-				}
-			}
+			'electoralArea' : model.get('verificationScreenElectoralArea'),
+			'ballotBoxNumber' : model.get('verificationScreenBallotBoxNumber'),
+			'selectedElection' : model.get('selectedElection'),
+			'count' : '',
+			'matchesBpa' : ''
 		};
 		
-		showDialog({'update' : false,
-	    			'countID': '1',
-	    			'bpaValue': '200',
-	    			'countValue': '',
-	    			'status': 'false'});
+		showDialog(dialogModel);
 	}
 	
 	function editAction(event, datatable, buttonClicked, buttonConfig){				
-		var model = datatable.row( { selected: true } ).data();
-		model["update"] = true;
-		showDialog(model);
 	}
 	
 	function showDialog(model) {
@@ -127,7 +156,7 @@ define(['jquery',
 		    
 			$('#verificationDialog').modal();
 		});		
-	}
+	}		
 	
 	function show() {
 		viewResolver.show(view, onComplete);
