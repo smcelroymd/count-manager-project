@@ -25,8 +25,8 @@ define(['jquery',
 					console.log("Calling edit Command");
 				});
 				
-				eventHandler.bind('deleteBallotBoxCountEvent', function(){
-					deleteBallotBoxCountCommand.execute();
+				eventHandler.bind('deleteBallotBoxCountEvent', function(event){
+					deleteBallotBoxCountCommand.execute(event);
 					console.log("Calling delete Command");
 				});
 				

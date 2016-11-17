@@ -1,8 +1,15 @@
 define(['app/model'], function(model){
 	function execute(event) {  
-		console.log("Delete Command");
-		var newObjectArray = $.mdRemove(model.get('verificationCount.tableData'), event.objectsToDelete, "countID");
-		model.set('verificationCount.tableData', newObjectArray);
+
+		var obj = event.eventData;
+		var electoralAreaExpression = 'electionData[' + obj.selectedElection + '].ballotBoxCount[' +  obj.electoralArea + ']';
+		var ballotBoxesExpression = electoralAreaExpression + '[' + obj.ballotBoxNumber + ']';
+
+		var newObjectArray = $.mdRemove(model.get(ballotBoxesExpression), event.eventData.objectsToDelete, "id");
+		model.set(ballotBoxesExpression, newObjectArray);
+			
+		model.set('refreshBallotBoxCountTable', new Date().getUTCMilliseconds());		
+		
 	};
  
 	return {

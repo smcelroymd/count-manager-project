@@ -5,9 +5,10 @@ define(['jquery',
 		'view/home',
 		'view/ballotBoxCount',
 		'view/ballotPaperAccount',
+		'view/verification',
 		'view/analytics',
 		'view/analytics2',
-		'view/analytics3'], function ($, signals, hasher, crossroads, home, ballotBoxCount, ballotPaperAccount, analytics, analytics2, analytics3) {
+		'view/analytics3'], function ($, signals, hasher, crossroads, home, ballotBoxCount, ballotPaperAccount, verification, analytics, analytics2, analytics3) {
 	
 	
 	/**
@@ -50,8 +51,8 @@ define(['jquery',
 			ballotBoxCount.show();
 		});
 
-		crossroads.addRoute('ballotPaperStats', function(){
-			ballotPaperStats.show();
+		crossroads.addRoute('verification', function(){
+			verification.show();
 		});
 
 		crossroads.addRoute('analytics', function(){

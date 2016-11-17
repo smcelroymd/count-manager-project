@@ -25,15 +25,6 @@ define(['jquery',
 			},
 			buttons: [
 				{
-					extend : 'selectAll',
-					text : 'Select All'
-				},
-				{
-					extend : 'selectNone',
-					text : 'Select None',
-					enabled : true
-				},
-				{
 					text: 'New',
 					action: newAction
 				},
@@ -43,9 +34,10 @@ define(['jquery',
 				},
 				{
 					text: 'Delete',
-					action: function (e, dt, node, config){
-						$("#deleteCountValueModal").modal()
-					}
+					action: deleteAction
+				},
+				{
+					text : 'Send for Verification'
 				}],
 				columnDefs : [
 					{
@@ -122,6 +114,18 @@ define(['jquery',
 		updateTable();
 	}
 	
+	function deleteAction(event, datatable, buttonClicked, buttonConfig ) {
+		var objectsToDelete = datatable.rows( { selected: true } ).data();
+		
+		var eventData = {
+				"selectedElection": model.get('selectedElection'),
+				"objectsToDelete" : objectsToDelete,
+				"electoralArea" : model.get('ballotBoxCountScreenElectoralArea'),
+				"ballotBoxNumber" : model.get('ballotBoxCountScreenBallotBoxNumber')
+		};
+		eventHandler.trigger({'type' : 'deleteBallotBoxCountEvent', 'eventData' : eventData});
+	}
+	
 	function newAction() {
 		var dialogModel = {
 			'update' : false,
@@ -140,14 +144,11 @@ define(['jquery',
 		model.update = "true";
 		
 		showDialog(model);
-	}
+	}		
 	
 	function showDialog(model) {
 		var dialog = viewResolver.createDialog('#ballotBoxCountDialogContainer', ballotBoxCountDialog, model, function(){
-		
-			/**
-			 * 
-			 */
+
 			$('#ballotBoxCountEditBtn').off('click').on('click', function() {
 				eventHandler.trigger({'type' : 'editBallotBoxCountEvent', 'eventData' : model});
 		    });
