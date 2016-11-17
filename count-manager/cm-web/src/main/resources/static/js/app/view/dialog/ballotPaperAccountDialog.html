@@ -47,7 +47,7 @@
 								</div>
 								<div class="form-group form-group-sm">
 									<label for="totalBallotsIssuedLabel">Total ballot papers issued:</label> 
-									<input class="form-control" id="totalOrdinaryIssued"  value="{{nextSerialNumber - firstSerialNumber}}" data-toggle="tooltip" title="Total ballot papers issued" disabled/>
+									<input class="form-control" id="totalOrdinaryIssued"  value="{{nextSerialNumber - firstSerialNumber}}" twoway='false' data-toggle="tooltip" title="Total ballot papers issued" disabled/>
 								</div>
 								<div class="form-group form-group-sm">
 									<label for="spoiltReplacementLabel">How many spoilt ballot papers did you issue replacements for?</label> 
@@ -55,11 +55,11 @@
 								</div>
 								<div class="form-group form-group-sm">
 									<label for="issuedNotSpoiltLabel">Total ballot papers issued and not spoilt:</label> 
-									<input class="form-control" id="totalOrdinaryIssuedNotSpoilt" value="{{(nextSerialNumber - firstSerialNumber) - totalOrdinarySpoiltReplacement}}" data-toggle="tooltip" title="Total ballot papers issued and not spoilt" disabled/>
+									<input class="form-control" id="totalOrdinaryIssuedNotSpoilt" value="{{(nextSerialNumber - firstSerialNumber) - totalOrdinarySpoiltReplacement}}" twoway='false' data-toggle="tooltip" title="Total ballot papers issued and not spoilt" disabled/>
 								</div>
 								<div class="form-group form-group-sm">
 									<label for="totalUnusedBallotLabel">Total unused ballot papers:</label> 
-									<input class="form-control" id="totalOrdinaryUnused" value="{{totalOrdinaryBallots - (nextSerialNumber - firstSerialNumber)}}" data-toggle="tooltip" title="Total unused ballot papers" disabled/>
+									<input class="form-control" id="totalOrdinaryUnused" value="{{totalOrdinaryBallots - (nextSerialNumber - firstSerialNumber)}}" twoway='false' data-toggle="tooltip" title="Total unused ballot papers" disabled/>
 								</div>
 							</form>
 						</div>

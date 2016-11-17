@@ -37,7 +37,8 @@ define(['jquery',
 					action: deleteAction
 				},
 				{
-					text : 'Send for Verification'
+					text : 'Send for Verification',
+					action : sendForVerificationAction
 				}],
 				columnDefs : [
 					{
@@ -50,7 +51,7 @@ define(['jquery',
 						'data' : 'matchesBpa',
 						'width' : "10%",
 						'className': "text-center",
-						'render' : function ( data, type, full, meta ) {
+						'render' : function ( data, type, row, meta ) {
 							return (data === true ? "<span class='glyphicon glyphicon-ok'/>" : "<span class='glyphicon glyphicon-remove'/>");
 						}
 					}
@@ -114,7 +115,19 @@ define(['jquery',
 		updateTable();
 	}
 	
-	function deleteAction(event, datatable, buttonClicked, buttonConfig ) {
+	function sendForVerificationAction(event, datatable, buttonClicked, buttonConfig) {
+		var selectedObject = datatable.row( { selected: true } ).data();
+		
+		var eventData = {
+				"count" : selectedObject.count,
+				"electoralArea" : model.get('ballotBoxCountScreenElectoralArea'),
+				"ballotBoxNumber" : model.get('ballotBoxCountScreenBallotBoxNumber')
+		};	
+		
+		eventHandler.trigger({'type' : 'sendForVerificationEvent', 'eventData' : eventData});
+	}
+	
+	function deleteAction(event, datatable, buttonClicked, buttonConfig) {
 		var objectsToDelete = datatable.rows( { selected: true } ).data();
 		
 		var eventData = {

@@ -49,14 +49,11 @@ define([ 'jquery',
 		var selectedElection = model.get('selectedElection');	
 		var table = $('#ballotPaperAccountTbl').DataTable({
 			"lengthChange" : false,
-			"search": {
-			    "regex": true
-			},
 			"select": {
 			     style: 'multi'
-			    },
+		    },
 			"data": model.get('electionData[' + selectedElection + '].ballotPaperAccounts'),
-				buttons: [
+			"buttons" : [
 				 {extend : 'selectAll',text : 'Select All'},
 				 {extend : 'selectNone', text : 'Select None'},
 				 {text: 'New', action: newAction},
