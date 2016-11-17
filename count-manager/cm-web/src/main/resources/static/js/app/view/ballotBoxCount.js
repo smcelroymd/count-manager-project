@@ -17,11 +17,11 @@ define(['jquery',
 	
 	function onComplete(){
 		
-		table = $('#verificationCountTable').DataTable({
+		table = $('#ballotBoxCountTable').DataTable({
 			lengthChange: false,
 			data : getData(), 
 			select: {
-				style: 'multi'
+				style: 'single'
 			},
 			buttons: [
 				{
@@ -65,9 +65,9 @@ define(['jquery',
 				]
 		});
 		
-		table.buttons().container().appendTo('#verificationCountTable_wrapper .col-sm-6:eq(0)');
+		table.buttons().container().appendTo('#ballotBoxCountTable_wrapper .col-sm-6:eq(0)');
 		
-		model.getRactive().observe('refreshVerificationCountTable', function(newValue, oldValue, keypath){
+		model.getRactive().observe('refreshBallotBoxCountTable', function(newValue, oldValue, keypath){
 			updateTable();
 		},{'init':false});
 		
@@ -94,9 +94,10 @@ define(['jquery',
 	}
 	
 	function getData() {
-		var verificationCountElectoralAreaExpression = 'electionData[' + model.get('selectedElection') + '].verificationCount[' +  model.get('verificationScreenElectoralArea') + ']';
-		var verificationCountBallotBoxExpression = verificationCountElectoralAreaExpression + '[' + model.get('verificationScreenBallotBoxNumber') + ']';		
-		return (model.get(verificationCountBallotBoxExpression) || [] );
+		var ballotBoxCountElectoralAreaExpression = 'electionData[' + model.get('selectedElection') + '].ballotBoxCount[' +  model.get('ballotBoxCountScreenElectoralArea') + ']';
+		var ballotBoxCountBallotBoxExpression = ballotBoxCountElectoralAreaExpression + '[' + model.get('ballotBoxCountScreenBallotBoxNumber') + ']';		
+		var myData = model.get(ballotBoxCountBallotBoxExpression);
+		return (model.get(ballotBoxCountBallotBoxExpression) || [] );
 	}
 	
 	function updateBallotBoxSelect() {
@@ -107,7 +108,7 @@ define(['jquery',
 		$('#ballotBoxSelect').html('');
 		
 		var selectedElection = model.get('selectedElection');
-		var selectedElectoralArea = model.get('verificationScreenElectoralArea'); //set in verification.html
+		var selectedElectoralArea = model.get('ballotBoxCountScreenElectoralArea'); //set in ballotBoxCount.html
 		var ballotPaperAccounts = model.get('electionData[' + selectedElection + '].ballotPaperAccounts');
 		
 		var ballotPaperAccountsRequiringValidation = $.grep(ballotPaperAccounts, function(ballotPaperAccount, index) {
@@ -115,7 +116,7 @@ define(['jquery',
 		});
 		
 		$.each(ballotPaperAccountsRequiringValidation, function(index, obj) { 
-			model.getRactive().push('verificationScreenBallotBoxes', obj.ballotBoxNumber); 
+			model.getRactive().push('ballotBoxCountScreenBallotBoxes', obj.ballotBoxNumber); 
 		});				
 		
 		updateTable();
@@ -124,8 +125,8 @@ define(['jquery',
 	function newAction() {
 		var dialogModel = {
 			'update' : false,
-			'electoralArea' : model.get('verificationScreenElectoralArea'),
-			'ballotBoxNumber' : model.get('verificationScreenBallotBoxNumber'),
+			'electoralArea' : model.get('ballotBoxCountScreenElectoralArea'),
+			'ballotBoxNumber' : model.get('ballotBoxCountScreenBallotBoxNumber'),
 			'selectedElection' : model.get('selectedElection'),
 			'count' : '',
 			'matchesBpa' : false
@@ -134,7 +135,11 @@ define(['jquery',
 		showDialog(dialogModel);
 	}
 	
-	function editAction(event, datatable, buttonClicked, buttonConfig){				
+	function editAction(event, datatable, buttonClicked, buttonConfig){		
+		var model = datatable.row( { selected: true } ).data();
+		model.update = "true";
+		
+		showDialog(model);
 	}
 	
 	function showDialog(model) {

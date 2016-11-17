@@ -23,7 +23,7 @@ define([], function(){
 		'data' : {
 			'message' : '',
 			'selectedElection' : 1,
-			'refreshVerificationCountTable' : 1,
+			'refreshBallotBoxCountTable' : 1,
 			'elections' : [
 				{
 					'id' : 1,
@@ -49,7 +49,7 @@ define([], function(){
 						'Basingstoke',
 						'Eastleigh'],
 					'ballotPaperAccounts' : [],
-					'verificationCount' : {
+					'ballotBoxCount' : {
 						'Aldershot' : {},
 						'Basingstoke' : {},
 						'Eastleigh' : {}
@@ -66,7 +66,7 @@ define([], function(){
 						'Edgbaston',
 						'Yardley'],
 					'ballotPaperAccounts' : [],
-					'verificationCount' : {
+					'ballotBoxCount' : {
 						'Aldridge-Brownhills' : {},
 						'Edgbaston' : {},
 						'Yardley' : {}
@@ -83,7 +83,7 @@ define([], function(){
 						'Ashton-under-Lyne',
 						'Blackley and Broughton'],
                     'ballotPaperAccounts' : [],
- 					'verificationCount' : {
+ 					'ballotBoxCount' : {
 						'Altrincham and Sale West' : {},
 						'Ashton-under-Lyne' : {},
 						'Blackley and Broughton' : {} 						
