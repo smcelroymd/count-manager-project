@@ -1,6 +1,6 @@
 define(['jquery',
-		'text!view/verification.html',
-		'text!dialog/verificationDialog.html',
+		'text!view/ballotBoxCount.html',
+		'text!dialog/ballotBoxCountDialog.html',
 		'util/viewResolver',
 		'app/model',
 		'util/eventHandler',
@@ -11,7 +11,7 @@ define(['jquery',
 		'datatables.net-responsive-bs',
 		'datatables.net-select',
 		'datatables.net-buttons',
-		'datatables.net-buttons-bs'], function ($, view, verificationDialog, viewResolver, model, eventHandler) {
+		'datatables.net-buttons-bs'], function ($, view, ballotBoxCountDialog, viewResolver, model, eventHandler) {
 	
 	var table = null;
 	
@@ -138,27 +138,27 @@ define(['jquery',
 	}
 	
 	function showDialog(model) {
-		var dialog = viewResolver.createDialog('#verificationDialogContainer', verificationDialog, model, function(){
+		var dialog = viewResolver.createDialog('#ballotBoxCountDialogContainer', ballotBoxCountDialog, model, function(){
 		
 			/**
 			 * 
 			 */
-			$('#verificationCountEditBtn').off('click').on('click', function() {
-				eventHandler.trigger({'type' : 'editVerificationCount', 'eventData' : model});
+			$('#ballotBoxCountEditBtn').off('click').on('click', function() {
+				eventHandler.trigger({'type' : 'editBallotBoxCountEvent', 'eventData' : model});
 		    });
 
-			$('#verificationCountAddBtn, #verificationCountBtnAddAndCloseBtn').off('click').on('click', function() {
-				eventHandler.trigger({'type' : 'addVerificationCount', 'eventData' : model});
+			$('#ballotBoxCountAddBtn, #ballotBoxCountAddAndCloseBtn').off('click').on('click', function() {
+				eventHandler.trigger({'type' : 'addBallotBoxCountEvent', 'eventData' : model});
 		    });
 
 			/**
 		     * Tear down the view once hidden
 		     */
-		    $('#verificationDialog').on('hidden.bs.modal', function (e) {
+		    $('#ballotBoxCountDialog').on('hidden.bs.modal', function (e) {
 		    	dialog.teardown();
 		    });
 		    
-			$('#verificationDialog').modal();
+			$('#ballotBoxCountDialog').modal();
 		});		
 	}		
 	

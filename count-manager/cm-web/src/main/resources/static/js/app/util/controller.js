@@ -1,12 +1,12 @@
 define(['jquery',
 	    'util/eventHandler',
         'command/exampleCommand',
-	    'command/addVerificationCountCommand',
-	    'command/editVerificationCountCommand',
-	    'command/deleteVerificationCountCommand',
+	    'command/addBallotBoxCountCommand',
+	    'command/editBallotBoxCountCommand',
+	    'command/deleteBallotBoxCountCommand',
         'command/addBallotPaperAccountCommand',
         'command/editBallotPaperAccountCommand',
-        'command/deleteBallotPaperAccountsCommand'], function($, eventHandler, exampleCommand, addVerificationCountCommand, editVerificationCountCommand, deleteVerificationCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand) {	
+        'command/deleteBallotPaperAccountsCommand'], function($, eventHandler, exampleCommand, addBallotBoxCountCommand, editBallotBoxCountCommand, deleteBallotBoxCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand) {	
 			(function initialise() {
 				
 				eventHandler.bind('exampleEvent', function() {
@@ -16,17 +16,17 @@ define(['jquery',
 					});
 				});
 				
-				eventHandler.bind('addVerificationCount', function(event){
-					addVerificationCountCommand.execute(event);
+				eventHandler.bind('addBallotBoxCountEvent', function(event){
+					addBallotBoxCountCommand.execute(event);
 				});
 				
-				eventHandler.bind('editVerificationCount', function(event){
-					editVerificationCountCommand.execute(event);
+				eventHandler.bind('editBallotBoxCountEvent', function(event){
+					editBallotBoxCountCommand.execute(event);
 					console.log("Calling edit Command");
 				});
 				
-				eventHandler.bind('deleteVerificationCount', function(){
-					deleteVerificationCountCommand.execute();
+				eventHandler.bind('deleteBallotBoxCountEvent', function(){
+					deleteBallotBoxCountCommand.execute();
 					console.log("Calling delete Command");
 				});
 				
