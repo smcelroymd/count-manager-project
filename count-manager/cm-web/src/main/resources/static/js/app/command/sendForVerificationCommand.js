@@ -2,11 +2,13 @@ define([ 'app/model','command/findBallotPaperAccountCommand' ], function(model, 
 	function execute(event) {
 		var selectedElection = model.get('selectedElection');
 		var obj = event.eventData;
+		var ballotPaperAccount = findBallotPaperAccountCommand.execute({'electoralArea': obj.electoralArea, 'ballotBoxNumber' : obj.ballotBoxNumber});	
 		
 		var verificationObj = {
-				"pollingStation" : "dummy",
+				"id" : new Date().getUTCMilliseconds(),
+				"pollingStation" : ballotPaperAccount.pollingStation,
 				"ballotBoxNumber" : obj.ballotBoxNumber,
-				"bpaCount" : totalBallotPapersIssuedAndNotSpoilt(obj),
+				"bpaCount" : totalBallotPapersIssuedAndNotSpoilt(obj, ballotPaperAccount),
 				"count" : obj.count,
 				"verified" : false
 		}
@@ -14,8 +16,7 @@ define([ 'app/model','command/findBallotPaperAccountCommand' ], function(model, 
 		model.getRactive().push('electionData[' + selectedElection +  '].verificationData', verificationObj);
 	}
 
-	function totalBallotPapersIssuedAndNotSpoilt(obj) {
-		var ballotPaperAccount = findBallotPaperAccountCommand.execute({'electoralArea': obj.electoralArea, 'ballotBoxNumber' : obj.ballotBoxNumber});		
+	function totalBallotPapersIssuedAndNotSpoilt(obj, ballotPaperAccount) {
 		return ((ballotPaperAccount.nextSerialNumber - ballotPaperAccount.firstSerialNumber) - ballotPaperAccount.totalOrdinarySpoiltReplacement);
 	} 
 

@@ -41,8 +41,8 @@ define([ 'jquery',
 		    table.clear();
 		    table.rows.add(newData);
 		    table.rows().invalidate().draw();
+		    
 		});
-		
 	}
 	
 	function populateTable() {
@@ -62,32 +62,34 @@ define([ 'jquery',
 			],
 			"columnDefs" : [
 				{'targets' : 0,'data' : 'electoralArea'},
-				{'targets' : 1,'data' : 'totalOrdinaryBallots'},
-				{'targets' : 2,'data' : 'nextSerialNumber'},
-				{'targets' : 3,'data' : 'firstSerialNumber'},
-				{'targets' : 4,'data' : null, //'totalOrdinaryIssued', 
+				{'targets' : 1,'data' : 'pollingStation'},
+				{'targets' : 2,'data' : 'ballotBoxNumber'},
+				{'targets' : 3,'data' : 'totalOrdinaryBallots'},
+				{'targets' : 4,'data' : 'nextSerialNumber'},
+				{'targets' : 5,'data' : 'firstSerialNumber'},
+				{'targets' : 6,'data' : null, //'totalOrdinaryIssued', 
 					"render" : function ( data, type, obj, meta ) {
 						return (obj.nextSerialNumber - obj.firstSerialNumber);
 					}
 				},
-				{'targets' : 5,'data' : 'totalOrdinarySpoiltReplacement'},
-				{'targets' : 6,'data' : null, //'totalOrdinaryIssuedNotSpoilt',
+				{'targets' : 7,'data' : 'totalOrdinarySpoiltReplacement'},
+				{'targets' : 8,'data' : null, //'totalOrdinaryIssuedNotSpoilt',
 					"render" : function ( data, type, obj, meta ) {
 						return ((obj.nextSerialNumber - obj.firstSerialNumber) - obj.totalOrdinarySpoiltReplacement);
 					}									
 				},
-				{'targets' : 7,'data' : null, //'totalOrdinaryUnused',
+				{'targets' : 9,'data' : null, //'totalOrdinaryUnused',
 					"render" : function ( data, type, obj, meta ) {
 						return (obj.totalOrdinaryBallots - (obj.nextSerialNumber - obj.firstSerialNumber));
 					}					
 				},
-				{'targets' : 8,'data' : 'totalTendered'},
-				{'targets' : 9,'data' : 'totalTenderedMarked'},
-				{'targets' : 10,'data' : 'totalTenderedSpoilt'},
-				{'targets' : 11,'data' : 'totalTenderedUnused'},
-				{'targets' : 12,'data' : 'postalEarly'},
-				{'targets' : 13,'data' : 'postalSweep'},
-				{'targets' : 14,'data' : 'postalLate'}
+				{'targets' : 10,'data' : 'totalTendered'},
+				{'targets' : 11,'data' : 'totalTenderedMarked'},
+				{'targets' : 12,'data' : 'totalTenderedSpoilt'},
+				{'targets' : 13,'data' : 'totalTenderedUnused'},
+				{'targets' : 14,'data' : 'postalEarly'},
+				{'targets' : 15,'data' : 'postalSweep'},
+				{'targets' : 16,'data' : 'postalLate'}
 				]
 		});	
 		
@@ -101,6 +103,7 @@ define([ 'jquery',
 		var electionDataExpression = 'electionData[' + selectedElection + ']';
 		var dialogModel = {'update':false,
 				'electoralArea' : '',
+				'pollingStation' : '',
 				'ballotBoxNumber' : '',
 				'totalOrdinaryBallots' : '',
 				'nextSerialNumber' :'',
@@ -136,16 +139,22 @@ define([ 'jquery',
 		eventHandler.trigger({'type' : 'deleteBallotPaperAccountsEvent', 'eventData' : eventData});
 	}
 	
-	function showDialog(model){
-		var dialog = viewResolver.createDialog('#ballotPaperAccountDialogContainer', ballotPaperAccountDialog, model, function() {
+	function showDialog(dialogModel){
+		var dialog = viewResolver.createDialog('#ballotPaperAccountDialogContainer', ballotPaperAccountDialog, dialogModel, function() {
 			
 			$('#addBallotPaperAccountBtn').off('click').on('click', function() {
-				eventHandler.trigger({'type' : 'addBallotPaperAccountEvent', 'eventData' : model});
+				eventHandler.trigger({'type' : 'addBallotPaperAccountEvent', 'eventData' : dialogModel});
 			});
 			    
 			$('#editBallotPaperAccountBtn').off('click').on('click', function (e) {
-				eventHandler.trigger({'type' : 'editBallotPaperAccountEvent', 'eventData' : model});
+				eventHandler.trigger({'type' : 'editBallotPaperAccountEvent', 'eventData' : dialogModel});
 			});
+									
+			dialog.observe('electoralArea', function(newValue, oldValue, keypath) {
+				var pollingStationsExpression = 'electionData[' + dialogModel.selectedElection + '].pollingStations.' + newValue;
+			    var pollingStations = model.get(pollingStationsExpression);			    
+			    dialog.set("pollingStations", model.get(pollingStationsExpression));
+			}, {'init':false});
 			
 			/**
 		     * Tear down the view once hidden

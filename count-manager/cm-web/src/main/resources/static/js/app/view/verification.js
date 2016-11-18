@@ -60,7 +60,22 @@ define(['jquery',
 		});
 		
 		table.buttons().container().appendTo( '#verificationTbl_wrapper .col-sm-6:eq(0)' );
+		
+		$( "#electionSelect" ).change(function() {
+			updateTable(table);	
+		});
+		
+		model.getRactive().observe('refreshVerificationTable', function(newValue, oldValue, keypath){
+			updateTable(table);	
+		},{'init':false});
 	}	
+	
+	function updateTable(table) {
+		var selectedElection = model.get('selectedElection');	
+		table.clear();
+		table.rows.add(model.get('electionData[' + selectedElection + '].verificationData'));
+		table.rows().invalidate().draw();	
+	}
 	
 	function editAction(event, datatable, buttonClicked, buttonConfig){
 		var model = datatable.row( { selected: true } ).data();		
@@ -70,7 +85,7 @@ define(['jquery',
 	function showDialog(model){
 		var dialog = viewResolver.createDialog('#verificationDialogContainer', verificationDialog, model, function() {
 			
-			$('#verifyBtn').off('click').on('click', function() {
+			$('#saveBtn').off('click').on('click', function() {
 				eventHandler.trigger({'type' : 'verifyCountEvent', 'eventData' : model});
 			});
 

@@ -8,27 +8,60 @@
 															
 				<div class="modal-body">
 				
-					<form class="form-inline">
+<!--  					<form class="form-inline">
 						<div class="form-group form-group-sm">
-    						<label for="electoralArea">Electoral Area: </label>    						
-    						<select class="form-control input-medium" id="electionSelect" value='{{electoralArea}}'>
+    						<label for="electoralArea">Electoral Area: </label>						
+    						<select class="form-control input-sm" id="electionSelect" value='{{electoralArea}}'>
   							{{#each electionData.electoralAreas}}
 	    						<option value="{{.}}">{{.}}</option>
 							{{/each}}
-		  					</select>
-    						
-  						</div>
+		  					</select>						
+  						</div>   	
 						<div class="form-group form-group-sm">
-    						<label for="ballotBoxNumber">Box No:</label>
-    						<input class="form-control" id="ballotBoxNumber" value='{{ballotBoxNumber}}'> 
+    						<label for="electoralArea">Electoral Area: </label>						
+    						<select class="form-control input-sm" id="electionSelect" value='{{electoralArea}}'>
+  							{{#each electionData.electoralAreas}}
+	    						<option value="{{.}}">{{.}}</option>
+							{{/each}}
+		  					</select>						
   						</div>
+  						<div class="form-group form-group-sm">
+					   		<label for="ballotBoxNumber">Box No:</label>
+							<input class="form-control" id="ballotBoxNumber" value='{{ballotBoxNumber}}'/> 
+  						</div>
+					</form> -->
+					<form>
+						<div class="form-group form-group-sm">
+							<div class="col-xs-4 padding-left-0">
+								<label for="electoralArea">Electoral Area: </label>						
+								<select class="form-control input-sm" id="electoralAreaSelect" value='{{electoralArea}}'>
+	 								{{#each electionData.electoralAreas}}
+	    							<option value="{{.}}">{{.}}</option>
+									{{/each}}
+		  						</select>						
+					      	</div>
+					      <div class="col-xs-4 padding-left-0">
+								<label for="electoralArea">Polling Station: </label>						
+								<select class="form-control input-sm" id="pollingStationSelect" value='{{pollingStation}}'>
+	 								{{#each pollingStations}}
+	    							<option value="{{.}}">{{.}}</option>
+									{{/each}}
+		  						</select>	
+					      </div>
+					      <div class="col-xs-4 padding-left-0">
+								<div class="form-group form-group-sm">
+						   			<label for="ballotBoxNumber">Box No:</label>
+									<input class="form-control" id="ballotBoxNumber" value='{{ballotBoxNumber}}'/> 
+	  							</div>
+					      </div>
+					    </div>				
 					</form>
-				
+					<div class="clearfix"></div>
 					<ul class="nav nav-pills nav-pills-as-tabs">
 			  			<li class="active"><a data-toggle="tab" href="#ordinaryBallotsInput">Ordinary Ballots</a></li>
 			  			<li><a data-toggle="tab" href="#tenderedBallotsInput">Tendered</a></li>
 			  			<li><a data-toggle="tab" href="#postalVotesInput">Postal</a></li>
-					</ul>  								
+					</ul> 
 									
 					<div class="tab-content">
 						<div id="ordinaryBallotsInput" class="tab-pane fade in active">

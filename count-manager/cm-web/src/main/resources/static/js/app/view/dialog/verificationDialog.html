@@ -25,16 +25,22 @@
 						</div>
 						<div class="form-group form-group-sm">
 							<label for="difference">Difference:</label>
-							<input id="difference" value='{{bpaCount - count}}' class="form-control" disabled>
+							<input id="difference" value='{{bpaCount - count}}' twoway='false' class="form-control" disabled>
 						</div>
-						<div class="form-group">
+						<div class="form-group form-group-sm">
 						  <label for="comment">Comment:</label>
 						  <textarea class="form-control" rows="5" id="comment"></textarea>
-						</div>						
+						  <div class="checkbox">
+      						<label><input type="checkbox" checked="{{verified}}"/>Verify</label>
+    					</div>
+						</div>		
+						<div class="checkbox">
+      						<label><input type="checkbox" checked="{{verified}}"/>Verify</label>
+    					</div>				
 					</form>  				
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default btn-sm" id="verifyBtn" data-dismiss="modal">Verify</button>
+					<button type="button" class="btn btn-default btn-sm" id="saveBtn" data-dismiss="modal">Save</button>
 					<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
 				</div>
 			</div>

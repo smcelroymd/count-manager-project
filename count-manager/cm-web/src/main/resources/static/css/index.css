@@ -239,3 +239,7 @@
 #ballotPaperAccountDialog .form-inline {
 	margin-bottom:10px;	
 }
+
+.padding-left-0 {
+	padding-left: 0 !important;
+}

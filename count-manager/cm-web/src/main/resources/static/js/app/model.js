@@ -24,7 +24,7 @@ define([], function(){
 			'message' : '',
 			'selectedElection' : 1,
 			'refreshBallotBoxCountTable' : 1,
-			'refreshVerificationTbl' : 1,
+			'refreshVerificationTable' : 1,
 			'elections' : [
 				{
 					'id' : 1,
@@ -49,6 +49,11 @@ define([], function(){
 						'Aldershot',
 						'Basingstoke',
 						'Eastleigh'],
+					'pollingStations' : {
+						'Aldershot' : ['PS1','PS2'],
+						'Basingstoke' : ['PS3','PS4'],
+						'Eastleigh' : ['PS5','PS6']						
+					},
 					'ballotPaperAccounts' : [],
 					'ballotBoxCount' : {
 						'Aldershot' : {},
