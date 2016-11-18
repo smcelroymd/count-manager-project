@@ -22,7 +22,7 @@ define(['jquery',
 			},
 			"data": model.get('electionData[' + selectedElection + '].verificationData'),
 			"buttons" : [
-				 {text: 'Edit', action: editAction}
+				 {text: 'Verify', action: verifyAction}
 			],
 			columnDefs : [
 				{
@@ -77,9 +77,11 @@ define(['jquery',
 		table.rows().invalidate().draw();	
 	}
 	
-	function editAction(event, datatable, buttonClicked, buttonConfig){
+	function verifyAction(event, datatable, buttonClicked, buttonConfig){
 		var model = datatable.row( { selected: true } ).data();		
-		showDialog(model);
+		if(model !== undefined) {
+			showDialog(model);			
+		}
 	}
 		
 	function showDialog(model){

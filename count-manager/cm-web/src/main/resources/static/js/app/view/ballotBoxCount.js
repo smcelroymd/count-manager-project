@@ -11,7 +11,8 @@ define(['jquery',
 		'datatables.net-responsive-bs',
 		'datatables.net-select',
 		'datatables.net-buttons',
-		'datatables.net-buttons-bs'], function ($, view, ballotBoxCountDialog, viewResolver, model, eventHandler) {
+		'datatables.net-buttons-bs'
+		], function ($, view, ballotBoxCountDialog, viewResolver, model, eventHandler) {
 	
 	var table = null;
 	
@@ -44,11 +45,20 @@ define(['jquery',
 					{
 						'targets' : 0,
 						'data' : 'count',
-						'width' : "90%"
+						'width' : "80%"
 					},
 					{
 						'targets' : 1,
 						'data' : 'matchesBpa',
+						'width' : "10%",
+						'className': "text-center",
+						'render' : function ( data, type, row, meta ) {
+							return (data === true ? "<span class='glyphicon glyphicon-ok'/>" : "<span class='glyphicon glyphicon-remove'/>");
+						}
+					},
+					{
+						'targets' : 2,
+						'data' : 'sentForVerification',
 						'width' : "10%",
 						'className': "text-center",
 						'render' : function ( data, type, row, meta ) {
@@ -117,26 +127,30 @@ define(['jquery',
 	
 	function sendForVerificationAction(event, datatable, buttonClicked, buttonConfig) {
 		var selectedObject = datatable.row( { selected: true } ).data();
-		
-		var eventData = {
-				"count" : selectedObject.count,
-				"electoralArea" : model.get('ballotBoxCountScreenElectoralArea'),
-				"ballotBoxNumber" : model.get('ballotBoxCountScreenBallotBoxNumber')
-		};	
-		
-		eventHandler.trigger({'type' : 'sendForVerificationEvent', 'eventData' : eventData});
+		if(selectedObject !== undefined) {
+			var eventData = {
+					"count" : selectedObject.count,
+					"electoralArea" : model.get('ballotBoxCountScreenElectoralArea'),
+					"ballotBoxNumber" : model.get('ballotBoxCountScreenBallotBoxNumber')
+			};				
+			eventHandler.trigger({'type' : 'sendForVerificationEvent', 'eventData' : eventData});
+			selectedObject.sentForVerification = true;
+			updateTable();
+		}
 	}
 	
 	function deleteAction(event, datatable, buttonClicked, buttonConfig) {
 		var objectsToDelete = datatable.rows( { selected: true } ).data();
 		
-		var eventData = {
-				"selectedElection": model.get('selectedElection'),
-				"objectsToDelete" : objectsToDelete,
-				"electoralArea" : model.get('ballotBoxCountScreenElectoralArea'),
-				"ballotBoxNumber" : model.get('ballotBoxCountScreenBallotBoxNumber')
-		};
-		eventHandler.trigger({'type' : 'deleteBallotBoxCountEvent', 'eventData' : eventData});
+		if((objectsToDelete !== undefined) && (objectsToDelete.length > 0)) {			
+			var eventData = {
+					"selectedElection": model.get('selectedElection'),
+					"objectsToDelete" : objectsToDelete,
+					"electoralArea" : model.get('ballotBoxCountScreenElectoralArea'),
+					"ballotBoxNumber" : model.get('ballotBoxCountScreenBallotBoxNumber')
+			};
+			eventHandler.trigger({'type' : 'deleteBallotBoxCountEvent', 'eventData' : eventData});			
+		}
 	}
 	
 	function newAction() {
@@ -146,7 +160,8 @@ define(['jquery',
 			'ballotBoxNumber' : model.get('ballotBoxCountScreenBallotBoxNumber'),
 			'selectedElection' : model.get('selectedElection'),
 			'count' : '',
-			'matchesBpa' : false
+			'matchesBpa' : false,
+			'sentForVerification' : false
 		};
 		
 		showDialog(dialogModel);
@@ -154,9 +169,10 @@ define(['jquery',
 	
 	function editAction(event, datatable, buttonClicked, buttonConfig){		
 		var model = datatable.row( { selected: true } ).data();
-		model.update = "true";
-		
-		showDialog(model);
+		if(model !== undefined) {
+			model.update = "true";			
+			showDialog(model);			
+		}
 	}		
 	
 	function showDialog(model) {

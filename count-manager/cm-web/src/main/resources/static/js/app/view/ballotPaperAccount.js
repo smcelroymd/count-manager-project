@@ -123,11 +123,11 @@ define([ 'jquery',
 	}
 	
 	function editAction(event, datatable, buttonClicked, buttonConfig){		
-		
 		var model = datatable.row( { selected: true } ).data();
-		model.update = "true";
-		
-		showDialog(model);
+		if(model !== undefined) {
+			model.update = "true";			
+			showDialog(model);			
+		}
 	}
 	
 	function deleteAction(event, datatable, buttonClicked, buttonConfig ) {
