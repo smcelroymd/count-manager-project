@@ -72,6 +72,11 @@ define([], function(){
 						'Aldridge-Brownhills',
 						'Edgbaston',
 						'Yardley'],
+					'pollingStations' : {
+							'Aldershot' : ['PS1','PS2'],
+							'Basingstoke' : ['PS3','PS4'],
+							'Eastleigh' : ['PS5','PS6']						
+						},						
 					'ballotPaperAccounts' : [],
 					'ballotBoxCount' : {
 						'Aldridge-Brownhills' : {},
@@ -90,6 +95,11 @@ define([], function(){
 						'Altrincham and Sale West',
 						'Ashton-under-Lyne',
 						'Blackley and Broughton'],
+					'pollingStations' : {
+							'Aldershot' : ['PS1','PS2'],
+							'Basingstoke' : ['PS3','PS4'],
+							'Eastleigh' : ['PS5','PS6']						
+						},						
                     'ballotPaperAccounts' : [],
  					'ballotBoxCount' : {
 						'Altrincham and Sale West' : {},

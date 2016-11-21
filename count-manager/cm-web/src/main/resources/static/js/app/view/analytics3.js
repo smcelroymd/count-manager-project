@@ -1,12 +1,14 @@
 define(['text!view/analytics3.html',
 		'util/viewResolver',
-		'util/eventHandler'], function (view, viewResolver, eventHandler) {
+		'util/eventHandler',
+		'command/updateAnalyticValuesCommand'], function (view, viewResolver, eventHandler, updateAnalyticValuesCommand) {
 	
-	function initialise() {
+	function onComplete() {
+		
 		/**
-		 * Show the view
+		 * 
 		 */
-		viewResolver.show(view);	
+		eventHandler.trigger({'type' : 'updateAnalyticValuesEvent', 'eventData' : {}});
 		
 		/**
 		 * Add functionality
@@ -15,7 +17,15 @@ define(['text!view/analytics3.html',
 			eventHandler.trigger({
 				'type' : 'exampleEvent'
 			});
-		});
+		});		
+	}
+	
+	function initialise() {
+				
+		/**
+		 * Show the view
+		 */				
+		viewResolver.show(view, onComplete);	
 	}
 	
 	return {

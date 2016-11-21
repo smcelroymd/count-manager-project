@@ -12,14 +12,7 @@ define([ 'app/model' ], function(model) {
 		 */
 		var numberReceivedExpression = 'electionData[' + event.eventData.selectedElection + '].numberReceived';
 		var totalNumberReceived = model.get(numberReceivedExpression);
-		model.set(numberReceivedExpression, totalNumberReceived+1);
-		
-		/**
-		 * Update number awaiting verification
-		 */
-		var numberAwaitingVerificationExpression = 'electionData[' + event.eventData.selectedElection + '].numberAwaitingVerification';
-		var totalNumberAwaitingVerification = model.get(numberAwaitingVerificationExpression);
-		model.set(numberAwaitingVerificationExpression, totalNumberAwaitingVerification+1);				
+		model.set(numberReceivedExpression, totalNumberReceived+1);			
 	}
 
 	return {

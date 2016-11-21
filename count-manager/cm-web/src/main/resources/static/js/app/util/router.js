@@ -71,7 +71,7 @@ define(['jquery',
 		 * Define what happens when a link is clicked
 		 */
 		$("a").click(function(e) {
-			e.preventDefault();;
+			e.preventDefault();
 	        hasher.setHash($(this).attr('href'));
 		});
 		
@@ -86,7 +86,7 @@ define(['jquery',
 		/**
 		 * update URL fragment generating new history record
 		 */
-		hasher.setHash('home');
+		hasher.setHash('analytics3');
 	})();
 	
 	return {

@@ -14,6 +14,13 @@ define([ 'app/model','command/findBallotPaperAccountCommand' ], function(model, 
 		}
 		
 		model.getRactive().push('electionData[' + selectedElection +  '].verificationData', verificationObj);
+				
+		/**
+		 * Update number awaiting verification
+		 */
+		var numberAwaitingVerificationExpression = 'electionData[' + selectedElection + '].numberAwaitingVerification';
+		var totalNumberAwaitingVerification = model.get(numberAwaitingVerificationExpression);
+		model.set(numberAwaitingVerificationExpression, totalNumberAwaitingVerification+1);	
 	}
 
 	function totalBallotPapersIssuedAndNotSpoilt(obj, ballotPaperAccount) {

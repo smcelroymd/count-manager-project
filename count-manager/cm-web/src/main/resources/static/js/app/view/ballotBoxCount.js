@@ -96,9 +96,9 @@ define(['jquery',
 		table.rows().invalidate().draw();		
 	}
 	
-	function getData() {
-		var ballotBoxCountElectoralAreaExpression = 'electionData[' + model.get('selectedElection') + '].ballotBoxCount[' +  model.get('ballotBoxCountScreenElectoralArea') + ']';
-		var ballotBoxCountBallotBoxExpression = ballotBoxCountElectoralAreaExpression + '[' + model.get('ballotBoxCountScreenBallotBoxNumber') + ']';		
+	function getData() {			
+		var ballotBoxCountElectoralAreaExpression = "electionData[" + model.get('selectedElection') + "].ballotBoxCount." +  model.get('ballotBoxCountScreenElectoralArea');
+		var ballotBoxCountBallotBoxExpression = ballotBoxCountElectoralAreaExpression + "." + model.get('ballotBoxCountScreenBallotBoxNumber');		
 		var myData = model.get(ballotBoxCountBallotBoxExpression);
 		return (model.get(ballotBoxCountBallotBoxExpression) || [] );
 	}

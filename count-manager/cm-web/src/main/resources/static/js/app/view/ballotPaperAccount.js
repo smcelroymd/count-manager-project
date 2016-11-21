@@ -5,14 +5,15 @@ define([ 'jquery',
 		'app/model', 
 		'util/eventHandler', 
 		'bootstrap', 
+		'jquery-validate',
 		'datatables.net',
 		'datatables.net-bs', 
 		'datatables.net-responsive',
 		'datatables.net-responsive-bs',
 		'datatables.net-select',
 		'datatables.net-buttons',
-		'datatables.net-buttons-bs' ], function($, view, ballotPaperAccountDialog, viewResolver, model, eventHandler) {
-
+		'datatables.net-buttons-bs'], function($, view, ballotPaperAccountDialog, viewResolver, model, eventHandler) {
+	
 	function onComplete() {
 				
 		var table = populateTable();			
@@ -40,9 +41,9 @@ define([ 'jquery',
 			var newData = model.get('electionData[' + selectedElection + '].ballotPaperAccounts');
 		    table.clear();
 		    table.rows.add(newData);
-		    table.rows().invalidate().draw();
-		    
+		    table.rows().invalidate().draw();		    
 		});
+		
 	}
 	
 	function populateTable() {
@@ -142,8 +143,8 @@ define([ 'jquery',
 	function showDialog(dialogModel){
 		var dialog = viewResolver.createDialog('#ballotPaperAccountDialogContainer', ballotPaperAccountDialog, dialogModel, function() {
 			
-			$('#addBallotPaperAccountBtn').off('click').on('click', function() {
-				eventHandler.trigger({'type' : 'addBallotPaperAccountEvent', 'eventData' : dialogModel});
+			$('#addBallotPaperAccountBtn').off('click').on('click', function() {	
+				eventHandler.trigger({'type' : 'addBallotPaperAccountEvent', 'eventData' : dialogModel});					
 			});
 			    
 			$('#editBallotPaperAccountBtn').off('click').on('click', function (e) {
@@ -163,13 +164,86 @@ define([ 'jquery',
 		    	dialog.teardown();
 		    });
 		    
+		    $('.nav-pills a').on('hide.bs.tab', function(event){		    	
+		    	var formId = $(event.target).attr("href") + "Form";		    	
+		    	if(!$(formId).valid()) {
+		    		event.preventDefault();
+		    	}		    		
+		    });
+		    
 		    /**
 		     * Show the dialog
 		     */
 			$('#ballotPaperAccountDialog').modal();
+			
+			setUpValidation();
 		});
 	}
 
+	function setUpValidation() {				
+		var boxInformationFormValidator = $( "#boxInformationForm" ).validate({
+			"errorClass": "invalid",
+			"rules": {
+				"ballotBoxNumber" : {required: true, number: true },
+				"pollingStationSelect" : {required: true },
+				"electoralAreaSelect" : {required: true}
+			 },
+		     "highlight": function(element) {
+		            $(element).closest('.form-group').addClass('has-error');
+		      },
+		      "unhighlight": function(element) {
+		    	  $(element).closest('.form-group').removeClass('has-error');
+		      }
+		});	
+		
+		var ordinaryBallotsFormValidator = $( "#ordinaryBallotsForm" ).validate({
+			"errorClass": "invalid",
+			"rules": {
+				"totalOrdinaryBallots" : {required: true, number: true },
+				"nextSerialNumber" : {required: true, number: true },
+				"firstSerialNumber" : {required: true, number: true },
+				"totalOrdinarySpoiltReplacement" : {required: true, number: true }
+			 },
+		     "highlight": function(element) {
+		            $(element).closest('.form-group').addClass('has-error');
+		      },
+		      "unhighlight": function(element) {
+		    	  $(element).closest('.form-group').removeClass('has-error');
+		      }
+		});		
+		
+		var tenderedBallotsFormValidator = $( "#tenderedBallotsForm" ).validate({
+			"errorClass": "invalid",
+			"rules": {
+				"totalTendered" : {required: true, number: true },
+				"totalTenderedMarked" : {required: true, number: true },
+				"totalTenderedSpoilt" : {required: true, number: true },
+				"totalTenderedUnused" : {required: true, number: true }
+			 },
+		     "highlight": function(element) {
+		            $(element).closest('.form-group').addClass('has-error');
+		      },
+		      "unhighlight": function(element) {
+		    	  $(element).closest('.form-group').removeClass('has-error');
+		      }
+		});		
+
+		var postalVotesFormValidator = $( "#postalVotesForm" ).validate({
+			"errorClass": "invalid",
+			"rules": {
+				"postalEarly" : {required: true, number: true },
+				"postalSweep" : {required: true, number: true },
+				"postalLate" : {required: true, number: true }
+			 },
+		     "highlight": function(element) {
+		            $(element).closest('.form-group').addClass('has-error');
+		      },
+		      "unhighlight": function(element) {
+		    	  $(element).closest('.form-group').removeClass('has-error');
+		      }
+		});
+	}
+	
 	function show() {
 		viewResolver.show(view, onComplete);
 	}
