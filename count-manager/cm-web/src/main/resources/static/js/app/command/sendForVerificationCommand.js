@@ -8,6 +8,7 @@ define([ 'app/model','command/findBallotPaperAccountCommand' ], function(model, 
 				"id" : new Date().getUTCMilliseconds(),
 				"pollingStation" : ballotPaperAccount.pollingStation,
 				"ballotBoxNumber" : obj.ballotBoxNumber,
+				"electoralArea" : ballotPaperAccount.electoralArea,
 				"bpaCount" : totalBallotPapersIssuedAndNotSpoilt(obj, ballotPaperAccount),
 				"count" : obj.count,
 				"verified" : false

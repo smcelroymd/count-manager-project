@@ -161,7 +161,8 @@ define(['jquery',
 			'selectedElection' : model.get('selectedElection'),
 			'count' : '',
 			'matchesBpa' : false,
-			'sentForVerification' : false
+			'sentForVerification' : false,
+			'verified' : false			
 		};
 		
 		showDialog(dialogModel);

@@ -1,4 +1,4 @@
-define(['jquery','app/model','underscore'], function($, model) {
+define(['jquery','app/model', 'command/isVerifiedCommand', 'underscore'], function($, model, isVerifiedCommand) {
 
 	function execute(param) {
 		var selectedElection = model.get('selectedElection');
@@ -13,7 +13,9 @@ define(['jquery','app/model','underscore'], function($, model) {
 				var ballotBoxNumbers = []; 
 				$.each(ballotBoxArray, function(ballotBoxNumber, countObjArray) {
 					$.each(countObjArray, function(index, countObj) {
-						ballotBoxNumbers.push(countObj.ballotBoxNumber);
+						if(!isVerifiedCommand.execute(countObj)) {
+							ballotBoxNumbers.push(countObj.ballotBoxNumber);							
+						}
 					});
 				});				
 				$.merge(boxesInProgress, _.uniq(ballotBoxNumbers));

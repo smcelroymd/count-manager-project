@@ -2,13 +2,12 @@ define(['jquery',
 	    'signals',
 		'hasher',
 		'crossroads',
-		'view/home',
 		'view/ballotBoxCount',
 		'view/ballotPaperAccount',
 		'view/verification',
 		'view/analytics',
 		'view/analytics2',
-		'view/analytics3'], function ($, signals, hasher, crossroads, home, ballotBoxCount, ballotPaperAccount, verification, analytics, analytics2, analytics3) {
+		'view/analytics3'], function ($, signals, hasher, crossroads, ballotBoxCount, ballotPaperAccount, verification, analytics, analytics2, analytics3) {
 	
 	
 	/**
