@@ -1,6 +1,6 @@
 <div id="home" class="tab-pane fade in active">
     <div class="page-header">
-		<span class="logo-medium">Analytics</span>
+		<span class="logo-medium">Dashboard</span>
 		<form class="form-inline pull-right">
 		 	<div class="form-group">
 				<label for="electionSelect">Select Election:</label>
@@ -21,8 +21,8 @@
 	   				<h1>{{electionData[selectedElection].numberOfBallotBoxes}}</h1>
 	   				<p>Total Number of Ballot Boxes</p>				  			
 	  			</div>
-	  			<div class="panel-footer">
-					<a>View Details<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+	  			<div id="numberOfBallotBoxesFooter" class="panel-footer clickable" data-dialog="numberOfBallotBoxes">
+					<a id="numberOfBallotBoxesAnchor">View Details<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
 					<div class="clearfix"></div>
 	  			</div>
 			</div>
@@ -38,7 +38,7 @@
     				<h2>{{electionData[selectedElection].numberReceived}}</h2>
     				<p>Number Received</p>				  			
 	  			</div>
-	  			<div class="panel-footer">
+	  			<div class="panel-footer clickable" data-dialog="numberReceived">
 					<a>View Details<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
 					<div class="clearfix"></div>
 	  			</div>
@@ -52,7 +52,7 @@
     				<h2>{{electionData[selectedElection].numberInProgress}}</h2>
     				<p>Number in Progess</p>				  			
 	  			</div>
-	  			<div class="panel-footer">
+	  			<div class="panel-footer clickable" data-dialog="numberInProgress">
 					<a>View Details<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
 					<div class="clearfix"></div>
 	  			</div>
@@ -66,7 +66,7 @@
     				<h2>{{electionData[selectedElection].numberCompleted}}</h2>
     				<p> Completed</p>				  			
 	  			</div>
-	  			<div class="panel-footer">
+	  			<div class="panel-footer clickable" data-dialog="numberCompleted">
 					<a>View Details<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
 					<div class="clearfix"></div>
 	  			</div>
@@ -80,11 +80,14 @@
 					<h2>{{electionData[selectedElection].numberAwaitingVerification}}</h2>
     				<p>Awaiting Verification</p>				  			
 	  			</div>
-	  			<div class="panel-footer">
+	  			<div class="panel-footer clickable" data-dialog="numberInProgress">
 					<a>View Details<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
 					<div class="clearfix"></div>
 	  			</div>
 			</div>
 		</div>
+	</div>
+	
+	<div id="electoralAreaDataDialogContainer">
 	</div>
 </div>

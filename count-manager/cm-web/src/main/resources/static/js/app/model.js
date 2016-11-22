@@ -45,6 +45,20 @@ define([], function(){
 					'numberInProgress' : 0,
 					'numberCompleted' : 0,
 					'numberAwaitingVerification' : 0,
+					'electoralAreaBoxNumbers' : [
+						{
+							'electoralArea' : 'Aldershot',
+							'numberOfBoxes' : 23
+						},
+						{
+							'electoralArea' : 'Basingstoke',
+							'numberOfBoxes' : 47
+						},
+						{
+							'electoralArea' : 'Eastleigh',
+							'numberOfBoxes' : 30
+						}
+					 ],					
 					'electoralAreas' :[
 						'Aldershot',
 						'Basingstoke',

@@ -247,3 +247,9 @@
 label.invalid {
 	vertical-align: top; float: none; color: red; padding: 0 0 0 5px; font-weight: normal; width: auto; font-size: 10px;	
 }
+
+.clickable
+{
+	text-decoration:none;
+    cursor: pointer;
+}

@@ -5,9 +5,6 @@ define(['jquery','app/model', 'command/isVerifiedCommand', 'underscore'], functi
 		
 		var boxesInProgress = [];
 		
-//		var electoralAreaExpression = "electionData[" + obj.selectedElection + "].ballotBoxCount." + obj.electoralArea;
-//		var selectBoxExpression = electoralAreaExpression + "." + obj.ballotBoxNumber;
-		
 		$.each(model.get('electionData'), function(electionId, electionDataObj) {
 			$.each(electionDataObj.ballotBoxCount, function(electoralArea, ballotBoxArray) {//countobjct array
 				var ballotBoxNumbers = []; 
