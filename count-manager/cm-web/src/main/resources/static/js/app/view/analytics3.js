@@ -147,11 +147,15 @@ define(['text!view/analytics3.html',
 	}
 	
 	function getNumberCompletedTableData() {
-		return {};
+		var selectedElection = model.get('selectedElection');
+		var data = model.get("electionData[" + selectedElection + "]"); 		
+		return data.numberCompletedByElectoralArea;
 	}
 	
 	function getNumberAwaitingVerificationTableData() {
-		return {};
+		var selectedElection = model.get('selectedElection');
+		var data = model.get("electionData[" + selectedElection + "]"); 		
+		return data.numberAwaitingVerificationByElectoralArea;
 	}
 	
 	function show() {

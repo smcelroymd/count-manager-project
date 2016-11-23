@@ -2,7 +2,9 @@ define(['jquery',
 	    'app/model',
 	    'command/findNumberInProgressCommand',
 	    'command/findNumberReceivedByElectoralAreaCommand',
-	    'command/findNumberInProgressByElectoralAreaCommand'], function($, model, findNumberInProgressCommand, findNumberReceivedByElectoralAreaCommand, findNumberInProgressByElectoralAreaCommand) {
+	    'command/findNumberInProgressByElectoralAreaCommand',
+	    'command/findNumberAwaitingVerificationByElectoralAreaCommand',
+	    'command/findNumberCompletedByElectoralAreaCommand'], function($, model, findNumberInProgressCommand, findNumberReceivedByElectoralAreaCommand, findNumberInProgressByElectoralAreaCommand, findNumberAwaitingVerificationByElectoralAreaCommand, findNumberCompletedByElectoralAreaCommand) {
 
 	function execute(event) {
 		var selectedElection = model.get('selectedElection');
@@ -19,6 +21,15 @@ define(['jquery',
 		var numberInProgressByElectoralArea = findNumberInProgressByElectoralAreaCommand.execute();
 		var numberInProgressByElectoralAreaExpression = selectElectionExpression + '.numberInProgressByElectoralArea';
 		model.set(numberInProgressByElectoralAreaExpression, numberInProgressByElectoralArea);
+		
+		var numberAwaitingVerificationByElectoralArea = findNumberAwaitingVerificationByElectoralAreaCommand.execute();
+		var numberAwaitingVerificationByElectoralAreaExpression = selectElectionExpression + '.numberAwaitingVerificationByElectoralArea';
+		model.set(numberAwaitingVerificationByElectoralAreaExpression, numberAwaitingVerificationByElectoralArea);
+
+		var numberCompletedByElectoralArea = findNumberCompletedByElectoralAreaCommand.execute();
+		var numberCompletedByElectoralAreaExpression = selectElectionExpression + '.numberCompletedByElectoralArea';
+		model.set(numberCompletedByElectoralAreaExpression, numberCompletedByElectoralArea);
+
 	};
 	
 	return {
