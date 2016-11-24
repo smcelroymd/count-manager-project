@@ -8,30 +8,35 @@ define(['text!view/analytics3.html',
 	var dialogConfigurations = {
 			"numberOfBallotBoxes" : {
 				"dataTableFunction" : getNumberOfBallotBoxesTableData,
+				"chartFunction" : getNumberOfBallotBoxesChartData,
 				"model" : {
 					"title" : "Total Number of Ballot Boxes"					
 				}
 			},
 			"numberReceived" : {
 				"dataTableFunction" : getNumberReceivedTableData,
+				"chartFunction" : getNumberReceivedChartData,
 				"model" : {
 					"title" : "Number Received"
 				}
 			},
 			"numberInProgress" : {
 				"dataTableFunction" :  getNumberInProgressTableData,
+				"chartFunction" : getNumberInProgressChartData,
 				"model" : {
 					"title" : "Number In Progress"
 				}
 			},
 			"numberCompleted" : {
 				"dataTableFunction" :  getNumberCompletedTableData,
+				"chartFunction" : getNumberCompletedChartData,
 				"model" : {
 					"title" : "Number Completed"
 				}
 			},
 			"numberAwaitingVerification" : {
 				"dataTableFunction" : getNumberAwaitingVerificationTableData,
+				"chartFunction" : getNumberAwaitingVerificationChartData,
 				"model" : {
 					"title" : "Number Received"
 				}
@@ -58,17 +63,8 @@ define(['text!view/analytics3.html',
 		var dialog = viewResolver.createDialog('#electoralAreaDataDialogContainer', electoralAreaDataDialog, dialogConfig.model, function(){
 
 			drawTable(dialogConfig);
-
-//			$('#electoralAreaDataDialogTabs a').on('shown.bs.tab', function(event){
-//				var id = $(event.target).attr("id"); 
-//				if(id === "summaryChartAnchor") {
-//					drawChart();					
-//				}
-//		    });			
-//			  
-//  		  	$(window).resize(function(){
-//  		  		drawChart();
-//  		  	});
+			
+			initialiseCharts(dialogConfig);
 			
 			/**
 		     * Tear down the view once hidden
@@ -81,23 +77,32 @@ define(['text!view/analytics3.html',
 		});			
 	}
 	
-	function drawChart() {
+	function initialiseCharts(dialogConfig) {
+		$('#electoralAreaDataDialogTabs a').on('shown.bs.tab', function(event){
+			var id = $(event.target).attr("id"); 
+			if(id === "summaryChartAnchor") {
+				drawChart(dialogConfig);					
+			}
+	    });			
+		  
+	  	$(window).resize(function(){
+	  		drawChart(dialogConfig);
+	  	});		
+	}
+	
+	function drawChart(dialogConfig) {
 	      google.charts.load('current');   // Don't need to specify chart libraries!
 	      google.charts.setOnLoadCallback(drawVisualization);
 	      
 	      function drawVisualization() {
 	    	  var wrapper = new google.visualization.ChartWrapper({
 	    		  chartType: 'PieChart',
-	    		  dataTable: [['Electoral Area Ballot Boxes', 'Number of Boxes'],
-	              ['Aldershot', 23],
-	              ['Basingstoke', 47],
-	              ['Eastleigh',  30]],
+	    		  dataTable: dialogConfig.chartFunction(),
 	              options: { 
 	            	  'pieHole': 0.4,
 	            	  'tooltip' : { trigger: 'none' },
 	            	  'chartArea': {'height': '80%', 'left': "0" },
 	            	  'pieSliceText' : 'value'
-	            	  //'colors' :['#337ab7', '#dff0d8', '#d9edf7', '#fcf8e3', '#f2dede']
 	              },
 	              containerId: 'summaryChart'
 	    	  });
@@ -131,31 +136,59 @@ define(['text!view/analytics3.html',
 	function getNumberOfBallotBoxesTableData() {
 		var selectedElection = model.get('selectedElection');
 		var data = model.get("electionData[" + selectedElection + "]"); 
-		return data.electoralAreaBoxNumbers
+		return data.electoralAreaBoxNumbers;
+	}
+
+	function getNumberOfBallotBoxesChartData() {
+		return [['Electoral Area', 'Number of Boxes'],['Aldershot', 23],['Basingstoke', 47],['Eastleigh',  30]];
 	}
 	
 	function getNumberReceivedTableData() {
 		var selectedElection = model.get('selectedElection');
 		var data = model.get("electionData[" + selectedElection + "]"); 		
-		return data.numberReceivedByElectoralArea;
+		return data.numberReceivedTableData;
 	}
 
 	function getNumberInProgressTableData() {
 		var selectedElection = model.get('selectedElection');
 		var data = model.get("electionData[" + selectedElection + "]"); 		
-		return data.numberInProgressByElectoralArea;
+		return data.numberInProgressTableData;
 	}
 	
 	function getNumberCompletedTableData() {
 		var selectedElection = model.get('selectedElection');
 		var data = model.get("electionData[" + selectedElection + "]"); 		
-		return data.numberCompletedByElectoralArea;
+		return data.numberCompletedTableData;
 	}
 	
 	function getNumberAwaitingVerificationTableData() {
 		var selectedElection = model.get('selectedElection');
 		var data = model.get("electionData[" + selectedElection + "]"); 		
-		return data.numberAwaitingVerificationByElectoralArea;
+		return data.numberAwaitingVerificationTableData;
+	}	
+	
+	function getNumberReceivedChartData() {
+		var selectedElection = model.get('selectedElection');
+		var data = model.get("electionData[" + selectedElection + "]"); 		
+		return data.numberReceivedChartData;
+	}
+	
+	function getNumberInProgressChartData() {
+		var selectedElection = model.get('selectedElection');
+		var data = model.get("electionData[" + selectedElection + "]"); 		
+		return data.numberInProgressChartData;
+	}
+	
+	function getNumberCompletedChartData() {
+		var selectedElection = model.get('selectedElection');
+		var data = model.get("electionData[" + selectedElection + "]"); 		
+		return data.numberCompletedChartData;
+	}
+	
+	function getNumberAwaitingVerificationChartData() {
+		var selectedElection = model.get('selectedElection');
+		var data = model.get("electionData[" + selectedElection + "]"); 		
+		return data.numberAwaitingVerificationChartData;
 	}
 	
 	function show() {

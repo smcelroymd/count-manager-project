@@ -1,11 +1,11 @@
 define([ 'app/model' ], function(model) {
 	function execute(event) {
+		var obj = $.extend({"id" : new Date().getUTCMilliseconds()}, event.eventData);
 		/**
 		 * Add row to table
 		 */
-		event.eventData["id"]=new Date().getUTCMilliseconds();
-		var ballotPaperAccountsExpression = 'electionData[' + event.eventData.selectedElection + '].ballotPaperAccounts';
-		model.getRactive().push(ballotPaperAccountsExpression, event.eventData);	
+		var ballotPaperAccountsExpression = 'electionData[' + obj.selectedElection + '].ballotPaperAccounts';
+		model.getRactive().push(ballotPaperAccountsExpression, obj);	
 
 		/**
 		 * Update number received

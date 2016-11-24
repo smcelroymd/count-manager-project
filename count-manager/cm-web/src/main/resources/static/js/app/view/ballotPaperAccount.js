@@ -51,12 +51,10 @@ define([ 'jquery',
 		var table = $('#ballotPaperAccountTbl').DataTable({
 			"lengthChange" : false,
 			"select": {
-			     style: 'multi'
+			     style: 'single'
 		    },
 			"data": model.get('electionData[' + selectedElection + '].ballotPaperAccounts'),
 			"buttons" : [
-				 {extend : 'selectAll',text : 'Select All'},
-				 {extend : 'selectNone', text : 'Select None'},
 				 {text: 'New', action: newAction},
 				 {text: 'Edit', action: editAction},
 				 {text: 'Delete', action: deleteAction}
@@ -143,7 +141,7 @@ define([ 'jquery',
 	function showDialog(dialogModel){
 		var dialog = viewResolver.createDialog('#ballotPaperAccountDialogContainer', ballotPaperAccountDialog, dialogModel, function() {
 			
-			$('#addBallotPaperAccountBtn').off('click').on('click', function() {	
+			$('#addBallotPaperAccountBtn, #addAndCloseBallotPaperAccountBtn').off('click').on('click', function() {	
 				eventHandler.trigger({'type' : 'addBallotPaperAccountEvent', 'eventData' : dialogModel});					
 			});
 			    
