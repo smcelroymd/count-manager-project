@@ -3,7 +3,6 @@
 		<span class="logo-medium">Dashboard</span>
 		<form class="form-inline pull-right">
 		 	<div class="form-group">
-				<label for="electionSelect">Select Election:</label>
 		  		<select class="form-control input-medium" id="electionSelect" value="{{selectedElection}}" >
   				{{#each elections}}
 	    			<option value="{{id}}">{{name}}</option>
@@ -11,6 +10,7 @@
 		  		</select>
 			</div>
 		</form>		
+		<div class="clearfix"></div>		
 	</div>
 
 	<div class="row">

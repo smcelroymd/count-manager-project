@@ -20,27 +20,20 @@ define(['jquery',
 		
 		table = $('#ballotBoxCountTable').DataTable({
 			lengthChange: false,
+		    "language": {
+		        "search": "_INPUT_",
+		        "searchPlaceholder": "Search..."
+		    },			
 			data : getData(), 
 			select: {
 				style: 'single'
 			},
 			buttons: [
-				{
-					text: 'New',
-					action: newAction
-				},
-				{
-					text: 'Edit',
-					action: editAction
-				},
-				{
-					text: 'Delete',
-					action: deleteAction
-				},
-				{
-					text : 'Send for Verification',
-					action : sendForVerificationAction
-				}],
+				{text: 'New', action: newAction},
+				{text: 'Edit', action: editAction},
+				{text: 'Delete', action: deleteAction},
+				{text : 'Send for Verification', action : sendForVerificationAction}
+				],
 				columnDefs : [
 					{
 						'targets' : 0,
@@ -69,7 +62,7 @@ define(['jquery',
 		});
 		
 		table.buttons().container().appendTo('#ballotBoxCountTable_wrapper .col-sm-6:eq(0)');
-		
+
 		model.getRactive().observe('refreshBallotBoxCountTable', function(newValue, oldValue, keypath){
 			updateTable();
 		},{'init':false});

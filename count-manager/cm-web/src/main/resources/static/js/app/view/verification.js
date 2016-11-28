@@ -14,9 +14,14 @@ define(['jquery',
 		'datatables.net-buttons-bs'], function ($, view, verificationDialog, viewResolver, model, eventHandler) {
 	
 	function onComplete(){	
+		
 		var selectedElection = model.get('selectedElection');	
 		var table = $('#verificationTbl').DataTable({
 			"lengthChange" : false,
+		    "language": {
+		        "search": "_INPUT_",
+		        "searchPlaceholder": "Search..."
+		    },						
 			"select": {
 			     style: 'single'
 			},
@@ -59,8 +64,6 @@ define(['jquery',
 			]			
 		});
 		
-		table.buttons().container().appendTo( '#verificationTbl_wrapper .col-sm-6:eq(0)' );
-		
 		$( "#electionSelect" ).change(function() {
 			updateTable(table);	
 		});
@@ -68,6 +71,7 @@ define(['jquery',
 		model.getRactive().observe('refreshVerificationTable', function(newValue, oldValue, keypath){
 			updateTable(table);	
 		},{'init':false});
+		table.buttons().container().appendTo( '#verificationTbl_wrapper .col-sm-6:eq(0)' );
 	}	
 	
 	function updateTable(table) {

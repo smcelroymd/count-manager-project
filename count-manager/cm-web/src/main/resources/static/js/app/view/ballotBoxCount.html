@@ -3,8 +3,7 @@
 		<span class="logo-medium">Ballot Box Count</span>		
 		<form class="form-inline pull-right">
 		 	<div class="form-group">
-				<label for="electionSelect">Select Election:</label>
-		  		<select class="form-control input-medium" id="electionSelect" value="{{selectedElection}}" >
+		  		<select class="form-control" id="electionSelect" value="{{selectedElection}}" >
   				{{#each elections}}
 	    			<option value="{{id}}">{{name}}</option>
 				{{/each}}
@@ -18,7 +17,7 @@
 			<form class="form-inline">	
 			 	<div class="form-group form-group-sm">
 					<label for="electionSelect">Electoral Area: </label>
-					<select class="form-control input-medium" id="electoralAreaSelect" value='{{ballotBoxCountScreenElectoralArea}}'>
+					<select class="form-control" id="electoralAreaSelect" value='{{ballotBoxCountScreenElectoralArea}}'>
   						{{#each electionData[selectedElection].electoralAreas}}
 	    					<option value="{{.}}">{{.}}</option>
 						{{/each}}

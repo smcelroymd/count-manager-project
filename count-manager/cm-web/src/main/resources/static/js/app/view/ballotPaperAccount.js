@@ -15,7 +15,7 @@ define([ 'jquery',
 		'datatables.net-buttons-bs'], function($, view, ballotPaperAccountDialog, viewResolver, model, eventHandler) {
 	
 	function onComplete() {
-				
+						
 		var table = populateTable();			
 		
 		model.getRactive().observe('electionData[1].ballotPaperAccounts', function(newValue, oldValue, keypath) {
@@ -50,6 +50,10 @@ define([ 'jquery',
 		var selectedElection = model.get('selectedElection');	
 		var table = $('#ballotPaperAccountTbl').DataTable({
 			"lengthChange" : false,
+		    "language": {
+		        "search": "_INPUT_",
+		        "searchPlaceholder": "Search..."
+		    },			
 			"select": {
 			     style: 'single'
 		    },
@@ -93,7 +97,7 @@ define([ 'jquery',
 		});	
 		
 		table.buttons().container().appendTo( '#ballotPaperAccountTbl_wrapper .col-sm-6:eq(0)' );
-		
+
 		return table;
 	}
 	
