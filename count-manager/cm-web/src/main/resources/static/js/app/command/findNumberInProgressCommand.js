@@ -4,20 +4,15 @@ define(['jquery','app/model', 'command/isVerifiedCommand', 'underscore'], functi
 		var selectedElection = model.get('selectedElection');
 		
 		var boxesInProgress = [];
-		
-		$.each(model.get('electionData'), function(electionId, electionDataObj) {
-			$.each(electionDataObj.ballotBoxCount, function(electoralArea, ballotBoxArray) {//countobjct array
-				var ballotBoxNumbers = []; 
-				$.each(ballotBoxArray, function(ballotBoxNumber, countObjArray) {
-					$.each(countObjArray, function(index, countObj) {
-						if(!isVerifiedCommand.execute(countObj)) {
-							ballotBoxNumbers.push(countObj.ballotBoxNumber);							
-						}
-					});
-				});				
-				$.merge(boxesInProgress, _.uniq(ballotBoxNumbers));
-			})
-		});
+
+		var electionDataObj = model.get('electionData[' + selectedElection + "]");
+		var ballotBoxNumbers = []; 
+		$.each(electionDataObj.ballotBoxCount, function(index, countObj) {//countobjct array	
+			if(!isVerifiedCommand.execute(countObj)) {
+				ballotBoxNumbers.push(countObj.electoralArea + "_" + countObj.ballotBoxNumber);							
+			}
+		})
+		$.merge(boxesInProgress, _.uniq(ballotBoxNumbers));
 		
 		return boxesInProgress.length;
 	};

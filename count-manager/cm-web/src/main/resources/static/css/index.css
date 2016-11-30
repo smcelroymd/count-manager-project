@@ -202,6 +202,11 @@
 	}
 }
 
+.xs-padding-header {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 
 .red {
 	color: red;	
@@ -259,3 +264,35 @@ label.invalid {
 	text-decoration:none;
     cursor: pointer;
 }
+
+.breadcrumb {
+	border-radius: 0;
+}
+
+.breadcrumb a {
+	text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+	.sidenav {
+		z-index: 100;
+	}
+}
+
+#electionDialog .modal-content {
+	border: 0;
+}
+
+#electionDialog .modal-body {
+	padding: 0;
+}
+
+/* .breadcrumb.breadcrumb-primary {
+	background-color:#428bca;    
+}
+.breadcrumb.breadcrumb-primary a {
+    color:#fff;    
+}
+.breadcrumb.breadcrumb-primary li.active{
+    color:#eee;    
+} */

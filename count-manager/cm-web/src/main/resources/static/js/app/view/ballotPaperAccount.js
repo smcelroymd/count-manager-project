@@ -35,14 +35,14 @@ define([ 'jquery',
 		    table.rows.add(newValue);
 		    table.rows().invalidate().draw();
 		   }, {'init':false});
-
-		$( "#electionSelect" ).change(function() {
+		
+		model.getRactive().observe('selectedElection', function(newValue, oldValue, keypath){
 			var selectedElection = model.get('selectedElection');	
 			var newData = model.get('electionData[' + selectedElection + '].ballotPaperAccounts');
 		    table.clear();
 		    table.rows.add(newData);
-		    table.rows().invalidate().draw();		    
-		});
+		    table.rows().invalidate().draw();	
+		},{'init':false});
 		
 	}
 	

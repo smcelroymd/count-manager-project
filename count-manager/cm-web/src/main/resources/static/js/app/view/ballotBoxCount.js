@@ -37,11 +37,21 @@ define(['jquery',
 				columnDefs : [
 					{
 						'targets' : 0,
+						'data' : 'electoralArea',
+						'width' : "50%"
+					},
+					{
+						'targets' : 1,
+						'data' : 'ballotBoxNumber',
+						'width' : "50%"
+					},
+					{
+						'targets' : 2,
 						'data' : 'count',
 						'width' : "80%"
 					},
 					{
-						'targets' : 1,
+						'targets' : 3,
 						'data' : 'matchesBpa',
 						'width' : "10%",
 						'className': "text-center",
@@ -50,7 +60,7 @@ define(['jquery',
 						}
 					},
 					{
-						'targets' : 2,
+						'targets' : 4,
 						'data' : 'sentForVerification',
 						'width' : "10%",
 						'className': "text-center",
@@ -68,9 +78,9 @@ define(['jquery',
 		},{'init':false});
 		
 		
-		$( "#electionSelect" ).change(function() {
-			updateBallotBoxSelect();					
-		});
+		model.getRactive().observe('selectedElection', function(newValue, oldValue, keypath){
+			updateBallotBoxSelect();	
+		},{'init':false});
 		
 		$( "#electoralAreaSelect" ).change(function(event) {
 			updateBallotBoxSelect();		
@@ -90,10 +100,9 @@ define(['jquery',
 	}
 	
 	function getData() {			
-		var ballotBoxCountElectoralAreaExpression = "electionData[" + model.get('selectedElection') + "].ballotBoxCount." +  model.get('ballotBoxCountScreenElectoralArea');
-		var ballotBoxCountBallotBoxExpression = ballotBoxCountElectoralAreaExpression + "." + model.get('ballotBoxCountScreenBallotBoxNumber');		
-		var myData = model.get(ballotBoxCountBallotBoxExpression);
-		return (model.get(ballotBoxCountBallotBoxExpression) || [] );
+		var ballotBoxCountExpression = "electionData[" + model.get('selectedElection') + "].ballotBoxCount";
+		var data = model.get(ballotBoxCountExpression);
+		return (data || [] );
 	}
 	
 	function updateBallotBoxSelect() {
@@ -123,8 +132,8 @@ define(['jquery',
 		if(selectedObject !== undefined) {
 			var eventData = {
 					"count" : selectedObject.count,
-					"electoralArea" : model.get('ballotBoxCountScreenElectoralArea'),
-					"ballotBoxNumber" : model.get('ballotBoxCountScreenBallotBoxNumber')
+					"electoralArea" : selectedObject.electoralArea,
+					"ballotBoxNumber" : selectedObject.ballotBoxNumber
 			};				
 			eventHandler.trigger({'type' : 'sendForVerificationEvent', 'eventData' : eventData});
 			selectedObject.sentForVerification = true;
@@ -147,11 +156,16 @@ define(['jquery',
 	}
 	
 	function newAction() {
+		
+		var selectedElection = model.get('selectedElection');
+		var electionDataExpression = 'electionData[' + selectedElection + ']';
+		
 		var dialogModel = {
 			'update' : false,
-			'electoralArea' : model.get('ballotBoxCountScreenElectoralArea'),
-			'ballotBoxNumber' : model.get('ballotBoxCountScreenBallotBoxNumber'),
-			'selectedElection' : model.get('selectedElection'),
+			'electoralArea' : '',
+			'ballotBoxNumber' : '',
+			'selectedElection' : selectedElection,
+			'electionData' : model.get(electionDataExpression), //check if this is needed			
 			'count' : '',
 			'matchesBpa' : false,
 			'sentForVerification' : false,

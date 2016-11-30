@@ -64,9 +64,9 @@ define(['jquery',
 			]			
 		});
 		
-		$( "#electionSelect" ).change(function() {
-			updateTable(table);	
-		});
+		model.getRactive().observe('selectedElection', function(newValue, oldValue, keypath){
+			updateTable(table);
+		},{'init':false});
 		
 		model.getRactive().observe('refreshVerificationTable', function(newValue, oldValue, keypath){
 			updateTable(table);	

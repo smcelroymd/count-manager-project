@@ -1,9 +1,10 @@
 define(['jquery',
 	    'Cookies', 
 		'util/router',
+		'app/model',
 		'util/controller',
 		'util/jquery.md.object.util',
-		'bootstrap'], function ($, Cookies, router) {
+		'bootstrap'], function ($, Cookies, router, model) {
 	
 	(function initialise() {												
 		
@@ -55,6 +56,17 @@ define(['jquery',
 		}
 		
 		$('[data-toggle="tooltip"]').tooltip(); 
+		
+		//dont think this is needed
+		$("body").on('click', "#electionDialog li", function(e) {
+			model.set('selectedElection', $(e.target).closest('li').find('input').val());
+			$("#electionDialog").modal("hide");
+			$("#dummyAnchor").focus();
+		});
+
+		$("body").on("click", ".breadcrumb .dropdown-menu li", function(e) {
+			model.set('selectedElection', $(e.target).closest('li').find('a').attr('data-electionId'));
+		});
 	})();
 	
 });

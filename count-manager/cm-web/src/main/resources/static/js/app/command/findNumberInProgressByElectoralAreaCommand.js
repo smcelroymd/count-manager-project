@@ -7,36 +7,30 @@ define(['jquery','app/model', 'command/isVerifiedCommand', 'underscore'], functi
 		var result = []; //{electoralArea, numberOfBoxes}
 		var boxesInProgress = [];
 		
-		$.each(model.get('electionData'), function(electionId, electionDataObj) {
-			$.each(electionDataObj.ballotBoxCount, function(electoralArea, ballotBoxArray) {//countobjct array
-				$.each(ballotBoxArray, function(ballotBoxNumber, countObjArray) {
-					var isVerified = false;
-					var electoralArea = null;
-
-					$.each(countObjArray, function(index, countObj) {
-						isVerified = isVerifiedCommand.execute(countObj);
-						electoralArea = countObj.electoralArea;
+		var electionDataObj = model.get('electionData[' + selectedElection + "]");
+		
+		$.each(electionDataObj.ballotBoxCount, function(index, countObj) {
+			
+			var isVerified = isVerifiedCommand.execute(countObj);
+							
+			if(isVerified === false) {					
+				var boxIdentifier = countObj.electoralArea + "_" + countObj.ballotBoxNumber;
 						
-						if(isVerified === true) {
-							//break out of the loop
-							return false;
-						}
+				if($.inArray(boxIdentifier, tmp) === -1) {
+					tmp.push(boxIdentifier);
+					
+					var objArray = $.grep(result, function(obj, index) {
+						return (obj.electoralArea == countObj.electoralArea);
 					});
 					
-					if(isVerified === false) {
-						if($.inArray(electoralArea, tmp) === -1) {
-							tmp.push(electoralArea);
-							result.push({'electoralArea' : electoralArea, 'numberOfBoxes' : 1,});
-						} else {
-							var obj = $.grep(result, function(obj, index) {
-								return (obj.electoralArea == electoralArea);
-							});
-							obj[0].numberOfBoxes++;
-						}					
-					}					
-				});				
-			})
-		});
+					if(objArray.length === 0) {
+						result.push({'electoralArea' : countObj.electoralArea, 'numberOfBoxes' : 1});
+					} else {
+						objArray[0].numberOfBoxes++;	
+					}						
+				} 					
+			}			
+		})		
 		
 		return result;
 	};

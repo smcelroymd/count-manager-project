@@ -5,16 +5,8 @@ define([ 'app/model','command/findBallotPaperAccountCommand'], function(model, f
 		var obj = $.extend({"id" : new Date().getUTCMilliseconds()}, event.eventData);
 		obj.matchesBpa = matchesBpa(obj);
 		
-		var electoralAreaExpression = "electionData[" + obj.selectedElection + "].ballotBoxCount." + obj.electoralArea;
-		var selectBoxExpression = electoralAreaExpression + "." + obj.ballotBoxNumber;
-		
-		if(model.get(selectBoxExpression) === undefined) {
-			var electoralArea = model.get(electoralAreaExpression);
-			electoralArea[obj.ballotBoxNumber] = [];
-			model.set(electoralAreaExpression, electoralArea);
-		}
-		
-		model.getRactive().push(selectBoxExpression, obj);		
+		var ballotBoxCountExpression = "electionData[" + obj.selectedElection + "].ballotBoxCount";		
+		model.getRactive().push(ballotBoxCountExpression, obj);		
 		model.set('refreshBallotBoxCountTable', new Date().getUTCMilliseconds());
 	};
 	

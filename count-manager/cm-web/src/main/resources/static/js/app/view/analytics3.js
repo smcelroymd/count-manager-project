@@ -49,7 +49,11 @@ define(['text!view/analytics3.html',
 			var dialogConfigName = $( e.target ).closest( ".clickable" ).attr('data-dialog');
 			showDialog(dialogConfigurations[dialogConfigName]);
 		});
-								
+				
+		model.getRactive().observe('selectedElection', function(newValue, oldValue, keypath){
+			eventHandler.trigger({'type' : 'updateAnalyticValuesEvent', 'eventData' : {}});	
+		},{'init':false});
+		
 		/**
 		 * 
 		 */

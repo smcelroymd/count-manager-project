@@ -40,6 +40,7 @@ define([], function(){
 				}],
 			'electionData' : {
 				'1' : {
+					'name': 'Election 1',
 					'numberOfBallotBoxes' : 100,
 					'numberReceived' : 0,
 					'numberInProgress' : 0,
@@ -69,14 +70,11 @@ define([], function(){
 						'Eastleigh' : ['PS5','PS6']						
 					},
 					'ballotPaperAccounts' : [],
-					'ballotBoxCount' : {
-						'Aldershot' : {},
-						'Basingstoke' : {},
-						'Eastleigh' : {}
-					},
+					'ballotBoxCount' : [],
 					'verificationData' : []	
 				},
 				'2' : {
+					'name': 'Election 2',
 					'numberOfBallotBoxes' : 200,
 					'numberReceived' : 0,
 					'numberInProgress' : 0,
@@ -87,19 +85,16 @@ define([], function(){
 						'Edgbaston',
 						'Yardley'],
 					'pollingStations' : {
-							'Aldershot' : ['PS1','PS2'],
-							'Basingstoke' : ['PS3','PS4'],
-							'Eastleigh' : ['PS5','PS6']						
+							'Aldridge-Brownhills' : ['PS1','PS2'],
+							'Edgbaston' : ['PS3','PS4'],
+							'Yardley' : ['PS5','PS6']						
 						},						
 					'ballotPaperAccounts' : [],
-					'ballotBoxCount' : {
-						'Aldridge-Brownhills' : {},
-						'Edgbaston' : {},
-						'Yardley' : {}
-					},
+					'ballotBoxCount' : [],
 					'verificationData' : []
 				},
 				'3' : {
+					'name': 'Election 3',
 					'numberOfBallotBoxes' : 300,
 					'numberReceived' : 0,
 					'numberInProgress' : 0,
@@ -110,16 +105,12 @@ define([], function(){
 						'Ashton-under-Lyne',
 						'Blackley and Broughton'],
 					'pollingStations' : {
-							'Aldershot' : ['PS1','PS2'],
-							'Basingstoke' : ['PS3','PS4'],
-							'Eastleigh' : ['PS5','PS6']						
+							'Altrincham and Sale West' : ['PS1','PS2'],
+							'Ashton-under-Lyne' : ['PS3','PS4'],
+							'Blackley and Broughton' : ['PS5','PS6']						
 						},						
                     'ballotPaperAccounts' : [],
- 					'ballotBoxCount' : {
-						'Altrincham and Sale West' : {},
-						'Ashton-under-Lyne' : {},
-						'Blackley and Broughton' : {} 						
- 					},
+ 					'ballotBoxCount' : [],
  					'verificationData' : []
 				}
 			}

@@ -11,7 +11,7 @@ define([ 'jquery', 'app/model' ], function($, model) {
 			if(verificationObj.verified === true) {
 				if($.inArray(verificationObj.electoralArea, tmp) === -1) {
 					tmp.push(verificationObj.electoralArea);
-					result.push({'electoralArea' : verificationObj.electoralArea, 'numberOfBoxes' : 1,});
+					result.push({'electoralArea' : verificationObj.electoralArea, 'numberOfBoxes' : 1});
 				} else {
 					var obj = $.grep(result, function(obj, index) {
 						return (obj.electoralArea == verificationObj.electoralArea);

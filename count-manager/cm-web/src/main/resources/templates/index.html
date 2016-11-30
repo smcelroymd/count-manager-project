@@ -12,7 +12,8 @@
 	<link rel="stylesheet" th:href="@{/css/index.css}" />		
 </head>
 <body>
-	<nav id="nav-main" class="navbar navbar-inverse navbar-default" >
+	<a id="dummyAnchor" href="#"></a>
+ 	<nav id="nav-main" class="navbar navbar-inverse navbar-default" >
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button id="menuBarToggleBtn" type="button" class="navbar-toggle navbar-right" data-toggle="collapse" data-target="#mySideNavbar">
@@ -21,7 +22,7 @@
 					<span class="icon-bar"></span> 
 				</button>
 				<a class="navbar-brand" href="#"><img class="logo" src="images/modern-democracy-logo.png"/></a>
-			</div>  
+			</div>
 			<ul id="testID" class="nav navbar-nav navbar-right text-right">
 				<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 			</ul>
@@ -30,17 +31,13 @@
 	<div class="collapse navbar-collapse navbar-inverse sidenav" id="mySideNavbar">
 		<ul class="nav nav-pills nav-stacked nav-pills-menu">
         	<li class="active"><a href="analytics3" class="small"><span class="glyphicon glyphicon-stats"></span> DASHBOARD</a></li>   
-<!--
-         	<li><a href="analytics" class="small"><span class="glyphicon glyphicon-stats"></span> ANALYTICS</a></li>   
-        	<li><a href="analytics2" class="small"><span class="glyphicon glyphicon-stats"></span> ANALYTICS 2</a></li>   
- -->        	
  			<li><a href="ballotPaperAccount" class="small"><span class="glyphicon glyphicon-list-alt"></span> BALLOT PAPER ACCOUNT</a></li>   
         	<li><a href="ballotBoxCount" class="small"><span class="glyphicon glyphicon-info-sign"></span> BALLOT BOX COUNT</a></li>      			   			
         	<li><a href="verification" class="small"><span class="glyphicon glyphicon-info-sign"></span> VERIFICATION</a></li>      			   			
 		</ul>
-	</div>	
-	
-	<div class="main-panel container-fluid">
+	</div>
+
+	<div class="main-panel container-fluid">		
 		<div id="main-panel-content"></div>
 	</div>
 	
@@ -56,6 +53,19 @@
 	</script>	
 	
 	<script th:attr="data-main=@{/js/config.js}" th:src="@{/js/require.js}"></script>
-	
+
+ 	<div class="modal fade" id="electionDialog" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<ul class="list-group">
+						<li class="list-group-item"><span class="logo-medium">Election 1</span><span class="pull-right"><input type="radio" name="electionRadionGrp" value="1" th:checked="true"/></span></li>
+						<li class="list-group-item"><span class="logo-medium">Election 2</span><span class="pull-right"><input type="radio" name="electionRadionGrp" value="2"/></span></li>
+						<li class="list-group-item"><span class="logo-medium">Election 3</span><span class="pull-right"><input type="radio" name="electionRadionGrp" value="3"/></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

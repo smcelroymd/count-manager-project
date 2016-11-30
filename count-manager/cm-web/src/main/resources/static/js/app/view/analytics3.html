@@ -1,18 +1,15 @@
 <div id="home" class="tab-pane fade in active">
-    <div class="page-header">
-		<span class="logo-medium">Dashboard</span>
-		<form class="form-inline pull-right">
-		 	<div class="form-group">
-		  		<select class="form-control input-medium" id="electionSelect" value="{{selectedElection}}" >
-  				{{#each elections}}
-	    			<option value="{{id}}">{{name}}</option>
-				{{/each}}
-		  		</select>
-			</div>
-		</form>		
-		<div class="clearfix"></div>		
-	</div>
-
+  	<ul class="breadcrumb">
+		<li><a href="#">Dashboard</a></li>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{electionData[selectedElection].name}}<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="#" data-electionId="1">Election 1</a></li>
+				<li><a href="#" data-electionId="2">Election 2</a></li>
+			    <li><a href="#" data-electionId="3">Election 3</a></li>
+			</ul>
+		</li>
+	</ul>
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="panel panel-primary">
@@ -28,9 +25,7 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="row">
-
 		<div class="col-lg-3 col-md-3">		
 			<div class="panel panel-success">
 	  			<div class="panel-heading">
@@ -44,7 +39,6 @@
 	  			</div>
 			</div>
 		</div>
-
 		<div class="col-lg-3 col-md-3">		
 			<div class="panel panel-info">
 	  			<div class="panel-heading">
@@ -58,7 +52,6 @@
 	  			</div>
 			</div>
 		</div>
-
 		<div class="col-lg-3 col-md-3">		
 			<div class="panel panel-warning">
 	  			<div class="panel-heading">
@@ -72,7 +65,6 @@
 	  			</div>
 			</div>
 		</div>
-
 		<div class="col-lg-3 col-md-3">		
 			<div class="panel panel-danger">
 	  			<div class="panel-heading">
@@ -86,8 +78,7 @@
 	  			</div>
 			</div>
 		</div>
-	</div>
-	
+	</div>	
 	<div id="electoralAreaDataDialogContainer">
 	</div>
 </div>
