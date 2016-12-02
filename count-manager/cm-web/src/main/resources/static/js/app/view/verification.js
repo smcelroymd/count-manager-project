@@ -13,6 +13,8 @@ define(['jquery',
 		'datatables.net-buttons',
 		'datatables.net-buttons-bs'], function ($, view, verificationDialog, viewResolver, model, eventHandler) {
 	
+	var countType = "used";
+	
 	function onComplete(){	
 		
 		var selectedElection = model.get('selectedElection');	
@@ -25,7 +27,7 @@ define(['jquery',
 			"select": {
 			     style: 'single'
 			},
-			"data": model.get('electionData[' + selectedElection + '].verificationData'),
+			"data": getData(),//model.get('electionData[' + selectedElection + '].verificationData'),
 			"buttons" : [
 				 {text: 'Verify', action: verifyAction}
 			],
@@ -40,7 +42,7 @@ define(['jquery',
 				},
 				{
 					'targets' : 2,
-					'data' : 'bpaCount'
+					'data' : (countType === "used"  ? 'bpaCount' : "bpaUnusedCount")
 				},
 				{
 					'targets' : 3,
@@ -50,7 +52,13 @@ define(['jquery',
 					'targets' : 4,
 					'className': "text-center",
 					'render' : function ( data, type, row, meta ) {
-						return (row.bpaCount - row.count);
+						var difference = 0;
+						if(countType === "used") {
+							difference = (row.bpaCount - row.count);
+						} else {
+							difference = (row.bpaUnusedCount - row.count);
+						}				
+						return difference;
 					}
 				},
 				{
@@ -75,10 +83,24 @@ define(['jquery',
 	}	
 	
 	function updateTable(table) {
-		var selectedElection = model.get('selectedElection');	
 		table.clear();
-		table.rows.add(model.get('electionData[' + selectedElection + '].verificationData'));
-		table.rows().invalidate().draw();	
+		table.rows.add(getData());
+		table.rows().invalidate().draw();			
+//		var selectedElection = model.get('selectedElection');	
+//		table.clear();
+//		table.rows.add(model.get('electionData[' + selectedElection + '].verificationData'));
+//		table.rows().invalidate().draw();	
+	}
+	
+	function getData() {			
+		var selectedElection = model.get('selectedElection');		
+		var verificationObjs = model.get('electionData[' + selectedElection + '].verificationData')
+		
+		var tableData = $.grep(verificationObjs, function(verificationObj) {
+			return (verificationObj.countType === countType);
+		});
+		
+		return (tableData || [] );
 	}
 	
 	function verifyAction(event, datatable, buttonClicked, buttonConfig){
@@ -92,7 +114,7 @@ define(['jquery',
 		var dialog = viewResolver.createDialog('#verificationDialogContainer', verificationDialog, model, function() {
 			
 			$('#saveBtn').off('click').on('click', function() {
-				eventHandler.trigger({'type' : 'verifyCountEvent', 'eventData' : model});
+				eventHandler.trigger({'type' : 'verifyCountEvent', 'eventData' : model});					
 			});
 
 			/**
@@ -109,7 +131,8 @@ define(['jquery',
 		});
 	}
 
-	function show() {
+	function show(type) {
+		countType = type;
 		viewResolver.show(view, onComplete);
 	}
 	

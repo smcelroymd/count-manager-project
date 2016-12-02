@@ -47,13 +47,21 @@ define(['jquery',
 		});
 		
 		crossroads.addRoute('ballotBoxCount', function(){
-			ballotBoxCount.show();
+			ballotBoxCount.show("used");
+		});
+		
+		crossroads.addRoute('unuseBallotsCount', function(){
+			ballotBoxCount.show("unused");
 		});
 
 		crossroads.addRoute('verification', function(){
-			verification.show();
+			verification.show("used");
 		});
 
+		crossroads.addRoute('unusedBallotsVerification', function(){
+			verification.show("unused");
+		});
+				
 		crossroads.addRoute('analytics', function(){
 			analytics.show();
 		});

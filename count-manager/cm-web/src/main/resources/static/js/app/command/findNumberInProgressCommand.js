@@ -8,7 +8,7 @@ define(['jquery','app/model', 'command/isVerifiedCommand', 'underscore'], functi
 		var electionDataObj = model.get('electionData[' + selectedElection + "]");
 		var ballotBoxNumbers = []; 
 		$.each(electionDataObj.ballotBoxCount, function(index, countObj) {//countobjct array	
-			if(!isVerifiedCommand.execute(countObj)) {
+			if((!isVerifiedCommand.execute(countObj)) && (countObj.countType === "used")) {
 				ballotBoxNumbers.push(countObj.electoralArea + "_" + countObj.ballotBoxNumber);							
 			}
 		})

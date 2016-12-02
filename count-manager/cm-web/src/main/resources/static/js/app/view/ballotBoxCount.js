@@ -15,6 +15,7 @@ define(['jquery',
 		], function ($, view, ballotBoxCountDialog, viewResolver, model, eventHandler) {
 	
 	var table = null;
+	var countType = "used";
 	
 	function onComplete(){
 		
@@ -38,22 +39,22 @@ define(['jquery',
 					{
 						'targets' : 0,
 						'data' : 'electoralArea',
-						'width' : "50%"
+						'width' : "20%"
 					},
 					{
 						'targets' : 1,
 						'data' : 'ballotBoxNumber',
-						'width' : "50%"
+						'width' : "20%"
 					},
 					{
 						'targets' : 2,
 						'data' : 'count',
-						'width' : "80%"
+						'width' : "20%"
 					},
 					{
 						'targets' : 3,
-						'data' : 'matchesBpa',
-						'width' : "10%",
+						'data' : (countType === "used" ? 'matchesBpa' : "unusedMatchesBpa"),
+						'width' : "20%",
 						'className': "text-center",
 						'render' : function ( data, type, row, meta ) {
 							return (data === true ? "<span class='glyphicon glyphicon-ok'/>" : "<span class='glyphicon glyphicon-remove'/>");
@@ -62,7 +63,7 @@ define(['jquery',
 					{
 						'targets' : 4,
 						'data' : 'sentForVerification',
-						'width' : "10%",
+						'width' : "20%",
 						'className': "text-center",
 						'render' : function ( data, type, row, meta ) {
 							return (data === true ? "<span class='glyphicon glyphicon-ok'/>" : "<span class='glyphicon glyphicon-remove'/>");
@@ -93,16 +94,25 @@ define(['jquery',
 		updateBallotBoxSelect();
 	}
 	
-	function updateTable() {
+	function updateTable() {				
 		table.clear();
 		table.rows.add(getData());
 		table.rows().invalidate().draw();		
 	}
 	
 	function getData() {			
-		var ballotBoxCountExpression = "electionData[" + model.get('selectedElection') + "].ballotBoxCount";
-		var data = model.get(ballotBoxCountExpression);
-		return (data || [] );
+		var selectedElection = model.get('selectedElection');		
+		var ballotCounts = model.get("electionData[" + model.get('selectedElection') + "].ballotBoxCount");
+		
+		var tableData = $.grep(ballotCounts, function(countObj) {
+			return (countObj.countType === countType);
+		});
+		
+		return (tableData || [] );
+		
+//		var ballotBoxCountExpression = "electionData[" + model.get('selectedElection') + "].ballotBoxCount";
+//		var data = model.get(ballotBoxCountExpression);
+//		return (data || [] );
 	}
 	
 	function updateBallotBoxSelect() {
@@ -130,13 +140,14 @@ define(['jquery',
 	function sendForVerificationAction(event, datatable, buttonClicked, buttonConfig) {
 		var selectedObject = datatable.row( { selected: true } ).data();
 		if(selectedObject !== undefined) {
+			selectedObject.sentForVerification = true;
 			var eventData = {
 					"count" : selectedObject.count,
 					"electoralArea" : selectedObject.electoralArea,
-					"ballotBoxNumber" : selectedObject.ballotBoxNumber
+					"ballotBoxNumber" : selectedObject.ballotBoxNumber,
+					"countType" : countType					
 			};				
 			eventHandler.trigger({'type' : 'sendForVerificationEvent', 'eventData' : eventData});
-			selectedObject.sentForVerification = true;
 			updateTable();
 		}
 	}
@@ -169,7 +180,8 @@ define(['jquery',
 			'count' : '',
 			'matchesBpa' : false,
 			'sentForVerification' : false,
-			'verified' : false			
+			'verified' : false,
+			'countType' : countType
 		};
 		
 		showDialog(dialogModel);
@@ -205,7 +217,8 @@ define(['jquery',
 		});		
 	}		
 	
-	function show() {
+	function show(type) {
+		countType = type;
 		viewResolver.show(view, onComplete);
 	}
 	

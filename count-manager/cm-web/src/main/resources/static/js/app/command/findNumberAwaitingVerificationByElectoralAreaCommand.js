@@ -8,7 +8,7 @@ define([ 'jquery', 'app/model' ], function($, model) {
 		var verificationData = model.get('electionData[' + selectedElection + '].verificationData');		
 		
 		$.each(verificationData, function(index, verificationObj) {
-			if(verificationObj.verified === false) {
+			if((verificationObj.verified === false) && (verificationObj.countType === "used")) {
 				if($.inArray(verificationObj.electoralArea, tmp) === -1) {
 					tmp.push(verificationObj.electoralArea);
 					result.push({'electoralArea' : verificationObj.electoralArea, 'numberOfBoxes' : 1,});

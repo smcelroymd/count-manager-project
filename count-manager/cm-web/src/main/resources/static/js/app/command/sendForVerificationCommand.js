@@ -10,8 +10,10 @@ define([ 'app/model','command/findBallotPaperAccountCommand' ], function(model, 
 				"ballotBoxNumber" : obj.ballotBoxNumber,
 				"electoralArea" : ballotPaperAccount.electoralArea,
 				"bpaCount" : totalBallotPapersIssuedAndNotSpoilt(obj, ballotPaperAccount),
+				"bpaUnusedCount" : totalBallotPapersUnused(ballotPaperAccount),
 				"count" : obj.count,
-				"verified" : false
+				"verified" : false,
+				"countType" : obj.countType
 		}
 		
 		model.getRactive().push('electionData[' + selectedElection +  '].verificationData', verificationObj);
@@ -19,15 +21,21 @@ define([ 'app/model','command/findBallotPaperAccountCommand' ], function(model, 
 		/**
 		 * Update number awaiting verification
 		 */
-		var numberAwaitingVerificationExpression = 'electionData[' + selectedElection + '].numberAwaitingVerification';
-		var totalNumberAwaitingVerification = model.get(numberAwaitingVerificationExpression);
-		model.set(numberAwaitingVerificationExpression, totalNumberAwaitingVerification+1);	
+		if(verificationObj.countType === "used") {
+			var numberAwaitingVerificationExpression = 'electionData[' + selectedElection + '].numberAwaitingVerification';
+			var totalNumberAwaitingVerification = model.get(numberAwaitingVerificationExpression);
+			model.set(numberAwaitingVerificationExpression, totalNumberAwaitingVerification+1);				
+		}
 	}
 
 	function totalBallotPapersIssuedAndNotSpoilt(obj, ballotPaperAccount) {
 		return ((ballotPaperAccount.nextSerialNumber - ballotPaperAccount.firstSerialNumber) - ballotPaperAccount.totalOrdinarySpoiltReplacement);
 	} 
 
+	function totalBallotPapersUnused(ballotPaperAccount) {
+		return (ballotPaperAccount.totalOrdinaryBallots - (ballotPaperAccount.nextSerialNumber - ballotPaperAccount.firstSerialNumber));
+	}
+	
 	return {
 		execute : execute
 	};
