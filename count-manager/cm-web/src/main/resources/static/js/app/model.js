@@ -48,26 +48,26 @@ define([], function(){
 					'numberAwaitingVerification' : 0,
 					'electoralAreaBoxNumbers' : [
 						{
-							'electoralArea' : 'Aldershot',
+							'electoralArea' : 'Acocks Green Ward',
 							'numberOfBoxes' : 23
 						},
 						{
-							'electoralArea' : 'Basingstoke',
+							'electoralArea' : 'Aston Ward',
 							'numberOfBoxes' : 47
 						},
 						{
-							'electoralArea' : 'Eastleigh',
+							'electoralArea' : 'Bartley Green Ward',
 							'numberOfBoxes' : 30
 						}
 					 ],					
 					'electoralAreas' :[
-						'Aldershot',
-						'Basingstoke',
-						'Eastleigh'],
+						'Acocks Green Ward',
+						'Aston Ward',
+						'Bartley Green Ward'],
 					'pollingStations' : {
-						'Aldershot' : ['PS1','PS2'],
-						'Basingstoke' : ['PS3','PS4'],
-						'Eastleigh' : ['PS5','PS6']						
+						'Acocks Green Ward' : ['PS1','PS2'],
+						'Aston Ward' : ['PS3','PS4'],
+						'Bartley Green Ward' : ['PS5','PS6']						
 					},
 					'ballotPaperAccounts' : [],
 					'ballotBoxCount' : [],
@@ -81,37 +81,17 @@ define([], function(){
 					'numberCompleted' : 0,
 					'numberAwaitingVerification' : 0,
 					'electoralAreas' :[
-						'Aldridge-Brownhills',
-						'Edgbaston',
-						'Yardley'],
+						'Acocks Green Ward',
+						'Aston Ward',
+						'Bartley Green Ward'],
 					'pollingStations' : {
-							'Aldridge-Brownhills' : ['PS1','PS2'],
-							'Edgbaston' : ['PS3','PS4'],
-							'Yardley' : ['PS5','PS6']						
+							'Acocks Green Ward' : ['PS1','PS2'],
+							'Aston Ward' : ['PS3','PS4'],
+							'Bartley Green Ward' : ['PS5','PS6']						
 						},						
 					'ballotPaperAccounts' : [],
 					'ballotBoxCount' : [],
 					'verificationData' : []
-				},
-				'3' : {
-					'name': 'Election 3',
-					'numberOfBallotBoxes' : 300,
-					'numberReceived' : 0,
-					'numberInProgress' : 0,
-					'numberCompleted' : 0,
-					'numberAwaitingVerification' : 0,
-					'electoralAreas' :[
-						'Altrincham and Sale West',
-						'Ashton-under-Lyne',
-						'Blackley and Broughton'],
-					'pollingStations' : {
-							'Altrincham and Sale West' : ['PS1','PS2'],
-							'Ashton-under-Lyne' : ['PS3','PS4'],
-							'Blackley and Broughton' : ['PS5','PS6']						
-						},						
-                    'ballotPaperAccounts' : [],
- 					'ballotBoxCount' : [],
- 					'verificationData' : []
 				}
 			}
 		},

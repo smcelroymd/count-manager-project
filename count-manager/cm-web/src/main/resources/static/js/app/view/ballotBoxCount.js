@@ -109,10 +109,6 @@ define(['jquery',
 		});
 		
 		return (tableData || [] );
-		
-//		var ballotBoxCountExpression = "electionData[" + model.get('selectedElection') + "].ballotBoxCount";
-//		var data = model.get(ballotBoxCountExpression);
-//		return (data || [] );
 	}
 	
 	function updateBallotBoxSelect() {

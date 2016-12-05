@@ -9,7 +9,8 @@ define(['jquery',
         'command/deleteBallotPaperAccountsCommand',
         'command/sendForVerificationCommand',
         'command/verifyCountCommand',
-        'command/updateAnalyticValuesCommand'], function($, eventHandler, exampleCommand, addBallotBoxCountCommand, editBallotBoxCountCommand, deleteBallotBoxCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand, sendForVerificationCommand, verifyCountCommand, updateAnalyticValuesCommand) {	
+        'command/updateAnalyticValuesCommand',
+        'command/generateFormAReportCommand'], function($, eventHandler, exampleCommand, addBallotBoxCountCommand, editBallotBoxCountCommand, deleteBallotBoxCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand, sendForVerificationCommand, verifyCountCommand, updateAnalyticValuesCommand, generateFormAReportCommand) {	
 			(function initialise() {
 				
 				eventHandler.bind('exampleEvent', function() {
@@ -55,6 +56,10 @@ define(['jquery',
 				
 				eventHandler.bind('updateAnalyticValuesEvent', function(event) {
 					updateAnalyticValuesCommand.execute(event);
+				});
+				
+				eventHandler.bind('generateFormAReportEvent', function(event) {
+					generateFormAReportCommand.execute(event);
 				});
 			})();
 		}
