@@ -1,5 +1,16 @@
 define([], function(){
 
+//	'update' : false,
+//	'electoralArea' : '',
+//	'ballotBoxNumber' : '',
+//	'selectedElection' : selectedElection,
+//	'electionData' : model.get(electionDataExpression), //check if this is needed			
+//	'count' : '',
+//	'matchesBpa' : false,
+//	'sentForVerification' : false,
+//	'verified' : false,
+//	'countType' : countType
+		
 	var self = this;
 	var ractive = null;
 	

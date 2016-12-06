@@ -116,31 +116,6 @@ define(['jquery',
 		eventHandler.trigger({'type' : 'generateFormAReportEvent', 'eventData' : {"electoralArea":electoralArea}});			
 	}
 	
-	
-	function getReportJson() {
-		
-	    var box1 = {"number" : "Postal 1", "pollingStation" : "", "ballotPaperAccountValue" : "1181", "boxValue" : "1181"};
-	    var box2 = {"number" : "Postal 2", "pollingStation" : "", "ballotPaperAccountValue" : "34", "boxValue" : "34"};
-	    var box3 = {"number" : "Postal 3", "pollingStation" : "", "ballotPaperAccountValue" : "21", "boxValue" : "21"};
-	    var box4 = {"number" : "64/CFA", "pollingStation" : "St. Francis Church, Linden Road", "ballotPaperAccountValue" : "709", "boxValue" : "709"};
-	    var box5 = {"number" : "65/CFB", "pollingStation" : "Kings Norton Girls school, Selly Oak Road", "ballotPaperAccountValue" : "708", "boxValue" : "708"};
-	    var box6 = {"number" : "66/CFC", "pollingStation" : "Village Hall, Woodlands Park Road", "ballotPaperAccountValue" : "530", "boxValue" : "530"};
-	    var box7 = {"number" : "67/CFD", "pollingStation" : "Masefield Hall, Masefield Square", "ballotPaperAccountValue" : "349", "boxValue" : "349"};
-	    var box8 = {"number" : "68/CFE", "pollingStation" : "St. Jospeh and St. Helen Parish Hall, 84 Northfield Road", "ballotPaperAccountValue" : "757", "boxValue" : "757"};
-	    var box9 = {"number" : "69/CFF", "pollingStation" : "Friends Meeting House, 23A Watford Road", "ballotPaperAccountValue" : "613", "boxValue" : "613"};
-	    var box10 = {"number" : "70/CFG", "pollingStation" : "Cotteridge Junior and Infant School, Breedon Road", "ballotPaperAccountValue" : "445", "boxValue" : "445"};
-	    var box11 = {"number" : "61/CFH", "pollingStation" : "Stirchley Primary School, Pershore Road", "ballotPaperAccountValue" : "607", "boxValue" : "606"};
-	    var box12 = {"number" : "71/CFH", "pollingStation" : "CFI Community Centre, 171 Pineapple Road", "ballotPaperAccountValue" : "511", "boxValue" : "512"};
-	    var box13 = {"number" : "72/CFI", "pollingStation" : "The Ascension Church Hall, Pineapple Grove", "ballotPaperAccountValue" : "506", "boxValue" : "506"};
-	    var box14 = {"number" : "73/CFJ", "pollingStation" : "Hub Hazelwell, adj. Hazelwell Church, 318 Vicarage Road", "ballotPaperAccountValue" : "442", "boxValue" : "442"};
-	    var box15 = {"number" : "75/CFL", "pollingStation" : "Methodist Church Hall, Cob Lane", "ballotPaperAccountValue" : "535", "boxValue" : "535"};
-
-	    return { 
-	    		"name" : "Bournville",
-	    		"ballotBoxes" : [box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11, box12, box13, box14, box15 ]
-	    };
-	}
-	
 	function updateTable(table) {
 		table.clear();
 		table.rows.add(getData());

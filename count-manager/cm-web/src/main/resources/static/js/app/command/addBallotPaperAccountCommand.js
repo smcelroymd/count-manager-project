@@ -13,6 +13,9 @@ define([ 'app/model' ], function(model) {
 		var numberReceivedExpression = 'electionData[' + event.eventData.selectedElection + '].numberReceived';
 		var totalNumberReceived = model.get(numberReceivedExpression);
 		model.set(numberReceivedExpression, totalNumberReceived+1);			
+		
+		var electionData = model.get('electionData[1]');
+		var a = 1;
 	}
 
 	return {

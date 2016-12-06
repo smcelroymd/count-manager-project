@@ -1,11 +1,11 @@
 define([ 'app/model','command/findBallotPaperAccountCommand' ], function(model, findBallotPaperAccountCommand) {
 	function execute(event) {
 		var selectedElection = model.get('selectedElection');
-		var obj = event.eventData;
+		var obj = $.extend({"id" : new Date().getUTCMilliseconds()}, event.eventData);
 		var ballotPaperAccount = findBallotPaperAccountCommand.execute({'electoralArea': obj.electoralArea, 'ballotBoxNumber' : obj.ballotBoxNumber});	
-		
+				
 		var verificationObj = {
-				"id" : new Date().getUTCMilliseconds(),
+				"id" : obj.id,
 				"pollingStation" : ballotPaperAccount.pollingStation,
 				"ballotBoxNumber" : obj.ballotBoxNumber,
 				"electoralArea" : ballotPaperAccount.electoralArea,
