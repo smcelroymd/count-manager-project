@@ -287,12 +287,24 @@ label.invalid {
 	padding: 0;
 }
 
-/* .breadcrumb.breadcrumb-primary {
-	background-color:#428bca;    
+.progress {
+	height: 40px !important;	
+	font-size: 20px;
 }
-.breadcrumb.breadcrumb-primary a {
-    color:#fff;    
+
+.bar {
+    font-size: 20px;
+    line-height: 40px;
 }
-.breadcrumb.breadcrumb-primary li.active{
-    color:#eee;    
-} */
+
+.progress-panel {
+    padding: 20px  10px 10px 10px!important;
+}
+
+.status-panel {
+    padding: 25px 10px 65px 10px !important;
+}
+
+.status-success {
+	color: #5cb85c;
+}

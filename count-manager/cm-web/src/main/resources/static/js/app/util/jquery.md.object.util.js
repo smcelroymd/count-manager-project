@@ -32,7 +32,13 @@ define(['jquery'], function($) {
 			        */
 			    return (ojectIndex === -1);
 	    	 });          
-	     };              
-	 
+	     };        
+	     
+	     $.mdGrep = function(array, obj, key) {
+	    	 return $.grep(array, function(arrayObj, index) {
+				return (arrayObj[key] === obj[key]);
+			});	    	 
+	     }
+	     
 	})($);
 });

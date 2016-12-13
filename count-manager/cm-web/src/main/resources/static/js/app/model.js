@@ -1,15 +1,4 @@
 define([], function(){
-
-//	'update' : false,
-//	'electoralArea' : '',
-//	'ballotBoxNumber' : '',
-//	'selectedElection' : selectedElection,
-//	'electionData' : model.get(electionDataExpression), //check if this is needed			
-//	'count' : '',
-//	'matchesBpa' : false,
-//	'sentForVerification' : false,
-//	'verified' : false,
-//	'countType' : countType
 		
 	var self = this;
 	var ractive = null;
@@ -57,6 +46,9 @@ define([], function(){
 					'numberInProgress' : 0,
 					'numberCompleted' : 0,
 					'numberAwaitingVerification' : 0,
+					'statusMessage' : '',
+					'textClass' : 'text-primary',
+					'progressBarClass' : 'progress-bar-warning',
 					'electoralAreaBoxNumbers' : [
 						{
 							'electoralArea' : 'Acocks Green Ward',
@@ -80,6 +72,7 @@ define([], function(){
 						'Aston Ward' : ['PS3','PS4'],
 						'Bartley Green Ward' : ['PS5','PS6']						
 					},
+					'ballotBoxes' : [],
 					'ballotPaperAccounts' : [],
 					'ballotBoxCount' : [],
 					'verificationData' : []	
@@ -91,6 +84,23 @@ define([], function(){
 					'numberInProgress' : 0,
 					'numberCompleted' : 0,
 					'numberAwaitingVerification' : 0,
+					'statusMessage' : '',
+					'textClass' : 'text-primary',
+					'progressBarClass' : 'progress-bar-warning',
+					'electoralAreaBoxNumbers' : [
+						{
+							'electoralArea' : 'Acocks Green Ward',
+							'numberOfBoxes' : 34
+						},
+						{
+							'electoralArea' : 'Aston Ward',
+							'numberOfBoxes' : 20
+						},
+						{
+							'electoralArea' : 'Bartley Green Ward',
+							'numberOfBoxes' : 10
+						}
+					 ],					
 					'electoralAreas' :[
 						'Acocks Green Ward',
 						'Aston Ward',
@@ -100,6 +110,7 @@ define([], function(){
 							'Aston Ward' : ['PS3','PS4'],
 							'Bartley Green Ward' : ['PS5','PS6']						
 						},						
+					'ballotBoxes' : [],
 					'ballotPaperAccounts' : [],
 					'ballotBoxCount' : [],
 					'verificationData' : []

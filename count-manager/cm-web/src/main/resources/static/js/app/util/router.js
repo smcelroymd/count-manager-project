@@ -2,12 +2,13 @@ define(['jquery',
 	    'signals',
 		'hasher',
 		'crossroads',
+		'view/ballotBoxes',
 		'view/ballotBoxCount',
 		'view/ballotPaperAccount',
 		'view/verification',
 		'view/analytics',
 		'view/analytics2',
-		'view/analytics3'], function ($, signals, hasher, crossroads, ballotBoxCount, ballotPaperAccount, verification, analytics, analytics2, analytics3) {
+		'view/analytics3'], function ($, signals, hasher, crossroads, ballotBoxes, ballotBoxCount, ballotPaperAccount, verification, analytics, analytics2, analytics3) {
 	
 	
 	/**
@@ -74,6 +75,10 @@ define(['jquery',
 			analytics3.show();
 		});
 
+		crossroads.addRoute('ballotBoxes', function() {
+			ballotBoxes.show();
+		});
+		
 		/**
 		 * Define what happens when a link is clicked
 		 */

@@ -11,6 +11,7 @@ require.config({
 		'signals' : 'lib/signals.min',
 		'Cookies' : 'lib/js.cookie',	
 		'underscore' : 'lib/underscore-min',
+		'moment' : 'lib/moment.min',
 		'util' : 'app/util',
 		'view' : 'app/view',
 		'dialog' : 'app/view/dialog',
@@ -23,7 +24,7 @@ require.config({
 		'datatables.net-select' : 'https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min',
 		'datatables.net-buttons' :'https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min',
 		'datatables.net-buttons-bs' : 'https://cdn.datatables.net/buttons/1.2.2/js/buttons.bootstrap.min',
-		'googlecharts' : 'https://www.gstatic.com/charts/loader'
+		'googlecharts' : 'https://www.gstatic.com/charts/loader',
 	},
 	shim: {
         'bootstrap' : {

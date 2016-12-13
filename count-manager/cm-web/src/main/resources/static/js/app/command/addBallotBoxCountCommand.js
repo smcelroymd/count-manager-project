@@ -9,7 +9,7 @@ define([ 'app/model','command/findBallotPaperAccountCommand'], function(model, f
 		obj.unusedMatchesBpa = unusedMatchesBpa(ballotPaperAccount, obj);
 		
 		var ballotBoxCountExpression = "electionData[" + obj.selectedElection + "].ballotBoxCount";		
-		model.getRactive().push(ballotBoxCountExpression, obj);		
+		model.getRactive().unshift(ballotBoxCountExpression, obj);		
 		model.set('refreshBallotBoxCountTable', new Date().getUTCMilliseconds());
 	};
 	

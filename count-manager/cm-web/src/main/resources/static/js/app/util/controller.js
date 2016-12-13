@@ -10,7 +10,10 @@ define(['jquery',
         'command/sendForVerificationCommand',
         'command/verifyCountCommand',
         'command/updateAnalyticValuesCommand',
-        'command/generateFormAReportCommand'], function($, eventHandler, exampleCommand, addBallotBoxCountCommand, editBallotBoxCountCommand, deleteBallotBoxCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand, sendForVerificationCommand, verifyCountCommand, updateAnalyticValuesCommand, generateFormAReportCommand) {	
+        'command/generateFormAReportCommand',
+        'command/addBallotBoxCommand',
+        'command/deleteBallotBoxCommand',
+        'command/editBallotBoxCommand'], function($, eventHandler, exampleCommand, addBallotBoxCountCommand, editBallotBoxCountCommand, deleteBallotBoxCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand, sendForVerificationCommand, verifyCountCommand, updateAnalyticValuesCommand, generateFormAReportCommand, addBallotBoxCommand, deleteBallotBoxCommand, editBallotBoxCommand) {	
 			(function initialise() {
 				
 				eventHandler.bind('exampleEvent', function() {
@@ -26,12 +29,10 @@ define(['jquery',
 				
 				eventHandler.bind('editBallotBoxCountEvent', function(event){
 					editBallotBoxCountCommand.execute(event);
-					console.log("Calling edit Command");
 				});
 				
 				eventHandler.bind('deleteBallotBoxCountEvent', function(event){
 					deleteBallotBoxCountCommand.execute(event);
-					console.log("Calling delete Command");
 				});
 				
 				eventHandler.bind('addBallotPaperAccountEvent', function(event){
@@ -60,6 +61,18 @@ define(['jquery',
 				
 				eventHandler.bind('generateFormAReportEvent', function(event) {
 					generateFormAReportCommand.execute(event);
+				});
+				
+				eventHandler.bind('addBallotBoxEvent', function(event) {
+					addBallotBoxCommand.execute(event);
+				});
+				
+				eventHandler.bind('deleteBallotBoxEvent', function(event) {
+					deleteBallotBoxCommand.execute(event);
+				});
+				
+				eventHandler.bind('editBallotBoxEvent', function(event) {
+					editBallotBoxCommand.execute(event);
 				});
 			})();
 		}

@@ -1,7 +1,7 @@
 define(['jquery',
 	    'app/model',
 	    'command/findNumberInProgressCommand',
-	    'command/findNumberReceivedByElectoralAreaCommand',
+	    'command/findNumberReceivedByElectoralAreaCommand2',
 	    'command/findNumberInProgressByElectoralAreaCommand',
 	    'command/findNumberAwaitingVerificationByElectoralAreaCommand',
 	    'command/findNumberCompletedByElectoralAreaCommand'], function($, model, findNumberInProgressCommand, findNumberReceivedByElectoralAreaCommand, findNumberInProgressByElectoralAreaCommand, findNumberAwaitingVerificationByElectoralAreaCommand, findNumberCompletedByElectoralAreaCommand) {
