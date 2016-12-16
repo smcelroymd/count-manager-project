@@ -2,13 +2,12 @@ define(['jquery',
 	    'signals',
 		'hasher',
 		'crossroads',
+		'view/count',
 		'view/ballotBoxes',
 		'view/ballotBoxCount',
 		'view/ballotPaperAccount',
 		'view/verification',
-		'view/analytics',
-		'view/analytics2',
-		'view/analytics3'], function ($, signals, hasher, crossroads, ballotBoxes, ballotBoxCount, ballotPaperAccount, verification, analytics, analytics2, analytics3) {
+		'view/analytics3'], function ($, signals, hasher, crossroads, count, ballotBoxes, ballotBoxCount, ballotPaperAccount, verification, analytics) {
 	
 	
 	/**
@@ -62,21 +61,17 @@ define(['jquery',
 		crossroads.addRoute('unusedBallotsVerification', function(){
 			verification.show("unused");
 		});
-				
+
 		crossroads.addRoute('analytics', function(){
 			analytics.show();
 		});
 
-		crossroads.addRoute('analytics2', function(){
-			analytics2.show();
-		});
-
-		crossroads.addRoute('analytics3', function(){
-			analytics3.show();
-		});
-
 		crossroads.addRoute('ballotBoxes', function() {
 			ballotBoxes.show();
+		});
+
+		crossroads.addRoute('count', function() {
+			count.show();
 		});
 		
 		/**
@@ -98,7 +93,7 @@ define(['jquery',
 		/**
 		 * update URL fragment generating new history record
 		 */
-		hasher.setHash('analytics3');
+		hasher.setHash('analytics');
 	})();
 	
 	return {

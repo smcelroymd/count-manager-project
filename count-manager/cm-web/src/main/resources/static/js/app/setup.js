@@ -65,9 +65,13 @@ define(['jquery',
 			$("#dummyAnchor").focus();
 		});
 
-		$("body").on("click", ".breadcrumb .dropdown-menu li", function(e) {
+		$("body").on("click", ".breadcrumb #electionMenu li", function(e) {
 			model.set('selectedElection', $(e.target).closest('li').find('a').attr('data-electionId'));
 		});		
+
+		$("body").on("click", ".breadcrumb #electoralAreaMenu li", function(e) {
+			model.set('countElectoralArea', $(e.target).closest('li').find('a').attr('data-electoralArea'));
+		})
 		
 		/**
 		 * Set up dummy 'used' data

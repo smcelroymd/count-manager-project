@@ -13,7 +13,9 @@ define(['jquery',
         'command/generateFormAReportCommand',
         'command/addBallotBoxCommand',
         'command/deleteBallotBoxCommand',
-        'command/editBallotBoxCommand'], function($, eventHandler, exampleCommand, addBallotBoxCountCommand, editBallotBoxCountCommand, deleteBallotBoxCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand, sendForVerificationCommand, verifyCountCommand, updateAnalyticValuesCommand, generateFormAReportCommand, addBallotBoxCommand, deleteBallotBoxCommand, editBallotBoxCommand) {	
+        'command/editBallotBoxCommand',
+        'command/findTotalBallotPapersInBallotBoxesCommand',
+        'command/saveVotesCommand'], function($, eventHandler, exampleCommand, addBallotBoxCountCommand, editBallotBoxCountCommand, deleteBallotBoxCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand, sendForVerificationCommand, verifyCountCommand, updateAnalyticValuesCommand, generateFormAReportCommand, addBallotBoxCommand, deleteBallotBoxCommand, editBallotBoxCommand, findTotalBallotPapersInBallotBoxesCommand, saveVotesCommand) {	
 			(function initialise() {
 				
 				eventHandler.bind('exampleEvent', function() {
@@ -74,6 +76,15 @@ define(['jquery',
 				eventHandler.bind('editBallotBoxEvent', function(event) {
 					editBallotBoxCommand.execute(event);
 				});
+				
+				eventHandler.bind('findTotalBallotPapersInBallotBoxesEvent', function(event) {
+					findTotalBallotPapersInBallotBoxesCommand.execute(event);
+				});
+				
+				eventHandler.bind('saveVotesEvent', function(event) {
+					saveVotesCommand.execute(event);
+				});
+				
 			})();
 		}
 );

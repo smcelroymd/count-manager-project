@@ -308,3 +308,8 @@ label.invalid {
 .status-success {
 	color: #5cb85c;
 }
+
+tr.group,
+tr.group:hover {
+    background-color: #ddd !important;
+}

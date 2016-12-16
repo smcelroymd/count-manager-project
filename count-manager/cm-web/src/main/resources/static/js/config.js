@@ -24,6 +24,7 @@ require.config({
 		'datatables.net-select' : 'https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min',
 		'datatables.net-buttons' :'https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min',
 		'datatables.net-buttons-bs' : 'https://cdn.datatables.net/buttons/1.2.2/js/buttons.bootstrap.min',
+		'datatables.net-sum' : 'https://cdn.datatables.net/plug-ins/1.10.13/api/sum().js',
 		'googlecharts' : 'https://www.gstatic.com/charts/loader',
 	},
 	shim: {

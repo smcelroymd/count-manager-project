@@ -25,6 +25,8 @@ define([], function(){
 			'selectedElection' : 1,
 			'refreshBallotBoxCountTable' : 1,
 			'refreshVerificationTable' : 1,
+			'totalBallotPapersInBoxes' : 0,
+			'countElectoralArea' : 'Acocks Green Ward',
 			'elections' : [
 				{
 					'id' : 1,
@@ -33,10 +35,6 @@ define([], function(){
 				{
 					'id' : 2,
 					'name' : 'Election 2',	
-				}, 
-				{
-					'id' : 3,
-					'name' : 'Election 3'					
 				}],
 			'electionData' : {
 				'1' : {
@@ -72,6 +70,155 @@ define([], function(){
 						'Aston Ward' : ['PS3','PS4'],
 						'Bartley Green Ward' : ['PS5','PS6']						
 					},
+					'candidates' : [
+ 						{
+ 							"displayOrder" : 0,
+							"electoralArea" : "Acocks Green Ward",
+							"firstName" : "Joshua",
+							"surname" : "Martin",
+							"votes" : []
+ 						}, 
+ 						{
+ 							"displayOrder" : 1,
+							"electoralArea" : "Acocks Green Ward",
+							"firstName" : "Carlos",
+							"surname" : "McCoy",
+							"votes" : []
+ 						}, 
+ 						{
+ 							"displayOrder" : 2,
+							"electoralArea" : "Acocks Green Ward",
+							"firstName" : "Roger",
+							"surname" : "Jacobs",
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 3,
+							"electoralArea" : "Acocks Green Ward",
+							"firstName" : "Alan",
+							"surname" : "Lawson",
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 4,
+							"electoralArea" : "Acocks Green Ward",
+							"firstName" : "Frank",
+							"surname" : "Wright",
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 5,
+							"electoralArea" : "Acocks Green Ward",
+							"firstName" : "Ralph",
+							"surname" : "Gonzalez",
+							"votes" : []
+						},
+						{
+ 							"displayOrder" : 6,
+							"electoralArea" : "Acocks Green Ward",
+							"firstName" : "",
+							"surname" : "REJECTED PAPERS",							
+							"votes" : []
+						},												
+ 						{
+ 							"displayOrder" : 0,
+							"electoralArea" : "Aston Ward",
+							"firstName" : "Eric",
+							"surname" : "Gonzales",
+							"votes" : []
+ 						}, 
+ 						{
+ 							"displayOrder" : 1,
+							"electoralArea" : "Aston Ward",
+							"firstName" : "Arthur",
+							"surname" : "Rice",
+							"votes" : []
+ 						}, 
+ 						{
+ 							"displayOrder" : 2,
+							"electoralArea" : "Aston Ward",
+							"firstName" : "Brian",
+							"surname" : "Owens",
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 3,
+							"electoralArea" : "Aston Ward",
+							"firstName" : "Antonio",
+							"surname" : "Jenkins",
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 4,
+							"electoralArea" : "Aston Ward",
+							"firstName" : "Richard",
+							"surname" : "Stevens",
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 5,
+							"electoralArea" : "Aston Ward",
+							"firstName" : "Carlos",
+							"surname" : "Warren",
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 6,
+							"electoralArea" : "Aston Ward",
+							"firstName" : "",
+							"surname" : "REJECTED PAPERS",							
+							"votes" : []
+						},											
+ 						{
+ 							"displayOrder" : 0,
+							"electoralArea" : "Bartley Green Ward",
+							"firstName" : "Carlos",
+							"surname" : "Kim",							
+							"votes" : []
+ 						}, 
+ 						{
+ 							"displayOrder" : 1,
+							"electoralArea" : "Bartley Green Ward",
+							"firstName" : "Philip",
+							"surname" : "Stanley",							
+							"votes" : []
+ 						}, 
+ 						{
+ 							"displayOrder" : 2,
+							"electoralArea" : "Bartley Green Ward",
+							"firstName" : "Scott",
+							"surname" : "Jackson",							
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 3,
+							"electoralArea" : "Bartley Green Ward",
+							"firstName" : "Eric",
+							"surname" : "Phillips",							
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 4,
+							"electoralArea" : "Bartley Green Ward",
+							"firstName" : "Alan",
+							"surname" : "Carroll",	
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 5,
+							"electoralArea" : "Bartley Green Ward",
+							"firstName" : "Michael",
+							"surname" : "Hansen",							
+							"votes" : []
+						}, 
+						{
+ 							"displayOrder" : 6,
+							"electoralArea" : "Bartley Green Ward",
+							"firstName" : "",
+							"surname" : "REJECTED PAPERS",							
+							"votes" : []
+						}  												
+					],
 					'ballotBoxes' : [],
 					'ballotPaperAccounts' : [],
 					'ballotBoxCount' : [],

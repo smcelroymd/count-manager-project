@@ -21,7 +21,7 @@ define(['jquery',
 	function onComplete(){
 		
 		table = $('#ballotBoxesTable').DataTable({
-			lengthChange: false,
+			"lengthChange": false,
 		    "language": {
 		        "search": "_INPUT_",
 		        "searchPlaceholder": "Search..."
