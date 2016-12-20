@@ -38,12 +38,13 @@ define([], function(){
 				}],
 			'electionData' : {
 				'1' : {
-					'name': 'Election 1',
+					'name': 'City Council Election - Thursday, 7th May 2015',
 					'numberOfBallotBoxes' : 100,
 					'numberReceived' : 0,
 					'numberInProgress' : 0,
 					'numberCompleted' : 0,
 					'numberAwaitingVerification' : 0,
+					'totalEligibleElectors' : 1000,
 					'statusMessage' : '',
 					'textClass' : 'text-primary',
 					'progressBarClass' : 'progress-bar-warning',
@@ -231,6 +232,7 @@ define([], function(){
 					'numberInProgress' : 0,
 					'numberCompleted' : 0,
 					'numberAwaitingVerification' : 0,
+					'totalEligibleElectors' : 1000,
 					'statusMessage' : '',
 					'textClass' : 'text-primary',
 					'progressBarClass' : 'progress-bar-warning',

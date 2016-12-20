@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -22,7 +21,6 @@ import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.util.FileCopyUtils;
 import org.xml.sax.SAXException;
 
 /**

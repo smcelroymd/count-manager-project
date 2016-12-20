@@ -11,11 +11,12 @@ define(['jquery',
         'command/verifyCountCommand',
         'command/updateAnalyticValuesCommand',
         'command/generateFormAReportCommand',
+        'command/generateProvisionalCountCommand',
         'command/addBallotBoxCommand',
         'command/deleteBallotBoxCommand',
         'command/editBallotBoxCommand',
         'command/findTotalBallotPapersInBallotBoxesCommand',
-        'command/saveVotesCommand'], function($, eventHandler, exampleCommand, addBallotBoxCountCommand, editBallotBoxCountCommand, deleteBallotBoxCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand, sendForVerificationCommand, verifyCountCommand, updateAnalyticValuesCommand, generateFormAReportCommand, addBallotBoxCommand, deleteBallotBoxCommand, editBallotBoxCommand, findTotalBallotPapersInBallotBoxesCommand, saveVotesCommand) {	
+        'command/saveVotesCommand'], function($, eventHandler, exampleCommand, addBallotBoxCountCommand, editBallotBoxCountCommand, deleteBallotBoxCountCommand, addBallotPaperAccountCommand, editBallotPaperAccountCommand, deleteBallotPaperAccountsCommand, sendForVerificationCommand, verifyCountCommand, updateAnalyticValuesCommand, generateFormAReportCommand, generateProvisionalCountCommand, addBallotBoxCommand, deleteBallotBoxCommand, editBallotBoxCommand, findTotalBallotPapersInBallotBoxesCommand, saveVotesCommand) {	
 			(function initialise() {
 				
 				eventHandler.bind('exampleEvent', function() {
@@ -63,6 +64,10 @@ define(['jquery',
 				
 				eventHandler.bind('generateFormAReportEvent', function(event) {
 					generateFormAReportCommand.execute(event);
+				});
+				
+				eventHandler.bind('generateProvisionalCountEvent', function(event) {
+					generateProvisionalCountCommand.execute(event);
 				});
 				
 				eventHandler.bind('addBallotBoxEvent', function(event) {

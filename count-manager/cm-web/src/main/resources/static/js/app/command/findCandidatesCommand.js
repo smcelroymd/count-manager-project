@@ -3,7 +3,7 @@ define([ 'app/model' ], function(model) {
 		var electoralArea = param.electoralArea;
 		var selectedElection = model.get('selectedElection');		
 		var allCandidates = model.get('electionData[' + selectedElection + '].candidates');				
-		var candidates = $.mdGrep(allCandidates, {"electoralArea" : electoralArea}, "electoralArea");
+		return $.mdGrep(allCandidates, {"electoralArea" : electoralArea}, "electoralArea");
 	}
 
 	return {

@@ -47,7 +47,7 @@ define(['jquery',
 			"paging": false,
 			"info": false,
 			"data" : getData(), 
-			"buttons": [{text: 'Add Votes/Recount', action: editAction}],		
+			"buttons": [{text: 'Add Votes/Recount', action: editAction}, {text: 'Download', action: downloadAction}],		
 			"select": {style: 'single'},				
 			"columnDefs" : columnDefs()
 		});
@@ -95,10 +95,7 @@ define(['jquery',
 		var selectedElection = model.get('selectedElection');	
 		var electoralArea = model.get('countElectoralArea');
 		var allCandidates = model.get('electionData[' + selectedElection + '].candidates');		
-		var candidates = $.mdGrep(allCandidates, {"electoralArea" : electoralArea}, "electoralArea");
-						
-//		var data = [];
-//		data = data.concat(candidates);
+		var candidates = $.mdGrep(allCandidates, {"electoralArea" : electoralArea}, "electoralArea");						
 		return addTotals(candidates);			
 	}	
 	
@@ -168,6 +165,10 @@ define(['jquery',
 		showDialog(dialogModel);
 	}
 
+	function downloadAction(electoralArea) {			
+		eventHandler.trigger({'type' : 'generateProvisionalCountEvent', 'eventData' : {}});			
+	}
+	
 	function showDialog(model) {
 		var dialog = viewResolver.createDialog('#countDialogContainer', countDialog, model, function() {		
 			
