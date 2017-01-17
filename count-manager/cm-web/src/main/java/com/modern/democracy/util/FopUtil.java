@@ -15,11 +15,14 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.xml.sax.SAXException;
 
@@ -36,6 +39,8 @@ public class FopUtil {
     // Private Members
     // ===========================================
 
+    private static Logger logger = LoggerFactory.getLogger(FopUtil.class);
+    
     /** The Constant FOP_CONFIG_FILE. */
     private static final String FOP_CONFIG_FILE = "com/modern/democracy/util/fop.xconf";
     
@@ -69,7 +74,7 @@ public class FopUtil {
 
             /**
              *  Create an instance of fop factory
-             */
+             */           
             FopFactory fopFactory = FopFactory.newInstance(getConfigFile());
 
             /**
@@ -128,7 +133,7 @@ public class FopUtil {
     // ===========================================
     // Private Methods
     // ===========================================
-
+    
     /**
      * Gets the config file.
      *
@@ -137,7 +142,19 @@ public class FopUtil {
      * @throws IOException 
      */
     private static File getConfigFile() throws IOException {
-        return new ClassPathResource(FOP_CONFIG_FILE).getFile();        
+        logger.info("Entering getConfigFile");
+        File tempFile = File.createTempFile("fop","xconf");
+        
+        try {
+            ClassPathResource cpr = new ClassPathResource(FOP_CONFIG_FILE); 
+            FileUtils.copyInputStreamToFile(cpr.getInputStream(), tempFile);            
+        } catch (IOException e) {
+            logger.error("Error in getConfigFile " + e.getMessage());
+        }
+        
+        
+        logger.info("Exiting getConfigFile");
+        return tempFile;       
     }
 
     /**

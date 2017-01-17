@@ -6,6 +6,8 @@ package com.modern.democracy.controller;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -38,6 +40,14 @@ public class PdfDownloadController {
     // Private Members
     // ===========================================
     
+    Logger logger = LoggerFactory.getLogger(PdfDownloadController.class);
+    
+    /** The Constant FORMA_FILENAME. */
+    private static final String FORMA_FILENAME = "forma.pdf";
+    
+    /** The Constant PROVISIONAL_RESULT_FILENAME. */
+    private static final String PROVISIONAL_RESULT_FILENAME = "provisionalresult.pdf";
+    
     // ===========================================
     // Static initialisers
     // ===========================================
@@ -56,29 +66,32 @@ public class PdfDownloadController {
 
     @RequestMapping(value="/forma", method=RequestMethod.POST)
     public ResponseEntity<byte[]> formA(String electoralArea) {
-        
+        logger.info("Entering formA");
         ResponseEntity<byte[]> response = null;
         
         try {
-            response = createReport(electoralArea, getFormAXsl(), ElectoralArea.class);
+            response = createReport(electoralArea, getFormAXsl(), FORMA_FILENAME, ElectoralArea.class);
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
         }
         
+        logger.info("Exiting  formA");
         return response;
     }    
 
     @RequestMapping(value="/provisionalresult", method=RequestMethod.POST)
     public ResponseEntity<byte[]> provisionalResult(String provisionalResult) {                        
+        logger.info("Entering provisionalResult");
         
         ResponseEntity<byte[]> response = null;
 
         try {
-            response = createReport(provisionalResult, getProvisionalCountXsl(), ProvisionalResult.class);
+            response = createReport(provisionalResult, getProvisionalCountXsl(), PROVISIONAL_RESULT_FILENAME, ProvisionalResult.class);
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
         }
 
+        logger.info("Exiting provisionalResult");
         return response;
     } 
     
@@ -90,10 +103,11 @@ public class PdfDownloadController {
     // Private Methods
     // ===========================================
 
-    public ResponseEntity<byte[]> createReport(String xml, String xsl, Class<?> clazz) {
+    public ResponseEntity<byte[]> createReport(String xml, String xsl, String filename, Class<?> clazz) {
+        logger.info("Entering createRepor");
 
         ResponseEntity<byte[]> response = null;
-        HttpHeaders httpHeaders = createHeaders();
+        HttpHeaders httpHeaders = createHeaders(filename);
 
         ObjectMapper mapper = new ObjectMapper();
         
@@ -105,11 +119,13 @@ public class PdfDownloadController {
             response = new ResponseEntity<byte[]>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+        logger.info("Exiting createRepor");
         return response;
     } 
     
     
     private String marshal(final Object data) {
+        logger.info("Entering marshal");
         XStream xstream = new XStream();
         xstream.alias("ballotboxcontent", ElectoralArea.class);
         xstream.alias("ballotbox", BallotBox.class);
@@ -117,6 +133,7 @@ public class PdfDownloadController {
         xstream.alias("candidate", Candidate.class);
         xstream.alias("count", int.class);
         String xml = xstream.toXML(data);
+        logger.info("Exiting  marshal");
         return xml;
     }
 
@@ -126,23 +143,47 @@ public class PdfDownloadController {
      *
      * @return the http headers
      */
-    private HttpHeaders createHeaders() {
+    private HttpHeaders createHeaders(final String filename) {
+        logger.info("Entering marshal");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType("application/pdf"));
-        String filename = "forma.pdf";
         headers.setContentDispositionFormData(filename, filename);
         headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        logger.info("Exiting marshal");
         return headers;
     }
     
     private String getFormAXsl() throws URISyntaxException, IOException {
-        ClassPathResource cpr = new ClassPathResource("com/modern/democracy/xslt/forma.xsl");        
-        return new String(FileCopyUtils.copyToByteArray(cpr.getInputStream()));
+        logger.info("Entering getFormAXsl");
+        ClassPathResource cpr = new ClassPathResource("com/modern/democracy/xslt/forma.xsl");
+        String formAXsl;
+        
+        try {
+            formAXsl = new String(FileCopyUtils.copyToByteArray(cpr.getInputStream()));
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            throw e;
+        }
+        
+        logger.info("Exiting formAXsl = " + formAXsl);
+        return formAXsl;
     }    
 
     private String getProvisionalCountXsl() throws URISyntaxException, IOException {
-        ClassPathResource cpr = new ClassPathResource("com/modern/democracy/xslt/provisionalresult.xsl");        
-        return new String(FileCopyUtils.copyToByteArray(cpr.getInputStream()));
+        logger.info("Entering getProvisionalCountXsl");
+
+        ClassPathResource cpr = new ClassPathResource("com/modern/democracy/xslt/provisionalresult.xsl"); 
+        String countXsl;
+        
+        try {
+            countXsl = new String(FileCopyUtils.copyToByteArray(cpr.getInputStream()));
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            throw e;
+        }
+      
+        logger.info("Exiting getProvisionalCountXsl. CountXsl = " + countXsl);
+        return countXsl;
     }    
 
 }

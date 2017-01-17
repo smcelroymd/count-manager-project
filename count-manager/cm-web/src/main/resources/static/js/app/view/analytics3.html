@@ -9,13 +9,13 @@
 			</ul>
 		</li>
 	</ul>
-	<div class="row">
+ 	<div class="row">
 		<div class="col-lg-6 col-md-6" style="height: 100%">		
 			<div class="panel panel-default" style="height: 100%">
   				<div class="panel-heading"><span class="{{electionData[selectedElection].textClass}} logo-medium">Progress</span></div>
   				<div class="panel-body progress-panel">
 					<div class="progress">
-						<div class="bar progress-bar {{electionData[selectedElection].progressBarClass}}" role="progressbar" aria-valuenow="{{electionData[selectedElection].numberCompleted}}" aria-valuemin="0" aria-valuemax="{{electionData[selectedElection].numberOfBallotBoxes}}" style="width:{{electionData[selectedElection].numberCompleted}}%" style="height: 40px;">{{electionData[selectedElection].numberCompleted}}% Complete</div>
+						<div class="bar progress-bar {{electionData[selectedElection].progressBarClass}}" role="progressbar" aria-valuenow="{{(electionData[selectedElection].numberCompleted/electionData[selectedElection].numberOfBallotBoxes)*100}}" aria-valuemin="0" aria-valuemax="100" style="width:{{(electionData[selectedElection].numberCompleted/electionData[selectedElection].numberOfBallotBoxes)*100}}%" style="height: 40px;">{{(electionData[selectedElection].numberCompleted/electionData[selectedElection].numberOfBallotBoxes)*100}}% Complete</div>
 					</div>
 				</div>
 			</div>
@@ -24,11 +24,11 @@
 			<div class="panel panel-default">
   				<div class="panel-heading"><span class="{{electionData[selectedElection].textClass}} logo-medium">Status</span></div>
   				<div class="panel-body status-panel">
-					 <span class="logo-small text-warning">{{electionData[selectedElection].statusMessage}}</span>
+					 <span class="logo-small text-success">{{electionData[selectedElection].statusMessage}}</span>
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="panel panel-primary">

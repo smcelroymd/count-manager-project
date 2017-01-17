@@ -23,7 +23,7 @@ define([ 'app/model','command/findCandidatesCommand' ], function(model, findCand
 			"electionTitle": electionData.name,
 			"electoralArea": electoralArea,
 			"totalBallotPapers": totalBallotPapers,
-			"totalEligibleElectors": 130,
+			"totalEligibleElectors": electionData.totalEligibleElectors,
 			"candidates": candidates,
 			"rejectedPapers": rejectedPapers
 		}		
@@ -33,7 +33,7 @@ define([ 'app/model','command/findCandidatesCommand' ], function(model, findCand
 		$('<input type="hidden" name="provisionalResult"/>').val(json).appendTo('#reportForm');
 		$("#reportForm").submit();
 	}
-		
+			
 	return {
 		execute : execute
 	};

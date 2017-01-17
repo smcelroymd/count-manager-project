@@ -38,7 +38,7 @@ define(['text!view/analytics3.html',
 				"dataTableFunction" : getNumberAwaitingVerificationTableData,
 				"chartFunction" : getNumberAwaitingVerificationChartData,
 				"model" : {
-					"title" : "Number Received"
+					"title" : "Number Awaiting Verification"
 				}
 			}
 	};

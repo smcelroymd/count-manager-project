@@ -1,0 +1,1497 @@
+2017-01-17 10:30:05.490  INFO 10208 --- [main] c.m.democracy.CountManagerApplication    : Starting CountManagerApplication on DESKTOP-2TS06AD with PID 10208 (C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web\target\classes started by Sean McElroy in C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web)
+2017-01-17 10:30:05.500  INFO 10208 --- [main] c.m.democracy.CountManagerApplication    : No active profile set, falling back to default profiles: default
+2017-01-17 10:30:05.873  INFO 10208 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6675b6ba: startup date [Tue Jan 17 10:30:05 GMT 2017]; root of context hierarchy
+2017-01-17 10:30:07.493  INFO 10208 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 5000 (http)
+2017-01-17 10:30:07.506  INFO 10208 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-01-17 10:30:07.506  INFO 10208 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-01-17 10:30:07.609  INFO 10208 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-01-17 10:30:07.609  INFO 10208 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1740 ms
+2017-01-17 10:30:07.831  INFO 10208 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-17 10:30:07.836  INFO 10208 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-17 10:30:07.836  INFO 10208 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-17 10:30:07.837  INFO 10208 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-17 10:30:07.837  INFO 10208 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-17 10:30:08.118  INFO 10208 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6675b6ba: startup date [Tue Jan 17 10:30:05 GMT 2017]; root of context hierarchy
+2017-01-17 10:30:08.191  INFO 10208 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.util.Map<java.lang.String, java.lang.String> com.modern.democracy.controller.ExampleController.test()
+2017-01-17 10:30:08.192  INFO 10208 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/forma],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.formA(java.lang.String)
+2017-01-17 10:30:08.193  INFO 10208 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/provisionalresult],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.provisionalResult(java.lang.String)
+2017-01-17 10:30:08.195  INFO 10208 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-17 10:30:08.196  INFO 10208 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-17 10:30:08.210  INFO 10208 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2017-01-17 10:30:08.221  INFO 10208 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 10:30:08.221  INFO 10208 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 10:30:08.269  INFO 10208 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 10:30:08.728  INFO 10208 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-01-17 10:30:08.782  INFO 10208 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 5000 (http)
+2017-01-17 10:30:08.787  INFO 10208 --- [main] c.m.democracy.CountManagerApplication    : Started CountManagerApplication in 4.048 seconds (JVM running for 7.728)
+2017-01-17 10:32:47.986  INFO 10208 --- [http-nio-5000-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-01-17 10:32:47.994  INFO 10208 --- [http-nio-5000-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-01-17 10:32:48.011  INFO 10208 --- [http-nio-5000-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2017-01-17 10:32:48.057  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering
+2017-01-17 10:32:48.057  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering
+2017-01-17 10:32:48.057  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting. CountXsl = <?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	xmlns:exslt="http://exslt.org/common">
+	
+	<xsl:attribute-set name="cellStyle">
+  		<xsl:attribute name="border">solid 1px black</xsl:attribute>
+  		<xsl:attribute name="font-size">10pt</xsl:attribute>
+  		<xsl:attribute name="padding-left">4pt</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="cellStyleBoldBorder">
+  		<xsl:attribute name="border">solid 2px black</xsl:attribute>
+  		<xsl:attribute name="font-size">10pt</xsl:attribute>
+  		<xsl:attribute name="padding-left">4pt</xsl:attribute>
+	</xsl:attribute-set>
+	
+	<xsl:attribute-set name="dottedUnderline">
+  		<xsl:attribute name="border-bottom">1px dotted #000</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="solidBorderTopAndBottom">
+  		<xsl:attribute name="border-top">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="border-bottom">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="padding-top">5px</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="solidBorderTop">
+  		<xsl:attribute name="border-top">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="padding-top">5px</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>	
+	
+	<xsl:attribute-set name="solidBorderBottom">
+  		<xsl:attribute name="border-bottom">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="padding-top">5px</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>	
+	
+	<xsl:variable name="emptyCell">
+		<fo:table-cell>
+			<fo:block />
+		</fo:table-cell>
+	</xsl:variable>	
+
+	<xsl:variable name="emptyCellWithBorder">
+		<fo:table-cell  xsl:use-attribute-sets="cellStyle">
+			<fo:block />
+		</fo:table-cell>
+	</xsl:variable>	
+
+	<xsl:variable name="emptyCellWithBoldBorder">
+		<fo:table-cell  xsl:use-attribute-sets="cellStyleBoldBorder">
+			<fo:block />
+		</fo:table-cell>
+	</xsl:variable>			
+	
+	<xsl:template match="/">
+		<xsl:variable name="numberofcounts"><xsl:value-of select="count(provisionalresult/candidates/candidate[1]/votes/count)"/></xsl:variable>	
+		<xsl:variable name="countcolumnwidth"><xsl:value-of select="format-number((60 div $numberofcounts) div 100, '##%')"/></xsl:variable>	
+		
+		<xsl:variable name="highestVotes">
+     		<xsl:for-each select="//votes/count[$numberofcounts]">
+       			<xsl:sort data-type="number" order="descending"/>
+       			<xsl:if test="position()=1"><xsl:value-of select="."/></xsl:if>
+     		</xsl:for-each>
+   		</xsl:variable>
+
+		<xsl:variable name="secondHighestVotes">
+     		<xsl:for-each select="//votes/count[$numberofcounts]">
+       			<xsl:sort data-type="number" order="descending"/>
+       			<xsl:if test="position()=2"><xsl:value-of select="."/></xsl:if>
+     		</xsl:for-each>
+   		</xsl:variable>
+		
+		<xsl:variable name="numberOfBallotPapers">		
+			<xsl:variable name="totalVotes"><xsl:value-of select="sum(//votes/count[number($numberofcounts)])"/></xsl:variable>
+			<xsl:variable name="rejectPapers"><xsl:value-of select="//rejectedPapers/count[number($numberofcounts)]"/></xsl:variable>			
+			<xsl:value-of select="$totalVotes + $rejectPapers"/>
+     	</xsl:variable>
+		
+		<fo:root>
+			<fo:layout-master-set>
+				<fo:simple-page-master master-name="reportContent" margin-top="1cm" margin-bottom="1cm" margin-left="1cm"  margin-right="1cm">
+				  <fo:region-body   margin-top="1cm" margin-bottom="1cm" margin-left="1cm"  margin-right="1cm"/>
+				  <fo:region-before extent="1cm"/>
+				  <fo:region-after  extent="1cm"/>
+				  <fo:region-start  extent="1cm"/>
+				  <fo:region-end    extent="1cm"/>
+				</fo:simple-page-master>
+			</fo:layout-master-set>
+
+			<fo:page-sequence master-reference="reportContent">
+				<fo:static-content flow-name="xsl-region-before">
+					<fo:block text-align="center" font-size="16pt" font-weight="bold"><xsl:value-of select="provisionalresult/electionTitle" /></fo:block>
+				</fo:static-content>
+				<fo:flow flow-name="xsl-region-body">						
+					<fo:table table-layout="fixed" width="100%">
+						<fo:table-column column-width="30%" />
+						<fo:table-column column-width="70%" />
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" ><xsl:value-of select="'PROVISIONAL RESULT - '"/></fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block text-align="left" font-weight="bold"><xsl:value-of select="provisionalresult/electoralArea" /></fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>		
+										
+					<fo:block text-align="left" font-size="12pt" padding-top="10px"><xsl:value-of select="'Ask Candidates and their Agents if they are satisfied with the conduct of the Count'"/></fo:block>
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="10px">
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="35%" />
+						<fo:table-column column-width="20%" />		
+						<fo:table-column column-width="40%" />			
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell font-size="10pt" font-weight="bold" xsl:use-attribute-sets="cellStyle">
+									<fo:block><xsl:value-of select="'A.'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="10pt" font-weight="bold" xsl:use-attribute-sets="cellStyle" wrap-option="wrap">
+									<fo:block><xsl:value-of select="'Total Ballot Papers in Ballot Boxes (column (2) of Form A)'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="10pt" font-weight="bold" xsl:use-attribute-sets="cellStyle" wrap-option="wrap">
+									<fo:block><xsl:value-of select="provisionalresult/totalBallotPapers" /></fo:block>
+								</fo:table-cell>
+								<xsl:copy-of select="$emptyCell" />
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>						
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="10px">
+						<fo:table-column column-width="40%" />					
+						<xsl:call-template name="createcolumns">
+							<xsl:with-param name="index">1</xsl:with-param>
+							<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>
+							<xsl:with-param name="columnwidth"><xsl:value-of select="$countcolumnwidth" /></xsl:with-param>
+						</xsl:call-template>
+						<fo:table-body>
+							<fo:table-row >
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'Candidates'"/></fo:block>
+								</fo:table-cell>
+								<xsl:call-template name="createcolumnheaders">
+									<xsl:with-param name="index">1</xsl:with-param>
+									<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>
+								</xsl:call-template>								
+							</fo:table-row>							
+							<xsl:apply-templates select="provisionalresult/candidates"/>
+						</fo:table-body>
+					</fo:table>	
+										
+					<fo:table table-layout="fixed" width="100%" margin-top="10px">
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="35%" />					
+						<xsl:call-template name="createcolumns">
+							<xsl:with-param name="index">1</xsl:with-param>
+							<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>
+							<xsl:with-param name="columnwidth"><xsl:value-of select="$countcolumnwidth" /></xsl:with-param>
+						</xsl:call-template>
+						<fo:table-body>
+							<fo:table-row >
+								<xsl:copy-of select="$emptyCellWithBorder" />
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'REJECTED BALLOTS'"/></fo:block>
+								</fo:table-cell>
+								<xsl:apply-templates select="provisionalresult/rejectedPapers"/>								
+							</fo:table-row>
+							<fo:table-row >
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'B.'"/></fo:block>
+								</fo:table-cell>								
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'TOTAL'"/></fo:block>
+								</fo:table-cell>																
+								<xsl:call-template name="createTotals">
+									<xsl:with-param name="index">1</xsl:with-param>
+									<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>								
+								</xsl:call-template>				
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>						
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="5px">
+						<fo:table-column column-width="50%" />
+						<fo:table-column column-width="50%" />
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt" font-weight="bold"><xsl:value-of select="'NB. The totals at A and B should tally'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block text-align="right" font-size="8pt" font-weight="bold">* Include any doubtful ballot papers allowed as "good".</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>						
+					
+					<fo:block text-align="left" font-size="10pt" padding-top="10px" font-weight="bold" text-decoration="underline"><xsl:value-of select="'Majority'"/></fo:block>
+
+					<fo:table table-layout="fixed" width="35%" margin-top="5px" border-separation="3pt">
+						<fo:table-column column-width="45%" />
+						<fo:table-column column-width="50%" />
+						<fo:table-column column-width="5%" />
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt"><xsl:value-of select="'Highest Votes'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt">
+									<fo:block>  
+									    <xsl:value-of select="$highestVotes"/>  
+								  </fo:block> 									
+								</fo:table-cell>
+								<xsl:copy-of select="$emptyCell" />
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt" padding-top="10px" ><xsl:value-of select="'2'" /><fo:inline vertical-align="super" font-size="4pt"><xsl:value-of select="'nd'"/></fo:inline> <xsl:value-of select="' Highest Votes'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="10px" >
+									<fo:block>  
+									    <xsl:value-of select="$secondHighestVotes"/>  
+								  	</fo:block> 									
+								</fo:table-cell>								
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt" padding-top="10px" ><fo:leader leader-length="1mm" leader-pattern="space"></fo:leader><fo:leader leader-length="1mm" leader-pattern="rule" rule-style="solid" rule-thickness="0.2mm" color="black"></fo:leader></fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<xsl:copy-of select="$emptyCell" />							
+								<fo:table-cell font-size="8pt" padding-top="0px" >
+									<fo:block xsl:use-attribute-sets="solidBorderTopAndBottom">  
+									    <xsl:value-of select="$highestVotes - $secondHighestVotes"/>  
+								  </fo:block> 									
+								</fo:table-cell>								
+								<xsl:copy-of select="$emptyCell" />							
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>	
+
+					<fo:block text-align="left" font-size="10pt" padding-top="10px" font-weight="bold" text-decoration="underline"><xsl:value-of select="'% Poll'"/></fo:block>
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="5px" border-separation="3pt">
+						<fo:table-column column-width="50%" />
+						<fo:table-column column-width="10%" />
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="10%" />
+						<fo:table-body>
+							<fo:table-row text-align="center" >
+								<fo:table-cell text-align="left" >
+									<fo:block font-size="8pt"><xsl:value-of select="'Number of Ballot Papers (Total at B above)'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt">  
+									    <xsl:value-of select="$numberOfBallotPapers"/>  
+								  	</fo:block> 									
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt"><xsl:value-of select="'X'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt"><xsl:value-of select="'100'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt">  
+										<fo:inline><xsl:value-of select="'=  '"/></fo:inline>
+										<xsl:variable name="totalEligibleElectors"><xsl:value-of select="//totalEligibleElectors"/></xsl:variable>																
+									    <xsl:value-of select="format-number($numberOfBallotPapers div $totalEligibleElectors, '#.##%')"/>
+								  	</fo:block> 									
+								</fo:table-cell>	
+							</fo:table-row>	
+							
+							<fo:table-row text-align="center" >
+								<fo:table-cell text-align="left" padding-top="10px">
+									<fo:block font-size="8pt"><xsl:value-of select="'Divided by total eligible electors on Polling Day'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell padding-top="5px">
+									<fo:block font-size="8pt" xsl:use-attribute-sets="solidBorderTop">  
+									    <xsl:value-of select="//totalEligibleElectors"/>  
+								  	</fo:block> 									
+								</fo:table-cell>	
+								<xsl:copy-of select="$emptyCell" />	
+								<fo:table-cell padding-top="5px">
+									<fo:block font-size="8pt" xsl:use-attribute-sets="solidBorderTop">
+										<xsl:value-of select="'1'" />
+									</fo:block>
+								</fo:table-cell>	
+								<xsl:copy-of select="$emptyCell" />	
+							</fo:table-row>						
+						</fo:table-body>
+					</fo:table>			
+					
+ 					<fo:table table-layout="fixed" width="50%" margin-top="20px">
+						<fo:table-column column-width="25%" />
+						<fo:table-column column-width="75%" />
+						<fo:table-body>
+							<fo:table-row >
+								<fo:table-cell font-size="8pt" padding-top="10px">
+									<fo:block><xsl:value-of select="'DRO Signature:'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="12px">
+									<fo:block xsl:use-attribute-sets="solidBorderBottom"/> 			
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell font-size="8pt"  padding-top="10px">
+									<fo:block><xsl:value-of select="'TS1 Signature:'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="12px">
+									<fo:block xsl:use-attribute-sets="solidBorderBottom"/> 			
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell font-size="8pt"  padding-top="10px">
+									<fo:block><xsl:value-of select="'TS2 Signature:'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="12px">
+									<fo:block xsl:use-attribute-sets="solidBorderBottom"/> 			
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>		
+					
+					<fo:block text-align="left" font-size="10pt" padding-top="10px" font-weight="bold" text-decoration="underline"><xsl:value-of select="'NB: AFTER DECLARATION HAND ENVELOPE TO CANDIDATE ELECTED'"/></fo:block>
+													
+				</fo:flow>
+			</fo:page-sequence>
+		</fo:root>
+	</xsl:template>
+	<xsl:template match="candidates">
+		<xsl:for-each select="candidate">
+			<fo:table-row>
+				<fo:table-cell xsl:use-attribute-sets="cellStyle" >
+					<fo:block><xsl:value-of select="firsname" /><xsl:value-of select="' '" /><xsl:value-of select="surname" /></fo:block>
+				</fo:table-cell>
+				<xsl:for-each select="votes/count">
+					<fo:table-cell xsl:use-attribute-sets="cellStyle">
+						<fo:block><xsl:value-of select="." /></fo:block>
+					</fo:table-cell>
+				</xsl:for-each>
+			</fo:table-row>						
+		</xsl:for-each>
+	</xsl:template>		
+	<xsl:template match="rejectedPapers">
+		<xsl:for-each select="count">
+			<fo:table-cell xsl:use-attribute-sets="cellStyle">
+				<fo:block><xsl:value-of select="." /></fo:block>
+			</fo:table-cell>
+		</xsl:for-each>
+	</xsl:template>		
+	<xsl:template name="createcolumns">
+	    <xsl:param name="index"/>
+	    <xsl:param name="total"/>
+	    <xsl:param name="columnwidth"/>
+	
+		<fo:table-column>
+			<xsl:attribute name="column-width"><xsl:value-of select="$columnwidth" /></xsl:attribute>
+		</fo:table-column>
+	
+	    <xsl:if test="not($index = $total)">
+	        <xsl:call-template name="createcolumns">
+	            <xsl:with-param name="index" select="$index + 1" />
+	            <xsl:with-param name="total" select="$total" />
+	            <xsl:with-param name="columnwidth" select="$columnwidth" />
+	        </xsl:call-template>
+	    </xsl:if>
+	</xsl:template>
+
+	<xsl:template name="createcolumnheaders">
+	    <xsl:param name="index"/>
+	    <xsl:param name="total"/>
+	
+		<fo:table-cell xsl:use-attribute-sets="cellStyle">
+			<xsl:choose>
+				<xsl:when test="$index = 1">
+					<fo:block font-weight="bold"><xsl:value-of select="'Votes*'"/></fo:block>		
+				</xsl:when>
+				<xsl:otherwise>
+					<fo:block font-weight="bold"><xsl:value-of select="'Recount '"/><xsl:value-of select="$index - 1"/></fo:block>
+				</xsl:otherwise>
+			</xsl:choose>
+		</fo:table-cell>
+	
+	    <xsl:if test="not($index = $total)">
+	        <xsl:call-template name="createcolumnheaders">
+	            <xsl:with-param name="index" select="$index + 1" />
+	            <xsl:with-param name="total" select="$total" />
+	        </xsl:call-template>
+	    </xsl:if>
+	</xsl:template>
+
+	<xsl:template name="createTotals">
+	    <xsl:param name="index"/>
+	    <xsl:param name="total"/>
+
+		<xsl:variable name="totalVotes"><xsl:value-of select="sum(//votes/count[number($index)])"/></xsl:variable>
+		<xsl:variable name="rejectPapers"><xsl:value-of select="//rejectedPapers/count[number($index)]"/></xsl:variable>		
+
+		<fo:table-cell xsl:use-attribute-sets="cellStyle">
+			<fo:block><xsl:value-of select="$totalVotes + $rejectPapers" /></fo:block>
+		</fo:table-cell>
+
+	    <xsl:if test="not($index = $total)">
+	        <xsl:call-template name="createTotals">
+	            <xsl:with-param name="index" select="$index + 1" />
+	            <xsl:with-param name="total" select="$total" />
+	        </xsl:call-template>
+	    </xsl:if>
+	
+	</xsl:template>	
+
+</xsl:stylesheet>
+2017-01-17 10:32:48.057  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering
+2017-01-17 10:32:48.057  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering
+2017-01-17 10:32:48.057  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting
+2017-01-17 10:32:48.117  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering
+2017-01-17 10:32:48.202  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting
+2017-01-17 10:32:48.333  INFO 10208 --- [http-nio-5000-exec-3] org.apache.fop.apps.FopConfParser        : Default page-height set to: 11.00in
+2017-01-17 10:32:48.333  INFO 10208 --- [http-nio-5000-exec-3] org.apache.fop.apps.FopConfParser        : Default page-width set to: 8.50in
+2017-01-17 10:32:49.489  WARN 10208 --- [http-nio-5000-exec-3] org.apache.fop.apps.FOUserAgent          : Font "Symbol,normal,700" not found. Substituting with "Symbol,normal,400".
+2017-01-17 10:32:49.505  WARN 10208 --- [http-nio-5000-exec-3] org.apache.fop.apps.FOUserAgent          : Font "ZapfDingbats,normal,700" not found. Substituting with "ZapfDingbats,normal,400".
+2017-01-17 10:32:49.651  INFO 10208 --- [http-nio-5000-exec-3] org.apache.fop.apps.FOUserAgent          : Rendered page #1.
+2017-01-17 10:32:49.651  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting
+2017-01-17 10:32:49.651  INFO 10208 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting
+2017-01-17 10:51:04.885  INFO 12456 --- [main] c.m.democracy.CountManagerApplication    : Starting CountManagerApplication on DESKTOP-2TS06AD with PID 12456 (C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web\target\classes started by Sean McElroy in C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web)
+2017-01-17 10:51:04.889  INFO 12456 --- [main] c.m.democracy.CountManagerApplication    : No active profile set, falling back to default profiles: default
+2017-01-17 10:51:05.257  INFO 12456 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@c26dd75: startup date [Tue Jan 17 10:51:05 GMT 2017]; root of context hierarchy
+2017-01-17 10:51:06.947  INFO 12456 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 5000 (http)
+2017-01-17 10:51:06.968  INFO 12456 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-01-17 10:51:06.970  INFO 12456 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-01-17 10:51:07.123  INFO 12456 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-01-17 10:51:07.124  INFO 12456 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1871 ms
+2017-01-17 10:51:07.395  INFO 12456 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-17 10:51:07.408  INFO 12456 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-17 10:51:07.409  INFO 12456 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-17 10:51:07.409  INFO 12456 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-17 10:51:07.410  INFO 12456 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-17 10:51:07.904  INFO 12456 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@c26dd75: startup date [Tue Jan 17 10:51:05 GMT 2017]; root of context hierarchy
+2017-01-17 10:51:08.006  INFO 12456 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.util.Map<java.lang.String, java.lang.String> com.modern.democracy.controller.ExampleController.test()
+2017-01-17 10:51:08.012  INFO 12456 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/forma],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.formA(java.lang.String)
+2017-01-17 10:51:08.013  INFO 12456 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/provisionalresult],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.provisionalResult(java.lang.String)
+2017-01-17 10:51:08.016  INFO 12456 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-17 10:51:08.026  INFO 12456 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-17 10:51:08.044  INFO 12456 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2017-01-17 10:51:08.064  INFO 12456 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 10:51:08.064  INFO 12456 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 10:51:08.134  INFO 12456 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 10:51:08.695  INFO 12456 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-01-17 10:51:08.761  INFO 12456 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 5000 (http)
+2017-01-17 10:51:08.765  INFO 12456 --- [main] c.m.democracy.CountManagerApplication    : Started CountManagerApplication in 4.645 seconds (JVM running for 9.156)
+2017-01-17 11:33:06.107  INFO 13684 --- [main] c.m.democracy.CountManagerApplication    : Starting CountManagerApplication on DESKTOP-2TS06AD with PID 13684 (C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web\target\classes started by Sean McElroy in C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web)
+2017-01-17 11:33:06.115  INFO 13684 --- [main] c.m.democracy.CountManagerApplication    : No active profile set, falling back to default profiles: default
+2017-01-17 11:33:06.479  INFO 13684 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@377d7022: startup date [Tue Jan 17 11:33:06 GMT 2017]; root of context hierarchy
+2017-01-17 11:33:07.995  INFO 13684 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 5000 (http)
+2017-01-17 11:33:07.999  INFO 13684 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-01-17 11:33:07.999  INFO 13684 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-01-17 11:33:08.095  INFO 13684 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-01-17 11:33:08.095  INFO 13684 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1620 ms
+2017-01-17 11:33:08.291  INFO 13684 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-17 11:33:08.296  INFO 13684 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-17 11:33:08.297  INFO 13684 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-17 11:33:08.297  INFO 13684 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-17 11:33:08.297  INFO 13684 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-17 11:33:08.591  INFO 13684 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@377d7022: startup date [Tue Jan 17 11:33:06 GMT 2017]; root of context hierarchy
+2017-01-17 11:33:08.691  INFO 13684 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.util.Map<java.lang.String, java.lang.String> com.modern.democracy.controller.ExampleController.test()
+2017-01-17 11:33:08.694  INFO 13684 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/forma],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.formA(java.lang.String)
+2017-01-17 11:33:08.696  INFO 13684 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/provisionalresult],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.provisionalResult(java.lang.String)
+2017-01-17 11:33:08.701  INFO 13684 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-17 11:33:08.702  INFO 13684 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-17 11:33:08.724  INFO 13684 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2017-01-17 11:33:08.744  INFO 13684 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 11:33:08.744  INFO 13684 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 11:33:08.804  INFO 13684 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 11:33:09.359  INFO 13684 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-01-17 11:33:09.417  INFO 13684 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 5000 (http)
+2017-01-17 11:33:09.421  INFO 13684 --- [main] c.m.democracy.CountManagerApplication    : Started CountManagerApplication in 3.929 seconds (JVM running for 8.048)
+2017-01-17 11:40:30.837  INFO 13684 --- [http-nio-5000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-01-17 11:40:30.837  INFO 13684 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-01-17 11:40:30.875  INFO 13684 --- [http-nio-5000-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 37 ms
+2017-01-17 11:40:52.658  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering provisionalResult
+2017-01-17 11:40:52.659  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering getProvisionalCountXsl
+2017-01-17 11:40:52.663  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting getProvisionalCountXsl. CountXsl = <?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	xmlns:exslt="http://exslt.org/common">
+	
+	<xsl:attribute-set name="cellStyle">
+  		<xsl:attribute name="border">solid 1px black</xsl:attribute>
+  		<xsl:attribute name="font-size">10pt</xsl:attribute>
+  		<xsl:attribute name="padding-left">4pt</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="cellStyleBoldBorder">
+  		<xsl:attribute name="border">solid 2px black</xsl:attribute>
+  		<xsl:attribute name="font-size">10pt</xsl:attribute>
+  		<xsl:attribute name="padding-left">4pt</xsl:attribute>
+	</xsl:attribute-set>
+	
+	<xsl:attribute-set name="dottedUnderline">
+  		<xsl:attribute name="border-bottom">1px dotted #000</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="solidBorderTopAndBottom">
+  		<xsl:attribute name="border-top">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="border-bottom">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="padding-top">5px</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="solidBorderTop">
+  		<xsl:attribute name="border-top">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="padding-top">5px</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>	
+	
+	<xsl:attribute-set name="solidBorderBottom">
+  		<xsl:attribute name="border-bottom">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="padding-top">5px</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>	
+	
+	<xsl:variable name="emptyCell">
+		<fo:table-cell>
+			<fo:block />
+		</fo:table-cell>
+	</xsl:variable>	
+
+	<xsl:variable name="emptyCellWithBorder">
+		<fo:table-cell  xsl:use-attribute-sets="cellStyle">
+			<fo:block />
+		</fo:table-cell>
+	</xsl:variable>	
+
+	<xsl:variable name="emptyCellWithBoldBorder">
+		<fo:table-cell  xsl:use-attribute-sets="cellStyleBoldBorder">
+			<fo:block />
+		</fo:table-cell>
+	</xsl:variable>			
+	
+	<xsl:template match="/">
+		<xsl:variable name="numberofcounts"><xsl:value-of select="count(provisionalresult/candidates/candidate[1]/votes/count)"/></xsl:variable>	
+		<xsl:variable name="countcolumnwidth"><xsl:value-of select="format-number((60 div $numberofcounts) div 100, '##%')"/></xsl:variable>	
+		
+		<xsl:variable name="highestVotes">
+     		<xsl:for-each select="//votes/count[$numberofcounts]">
+       			<xsl:sort data-type="number" order="descending"/>
+       			<xsl:if test="position()=1"><xsl:value-of select="."/></xsl:if>
+     		</xsl:for-each>
+   		</xsl:variable>
+
+		<xsl:variable name="secondHighestVotes">
+     		<xsl:for-each select="//votes/count[$numberofcounts]">
+       			<xsl:sort data-type="number" order="descending"/>
+       			<xsl:if test="position()=2"><xsl:value-of select="."/></xsl:if>
+     		</xsl:for-each>
+   		</xsl:variable>
+		
+		<xsl:variable name="numberOfBallotPapers">		
+			<xsl:variable name="totalVotes"><xsl:value-of select="sum(//votes/count[number($numberofcounts)])"/></xsl:variable>
+			<xsl:variable name="rejectPapers"><xsl:value-of select="//rejectedPapers/count[number($numberofcounts)]"/></xsl:variable>			
+			<xsl:value-of select="$totalVotes + $rejectPapers"/>
+     	</xsl:variable>
+		
+		<fo:root>
+			<fo:layout-master-set>
+				<fo:simple-page-master master-name="reportContent" margin-top="1cm" margin-bottom="1cm" margin-left="1cm"  margin-right="1cm">
+				  <fo:region-body   margin-top="1cm" margin-bottom="1cm" margin-left="1cm"  margin-right="1cm"/>
+				  <fo:region-before extent="1cm"/>
+				  <fo:region-after  extent="1cm"/>
+				  <fo:region-start  extent="1cm"/>
+				  <fo:region-end    extent="1cm"/>
+				</fo:simple-page-master>
+			</fo:layout-master-set>
+
+			<fo:page-sequence master-reference="reportContent">
+				<fo:static-content flow-name="xsl-region-before">
+					<fo:block text-align="center" font-size="16pt" font-weight="bold"><xsl:value-of select="provisionalresult/electionTitle" /></fo:block>
+				</fo:static-content>
+				<fo:flow flow-name="xsl-region-body">						
+					<fo:table table-layout="fixed" width="100%">
+						<fo:table-column column-width="30%" />
+						<fo:table-column column-width="70%" />
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" ><xsl:value-of select="'PROVISIONAL RESULT - '"/></fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block text-align="left" font-weight="bold"><xsl:value-of select="provisionalresult/electoralArea" /></fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>		
+										
+					<fo:block text-align="left" font-size="12pt" padding-top="10px"><xsl:value-of select="'Ask Candidates and their Agents if they are satisfied with the conduct of the Count'"/></fo:block>
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="10px">
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="35%" />
+						<fo:table-column column-width="20%" />		
+						<fo:table-column column-width="40%" />			
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell font-size="10pt" font-weight="bold" xsl:use-attribute-sets="cellStyle">
+									<fo:block><xsl:value-of select="'A.'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="10pt" font-weight="bold" xsl:use-attribute-sets="cellStyle" wrap-option="wrap">
+									<fo:block><xsl:value-of select="'Total Ballot Papers in Ballot Boxes (column (2) of Form A)'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="10pt" font-weight="bold" xsl:use-attribute-sets="cellStyle" wrap-option="wrap">
+									<fo:block><xsl:value-of select="provisionalresult/totalBallotPapers" /></fo:block>
+								</fo:table-cell>
+								<xsl:copy-of select="$emptyCell" />
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>						
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="10px">
+						<fo:table-column column-width="40%" />					
+						<xsl:call-template name="createcolumns">
+							<xsl:with-param name="index">1</xsl:with-param>
+							<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>
+							<xsl:with-param name="columnwidth"><xsl:value-of select="$countcolumnwidth" /></xsl:with-param>
+						</xsl:call-template>
+						<fo:table-body>
+							<fo:table-row >
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'Candidates'"/></fo:block>
+								</fo:table-cell>
+								<xsl:call-template name="createcolumnheaders">
+									<xsl:with-param name="index">1</xsl:with-param>
+									<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>
+								</xsl:call-template>								
+							</fo:table-row>							
+							<xsl:apply-templates select="provisionalresult/candidates"/>
+						</fo:table-body>
+					</fo:table>	
+										
+					<fo:table table-layout="fixed" width="100%" margin-top="10px">
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="35%" />					
+						<xsl:call-template name="createcolumns">
+							<xsl:with-param name="index">1</xsl:with-param>
+							<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>
+							<xsl:with-param name="columnwidth"><xsl:value-of select="$countcolumnwidth" /></xsl:with-param>
+						</xsl:call-template>
+						<fo:table-body>
+							<fo:table-row >
+								<xsl:copy-of select="$emptyCellWithBorder" />
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'REJECTED BALLOTS'"/></fo:block>
+								</fo:table-cell>
+								<xsl:apply-templates select="provisionalresult/rejectedPapers"/>								
+							</fo:table-row>
+							<fo:table-row >
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'B.'"/></fo:block>
+								</fo:table-cell>								
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'TOTAL'"/></fo:block>
+								</fo:table-cell>																
+								<xsl:call-template name="createTotals">
+									<xsl:with-param name="index">1</xsl:with-param>
+									<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>								
+								</xsl:call-template>				
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>						
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="5px">
+						<fo:table-column column-width="50%" />
+						<fo:table-column column-width="50%" />
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt" font-weight="bold"><xsl:value-of select="'NB. The totals at A and B should tally'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block text-align="right" font-size="8pt" font-weight="bold">* Include any doubtful ballot papers allowed as "good".</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>						
+					
+					<fo:block text-align="left" font-size="10pt" padding-top="10px" font-weight="bold" text-decoration="underline"><xsl:value-of select="'Majority'"/></fo:block>
+
+					<fo:table table-layout="fixed" width="35%" margin-top="5px" border-separation="3pt">
+						<fo:table-column column-width="45%" />
+						<fo:table-column column-width="50%" />
+						<fo:table-column column-width="5%" />
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt"><xsl:value-of select="'Highest Votes'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt">
+									<fo:block>  
+									    <xsl:value-of select="$highestVotes"/>  
+								  </fo:block> 									
+								</fo:table-cell>
+								<xsl:copy-of select="$emptyCell" />
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt" padding-top="10px" ><xsl:value-of select="'2'" /><fo:inline vertical-align="super" font-size="4pt"><xsl:value-of select="'nd'"/></fo:inline> <xsl:value-of select="' Highest Votes'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="10px" >
+									<fo:block>  
+									    <xsl:value-of select="$secondHighestVotes"/>  
+								  	</fo:block> 									
+								</fo:table-cell>								
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt" padding-top="10px" ><fo:leader leader-length="1mm" leader-pattern="space"></fo:leader><fo:leader leader-length="1mm" leader-pattern="rule" rule-style="solid" rule-thickness="0.2mm" color="black"></fo:leader></fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<xsl:copy-of select="$emptyCell" />							
+								<fo:table-cell font-size="8pt" padding-top="0px" >
+									<fo:block xsl:use-attribute-sets="solidBorderTopAndBottom">  
+									    <xsl:value-of select="$highestVotes - $secondHighestVotes"/>  
+								  </fo:block> 									
+								</fo:table-cell>								
+								<xsl:copy-of select="$emptyCell" />							
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>	
+
+					<fo:block text-align="left" font-size="10pt" padding-top="10px" font-weight="bold" text-decoration="underline"><xsl:value-of select="'% Poll'"/></fo:block>
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="5px" border-separation="3pt">
+						<fo:table-column column-width="50%" />
+						<fo:table-column column-width="10%" />
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="10%" />
+						<fo:table-body>
+							<fo:table-row text-align="center" >
+								<fo:table-cell text-align="left" >
+									<fo:block font-size="8pt"><xsl:value-of select="'Number of Ballot Papers (Total at B above)'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt">  
+									    <xsl:value-of select="$numberOfBallotPapers"/>  
+								  	</fo:block> 									
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt"><xsl:value-of select="'X'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt"><xsl:value-of select="'100'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt">  
+										<fo:inline><xsl:value-of select="'=  '"/></fo:inline>
+										<xsl:variable name="totalEligibleElectors"><xsl:value-of select="//totalEligibleElectors"/></xsl:variable>																
+									    <xsl:value-of select="format-number($numberOfBallotPapers div $totalEligibleElectors, '#.##%')"/>
+								  	</fo:block> 									
+								</fo:table-cell>	
+							</fo:table-row>	
+							
+							<fo:table-row text-align="center" >
+								<fo:table-cell text-align="left" padding-top="10px">
+									<fo:block font-size="8pt"><xsl:value-of select="'Divided by total eligible electors on Polling Day'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell padding-top="5px">
+									<fo:block font-size="8pt" xsl:use-attribute-sets="solidBorderTop">  
+									    <xsl:value-of select="//totalEligibleElectors"/>  
+								  	</fo:block> 									
+								</fo:table-cell>	
+								<xsl:copy-of select="$emptyCell" />	
+								<fo:table-cell padding-top="5px">
+									<fo:block font-size="8pt" xsl:use-attribute-sets="solidBorderTop">
+										<xsl:value-of select="'1'" />
+									</fo:block>
+								</fo:table-cell>	
+								<xsl:copy-of select="$emptyCell" />	
+							</fo:table-row>						
+						</fo:table-body>
+					</fo:table>			
+					
+ 					<fo:table table-layout="fixed" width="50%" margin-top="20px">
+						<fo:table-column column-width="25%" />
+						<fo:table-column column-width="75%" />
+						<fo:table-body>
+							<fo:table-row >
+								<fo:table-cell font-size="8pt" padding-top="10px">
+									<fo:block><xsl:value-of select="'DRO Signature:'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="12px">
+									<fo:block xsl:use-attribute-sets="solidBorderBottom"/> 			
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell font-size="8pt"  padding-top="10px">
+									<fo:block><xsl:value-of select="'TS1 Signature:'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="12px">
+									<fo:block xsl:use-attribute-sets="solidBorderBottom"/> 			
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell font-size="8pt"  padding-top="10px">
+									<fo:block><xsl:value-of select="'TS2 Signature:'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="12px">
+									<fo:block xsl:use-attribute-sets="solidBorderBottom"/> 			
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>		
+					
+					<fo:block text-align="left" font-size="10pt" padding-top="10px" font-weight="bold" text-decoration="underline"><xsl:value-of select="'NB: AFTER DECLARATION HAND ENVELOPE TO CANDIDATE ELECTED'"/></fo:block>
+													
+				</fo:flow>
+			</fo:page-sequence>
+		</fo:root>
+	</xsl:template>
+	<xsl:template match="candidates">
+		<xsl:for-each select="candidate">
+			<fo:table-row>
+				<fo:table-cell xsl:use-attribute-sets="cellStyle" >
+					<fo:block><xsl:value-of select="firsname" /><xsl:value-of select="' '" /><xsl:value-of select="surname" /></fo:block>
+				</fo:table-cell>
+				<xsl:for-each select="votes/count">
+					<fo:table-cell xsl:use-attribute-sets="cellStyle">
+						<fo:block><xsl:value-of select="." /></fo:block>
+					</fo:table-cell>
+				</xsl:for-each>
+			</fo:table-row>						
+		</xsl:for-each>
+	</xsl:template>		
+	<xsl:template match="rejectedPapers">
+		<xsl:for-each select="count">
+			<fo:table-cell xsl:use-attribute-sets="cellStyle">
+				<fo:block><xsl:value-of select="." /></fo:block>
+			</fo:table-cell>
+		</xsl:for-each>
+	</xsl:template>		
+	<xsl:template name="createcolumns">
+	    <xsl:param name="index"/>
+	    <xsl:param name="total"/>
+	    <xsl:param name="columnwidth"/>
+	
+		<fo:table-column>
+			<xsl:attribute name="column-width"><xsl:value-of select="$columnwidth" /></xsl:attribute>
+		</fo:table-column>
+	
+	    <xsl:if test="not($index = $total)">
+	        <xsl:call-template name="createcolumns">
+	            <xsl:with-param name="index" select="$index + 1" />
+	            <xsl:with-param name="total" select="$total" />
+	            <xsl:with-param name="columnwidth" select="$columnwidth" />
+	        </xsl:call-template>
+	    </xsl:if>
+	</xsl:template>
+
+	<xsl:template name="createcolumnheaders">
+	    <xsl:param name="index"/>
+	    <xsl:param name="total"/>
+	
+		<fo:table-cell xsl:use-attribute-sets="cellStyle">
+			<xsl:choose>
+				<xsl:when test="$index = 1">
+					<fo:block font-weight="bold"><xsl:value-of select="'Votes*'"/></fo:block>		
+				</xsl:when>
+				<xsl:otherwise>
+					<fo:block font-weight="bold"><xsl:value-of select="'Recount '"/><xsl:value-of select="$index - 1"/></fo:block>
+				</xsl:otherwise>
+			</xsl:choose>
+		</fo:table-cell>
+	
+	    <xsl:if test="not($index = $total)">
+	        <xsl:call-template name="createcolumnheaders">
+	            <xsl:with-param name="index" select="$index + 1" />
+	            <xsl:with-param name="total" select="$total" />
+	        </xsl:call-template>
+	    </xsl:if>
+	</xsl:template>
+
+	<xsl:template name="createTotals">
+	    <xsl:param name="index"/>
+	    <xsl:param name="total"/>
+
+		<xsl:variable name="totalVotes"><xsl:value-of select="sum(//votes/count[number($index)])"/></xsl:variable>
+		<xsl:variable name="rejectPapers"><xsl:value-of select="//rejectedPapers/count[number($index)]"/></xsl:variable>		
+
+		<fo:table-cell xsl:use-attribute-sets="cellStyle">
+			<fo:block><xsl:value-of select="$totalVotes + $rejectPapers" /></fo:block>
+		</fo:table-cell>
+
+	    <xsl:if test="not($index = $total)">
+	        <xsl:call-template name="createTotals">
+	            <xsl:with-param name="index" select="$index + 1" />
+	            <xsl:with-param name="total" select="$total" />
+	        </xsl:call-template>
+	    </xsl:if>
+	
+	</xsl:template>	
+
+</xsl:stylesheet>
+2017-01-17 11:40:52.666  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering createRepor
+2017-01-17 11:40:52.668  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering marshal
+2017-01-17 11:40:52.671  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting marshal
+2017-01-17 11:40:52.748  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Entering marshal
+2017-01-17 11:40:52.839  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting  marshal
+2017-01-17 11:40:52.843  INFO 13684 --- [http-nio-5000-exec-3] com.modern.democracy.util.FopUtil        : Entering getConfigFile
+2017-01-17 11:40:52.856  INFO 13684 --- [http-nio-5000-exec-3] com.modern.democracy.util.FopUtil        : Exiting getConfigFile
+2017-01-17 11:40:53.014  INFO 13684 --- [http-nio-5000-exec-3] org.apache.fop.apps.FopConfParser        : Default page-height set to: 11.00in
+2017-01-17 11:40:53.015  INFO 13684 --- [http-nio-5000-exec-3] org.apache.fop.apps.FopConfParser        : Default page-width set to: 8.50in
+2017-01-17 11:40:56.330  WARN 13684 --- [http-nio-5000-exec-3] org.apache.fop.apps.FOUserAgent          : Font "Symbol,normal,700" not found. Substituting with "Symbol,normal,400".
+2017-01-17 11:40:56.330  WARN 13684 --- [http-nio-5000-exec-3] org.apache.fop.apps.FOUserAgent          : Font "ZapfDingbats,normal,700" not found. Substituting with "ZapfDingbats,normal,400".
+2017-01-17 11:40:56.472  INFO 13684 --- [http-nio-5000-exec-3] org.apache.fop.apps.FOUserAgent          : Rendered page #1.
+2017-01-17 11:40:56.480  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting createRepor
+2017-01-17 11:40:56.481  INFO 13684 --- [http-nio-5000-exec-3] c.m.d.controller.PdfDownloadController   : Exiting provisionalResult
+2017-01-17 11:41:16.324  INFO 572 --- [main] c.m.democracy.CountManagerApplication    : Starting CountManagerApplication on DESKTOP-2TS06AD with PID 572 (C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web\target\classes started by Sean McElroy in C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web)
+2017-01-17 11:41:16.335  INFO 572 --- [main] c.m.democracy.CountManagerApplication    : No active profile set, falling back to default profiles: default
+2017-01-17 11:41:16.736  INFO 572 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@27a1a31d: startup date [Tue Jan 17 11:41:16 GMT 2017]; root of context hierarchy
+2017-01-17 11:41:18.928  INFO 572 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 5000 (http)
+2017-01-17 11:41:18.946  INFO 572 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-01-17 11:41:18.948  INFO 572 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-01-17 11:41:19.097  INFO 572 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-01-17 11:41:19.099  INFO 572 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2365 ms
+2017-01-17 11:41:19.375  INFO 572 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-17 11:41:19.383  INFO 572 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-17 11:41:19.384  INFO 572 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-17 11:41:19.384  INFO 572 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-17 11:41:19.384  INFO 572 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-17 11:41:19.899  INFO 572 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@27a1a31d: startup date [Tue Jan 17 11:41:16 GMT 2017]; root of context hierarchy
+2017-01-17 11:41:20.027  INFO 572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.util.Map<java.lang.String, java.lang.String> com.modern.democracy.controller.ExampleController.test()
+2017-01-17 11:41:20.029  INFO 572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/forma],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.formA(java.lang.String)
+2017-01-17 11:41:20.031  INFO 572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/provisionalresult],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.provisionalResult(java.lang.String)
+2017-01-17 11:41:20.035  INFO 572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-17 11:41:20.035  INFO 572 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-17 11:41:20.065  INFO 572 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2017-01-17 11:41:20.089  INFO 572 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 11:41:20.090  INFO 572 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 11:41:20.173  INFO 572 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 11:41:21.056  INFO 572 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-01-17 11:41:21.146  INFO 572 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 5000 (http)
+2017-01-17 11:41:21.152  INFO 572 --- [main] c.m.democracy.CountManagerApplication    : Started CountManagerApplication in 5.6 seconds (JVM running for 10.432)
+2017-01-17 11:41:42.192  INFO 572 --- [http-nio-5000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-01-17 11:41:42.192  INFO 572 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-01-17 11:41:42.232  INFO 572 --- [http-nio-5000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 39 ms
+2017-01-17 11:41:42.282  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Entering provisionalResult
+2017-01-17 11:42:05.289  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Entering getProvisionalCountXsl
+2017-01-17 11:42:05.296  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Exiting getProvisionalCountXsl. CountXsl = <?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	xmlns:exslt="http://exslt.org/common">
+	
+	<xsl:attribute-set name="cellStyle">
+  		<xsl:attribute name="border">solid 1px black</xsl:attribute>
+  		<xsl:attribute name="font-size">10pt</xsl:attribute>
+  		<xsl:attribute name="padding-left">4pt</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="cellStyleBoldBorder">
+  		<xsl:attribute name="border">solid 2px black</xsl:attribute>
+  		<xsl:attribute name="font-size">10pt</xsl:attribute>
+  		<xsl:attribute name="padding-left">4pt</xsl:attribute>
+	</xsl:attribute-set>
+	
+	<xsl:attribute-set name="dottedUnderline">
+  		<xsl:attribute name="border-bottom">1px dotted #000</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="solidBorderTopAndBottom">
+  		<xsl:attribute name="border-top">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="border-bottom">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="padding-top">5px</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="solidBorderTop">
+  		<xsl:attribute name="border-top">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="padding-top">5px</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>	
+	
+	<xsl:attribute-set name="solidBorderBottom">
+  		<xsl:attribute name="border-bottom">0.5px solid #000</xsl:attribute>
+  		<xsl:attribute name="padding-top">5px</xsl:attribute>
+  		<xsl:attribute name="text-decoration">none</xsl:attribute>
+	</xsl:attribute-set>	
+	
+	<xsl:variable name="emptyCell">
+		<fo:table-cell>
+			<fo:block />
+		</fo:table-cell>
+	</xsl:variable>	
+
+	<xsl:variable name="emptyCellWithBorder">
+		<fo:table-cell  xsl:use-attribute-sets="cellStyle">
+			<fo:block />
+		</fo:table-cell>
+	</xsl:variable>	
+
+	<xsl:variable name="emptyCellWithBoldBorder">
+		<fo:table-cell  xsl:use-attribute-sets="cellStyleBoldBorder">
+			<fo:block />
+		</fo:table-cell>
+	</xsl:variable>			
+	
+	<xsl:template match="/">
+		<xsl:variable name="numberofcounts"><xsl:value-of select="count(provisionalresult/candidates/candidate[1]/votes/count)"/></xsl:variable>	
+		<xsl:variable name="countcolumnwidth"><xsl:value-of select="format-number((60 div $numberofcounts) div 100, '##%')"/></xsl:variable>	
+		
+		<xsl:variable name="highestVotes">
+     		<xsl:for-each select="//votes/count[$numberofcounts]">
+       			<xsl:sort data-type="number" order="descending"/>
+       			<xsl:if test="position()=1"><xsl:value-of select="."/></xsl:if>
+     		</xsl:for-each>
+   		</xsl:variable>
+
+		<xsl:variable name="secondHighestVotes">
+     		<xsl:for-each select="//votes/count[$numberofcounts]">
+       			<xsl:sort data-type="number" order="descending"/>
+       			<xsl:if test="position()=2"><xsl:value-of select="."/></xsl:if>
+     		</xsl:for-each>
+   		</xsl:variable>
+		
+		<xsl:variable name="numberOfBallotPapers">		
+			<xsl:variable name="totalVotes"><xsl:value-of select="sum(//votes/count[number($numberofcounts)])"/></xsl:variable>
+			<xsl:variable name="rejectPapers"><xsl:value-of select="//rejectedPapers/count[number($numberofcounts)]"/></xsl:variable>			
+			<xsl:value-of select="$totalVotes + $rejectPapers"/>
+     	</xsl:variable>
+		
+		<fo:root>
+			<fo:layout-master-set>
+				<fo:simple-page-master master-name="reportContent" margin-top="1cm" margin-bottom="1cm" margin-left="1cm"  margin-right="1cm">
+				  <fo:region-body   margin-top="1cm" margin-bottom="1cm" margin-left="1cm"  margin-right="1cm"/>
+				  <fo:region-before extent="1cm"/>
+				  <fo:region-after  extent="1cm"/>
+				  <fo:region-start  extent="1cm"/>
+				  <fo:region-end    extent="1cm"/>
+				</fo:simple-page-master>
+			</fo:layout-master-set>
+
+			<fo:page-sequence master-reference="reportContent">
+				<fo:static-content flow-name="xsl-region-before">
+					<fo:block text-align="center" font-size="16pt" font-weight="bold"><xsl:value-of select="provisionalresult/electionTitle" /></fo:block>
+				</fo:static-content>
+				<fo:flow flow-name="xsl-region-body">						
+					<fo:table table-layout="fixed" width="100%">
+						<fo:table-column column-width="30%" />
+						<fo:table-column column-width="70%" />
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" ><xsl:value-of select="'PROVISIONAL RESULT - '"/></fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block text-align="left" font-weight="bold"><xsl:value-of select="provisionalresult/electoralArea" /></fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>		
+										
+					<fo:block text-align="left" font-size="12pt" padding-top="10px"><xsl:value-of select="'Ask Candidates and their Agents if they are satisfied with the conduct of the Count'"/></fo:block>
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="10px">
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="35%" />
+						<fo:table-column column-width="20%" />		
+						<fo:table-column column-width="40%" />			
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell font-size="10pt" font-weight="bold" xsl:use-attribute-sets="cellStyle">
+									<fo:block><xsl:value-of select="'A.'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="10pt" font-weight="bold" xsl:use-attribute-sets="cellStyle" wrap-option="wrap">
+									<fo:block><xsl:value-of select="'Total Ballot Papers in Ballot Boxes (column (2) of Form A)'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="10pt" font-weight="bold" xsl:use-attribute-sets="cellStyle" wrap-option="wrap">
+									<fo:block><xsl:value-of select="provisionalresult/totalBallotPapers" /></fo:block>
+								</fo:table-cell>
+								<xsl:copy-of select="$emptyCell" />
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>						
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="10px">
+						<fo:table-column column-width="40%" />					
+						<xsl:call-template name="createcolumns">
+							<xsl:with-param name="index">1</xsl:with-param>
+							<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>
+							<xsl:with-param name="columnwidth"><xsl:value-of select="$countcolumnwidth" /></xsl:with-param>
+						</xsl:call-template>
+						<fo:table-body>
+							<fo:table-row >
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'Candidates'"/></fo:block>
+								</fo:table-cell>
+								<xsl:call-template name="createcolumnheaders">
+									<xsl:with-param name="index">1</xsl:with-param>
+									<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>
+								</xsl:call-template>								
+							</fo:table-row>							
+							<xsl:apply-templates select="provisionalresult/candidates"/>
+						</fo:table-body>
+					</fo:table>	
+										
+					<fo:table table-layout="fixed" width="100%" margin-top="10px">
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="35%" />					
+						<xsl:call-template name="createcolumns">
+							<xsl:with-param name="index">1</xsl:with-param>
+							<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>
+							<xsl:with-param name="columnwidth"><xsl:value-of select="$countcolumnwidth" /></xsl:with-param>
+						</xsl:call-template>
+						<fo:table-body>
+							<fo:table-row >
+								<xsl:copy-of select="$emptyCellWithBorder" />
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'REJECTED BALLOTS'"/></fo:block>
+								</fo:table-cell>
+								<xsl:apply-templates select="provisionalresult/rejectedPapers"/>								
+							</fo:table-row>
+							<fo:table-row >
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'B.'"/></fo:block>
+								</fo:table-cell>								
+								<fo:table-cell xsl:use-attribute-sets="cellStyle">
+									<fo:block font-weight="bold"><xsl:value-of select="'TOTAL'"/></fo:block>
+								</fo:table-cell>																
+								<xsl:call-template name="createTotals">
+									<xsl:with-param name="index">1</xsl:with-param>
+									<xsl:with-param name="total"><xsl:value-of select="$numberofcounts" /></xsl:with-param>								
+								</xsl:call-template>				
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>						
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="5px">
+						<fo:table-column column-width="50%" />
+						<fo:table-column column-width="50%" />
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt" font-weight="bold"><xsl:value-of select="'NB. The totals at A and B should tally'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block text-align="right" font-size="8pt" font-weight="bold">* Include any doubtful ballot papers allowed as "good".</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>						
+					
+					<fo:block text-align="left" font-size="10pt" padding-top="10px" font-weight="bold" text-decoration="underline"><xsl:value-of select="'Majority'"/></fo:block>
+
+					<fo:table table-layout="fixed" width="35%" margin-top="5px" border-separation="3pt">
+						<fo:table-column column-width="45%" />
+						<fo:table-column column-width="50%" />
+						<fo:table-column column-width="5%" />
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt"><xsl:value-of select="'Highest Votes'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt">
+									<fo:block>  
+									    <xsl:value-of select="$highestVotes"/>  
+								  </fo:block> 									
+								</fo:table-cell>
+								<xsl:copy-of select="$emptyCell" />
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt" padding-top="10px" ><xsl:value-of select="'2'" /><fo:inline vertical-align="super" font-size="4pt"><xsl:value-of select="'nd'"/></fo:inline> <xsl:value-of select="' Highest Votes'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="10px" >
+									<fo:block>  
+									    <xsl:value-of select="$secondHighestVotes"/>  
+								  	</fo:block> 									
+								</fo:table-cell>								
+								<fo:table-cell>
+									<fo:block text-align="left" font-size="8pt" padding-top="10px" ><fo:leader leader-length="1mm" leader-pattern="space"></fo:leader><fo:leader leader-length="1mm" leader-pattern="rule" rule-style="solid" rule-thickness="0.2mm" color="black"></fo:leader></fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<xsl:copy-of select="$emptyCell" />							
+								<fo:table-cell font-size="8pt" padding-top="0px" >
+									<fo:block xsl:use-attribute-sets="solidBorderTopAndBottom">  
+									    <xsl:value-of select="$highestVotes - $secondHighestVotes"/>  
+								  </fo:block> 									
+								</fo:table-cell>								
+								<xsl:copy-of select="$emptyCell" />							
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>	
+
+					<fo:block text-align="left" font-size="10pt" padding-top="10px" font-weight="bold" text-decoration="underline"><xsl:value-of select="'% Poll'"/></fo:block>
+					
+					<fo:table table-layout="fixed" width="100%" margin-top="5px" border-separation="3pt">
+						<fo:table-column column-width="50%" />
+						<fo:table-column column-width="10%" />
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="5%" />
+						<fo:table-column column-width="10%" />
+						<fo:table-body>
+							<fo:table-row text-align="center" >
+								<fo:table-cell text-align="left" >
+									<fo:block font-size="8pt"><xsl:value-of select="'Number of Ballot Papers (Total at B above)'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt">  
+									    <xsl:value-of select="$numberOfBallotPapers"/>  
+								  	</fo:block> 									
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt"><xsl:value-of select="'X'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt"><xsl:value-of select="'100'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell>
+									<fo:block font-size="8pt">  
+										<fo:inline><xsl:value-of select="'=  '"/></fo:inline>
+										<xsl:variable name="totalEligibleElectors"><xsl:value-of select="//totalEligibleElectors"/></xsl:variable>																
+									    <xsl:value-of select="format-number($numberOfBallotPapers div $totalEligibleElectors, '#.##%')"/>
+								  	</fo:block> 									
+								</fo:table-cell>	
+							</fo:table-row>	
+							
+							<fo:table-row text-align="center" >
+								<fo:table-cell text-align="left" padding-top="10px">
+									<fo:block font-size="8pt"><xsl:value-of select="'Divided by total eligible electors on Polling Day'" /></fo:block>
+								</fo:table-cell>	
+								<fo:table-cell padding-top="5px">
+									<fo:block font-size="8pt" xsl:use-attribute-sets="solidBorderTop">  
+									    <xsl:value-of select="//totalEligibleElectors"/>  
+								  	</fo:block> 									
+								</fo:table-cell>	
+								<xsl:copy-of select="$emptyCell" />	
+								<fo:table-cell padding-top="5px">
+									<fo:block font-size="8pt" xsl:use-attribute-sets="solidBorderTop">
+										<xsl:value-of select="'1'" />
+									</fo:block>
+								</fo:table-cell>	
+								<xsl:copy-of select="$emptyCell" />	
+							</fo:table-row>						
+						</fo:table-body>
+					</fo:table>			
+					
+ 					<fo:table table-layout="fixed" width="50%" margin-top="20px">
+						<fo:table-column column-width="25%" />
+						<fo:table-column column-width="75%" />
+						<fo:table-body>
+							<fo:table-row >
+								<fo:table-cell font-size="8pt" padding-top="10px">
+									<fo:block><xsl:value-of select="'DRO Signature:'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="12px">
+									<fo:block xsl:use-attribute-sets="solidBorderBottom"/> 			
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell font-size="8pt"  padding-top="10px">
+									<fo:block><xsl:value-of select="'TS1 Signature:'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="12px">
+									<fo:block xsl:use-attribute-sets="solidBorderBottom"/> 			
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell font-size="8pt"  padding-top="10px">
+									<fo:block><xsl:value-of select="'TS2 Signature:'" /></fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="8pt" padding-top="12px">
+									<fo:block xsl:use-attribute-sets="solidBorderBottom"/> 			
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>		
+					
+					<fo:block text-align="left" font-size="10pt" padding-top="10px" font-weight="bold" text-decoration="underline"><xsl:value-of select="'NB: AFTER DECLARATION HAND ENVELOPE TO CANDIDATE ELECTED'"/></fo:block>
+													
+				</fo:flow>
+			</fo:page-sequence>
+		</fo:root>
+	</xsl:template>
+	<xsl:template match="candidates">
+		<xsl:for-each select="candidate">
+			<fo:table-row>
+				<fo:table-cell xsl:use-attribute-sets="cellStyle" >
+					<fo:block><xsl:value-of select="firsname" /><xsl:value-of select="' '" /><xsl:value-of select="surname" /></fo:block>
+				</fo:table-cell>
+				<xsl:for-each select="votes/count">
+					<fo:table-cell xsl:use-attribute-sets="cellStyle">
+						<fo:block><xsl:value-of select="." /></fo:block>
+					</fo:table-cell>
+				</xsl:for-each>
+			</fo:table-row>						
+		</xsl:for-each>
+	</xsl:template>		
+	<xsl:template match="rejectedPapers">
+		<xsl:for-each select="count">
+			<fo:table-cell xsl:use-attribute-sets="cellStyle">
+				<fo:block><xsl:value-of select="." /></fo:block>
+			</fo:table-cell>
+		</xsl:for-each>
+	</xsl:template>		
+	<xsl:template name="createcolumns">
+	    <xsl:param name="index"/>
+	    <xsl:param name="total"/>
+	    <xsl:param name="columnwidth"/>
+	
+		<fo:table-column>
+			<xsl:attribute name="column-width"><xsl:value-of select="$columnwidth" /></xsl:attribute>
+		</fo:table-column>
+	
+	    <xsl:if test="not($index = $total)">
+	        <xsl:call-template name="createcolumns">
+	            <xsl:with-param name="index" select="$index + 1" />
+	            <xsl:with-param name="total" select="$total" />
+	            <xsl:with-param name="columnwidth" select="$columnwidth" />
+	        </xsl:call-template>
+	    </xsl:if>
+	</xsl:template>
+
+	<xsl:template name="createcolumnheaders">
+	    <xsl:param name="index"/>
+	    <xsl:param name="total"/>
+	
+		<fo:table-cell xsl:use-attribute-sets="cellStyle">
+			<xsl:choose>
+				<xsl:when test="$index = 1">
+					<fo:block font-weight="bold"><xsl:value-of select="'Votes*'"/></fo:block>		
+				</xsl:when>
+				<xsl:otherwise>
+					<fo:block font-weight="bold"><xsl:value-of select="'Recount '"/><xsl:value-of select="$index - 1"/></fo:block>
+				</xsl:otherwise>
+			</xsl:choose>
+		</fo:table-cell>
+	
+	    <xsl:if test="not($index = $total)">
+	        <xsl:call-template name="createcolumnheaders">
+	            <xsl:with-param name="index" select="$index + 1" />
+	            <xsl:with-param name="total" select="$total" />
+	        </xsl:call-template>
+	    </xsl:if>
+	</xsl:template>
+
+	<xsl:template name="createTotals">
+	    <xsl:param name="index"/>
+	    <xsl:param name="total"/>
+
+		<xsl:variable name="totalVotes"><xsl:value-of select="sum(//votes/count[number($index)])"/></xsl:variable>
+		<xsl:variable name="rejectPapers"><xsl:value-of select="//rejectedPapers/count[number($index)]"/></xsl:variable>		
+
+		<fo:table-cell xsl:use-attribute-sets="cellStyle">
+			<fo:block><xsl:value-of select="$totalVotes + $rejectPapers" /></fo:block>
+		</fo:table-cell>
+
+	    <xsl:if test="not($index = $total)">
+	        <xsl:call-template name="createTotals">
+	            <xsl:with-param name="index" select="$index + 1" />
+	            <xsl:with-param name="total" select="$total" />
+	        </xsl:call-template>
+	    </xsl:if>
+	
+	</xsl:template>	
+
+</xsl:stylesheet>
+2017-01-17 11:42:05.297  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Entering createRepor
+2017-01-17 11:42:09.855  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Entering marshal
+2017-01-17 11:42:09.858  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Exiting marshal
+2017-01-17 11:42:09.952  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Entering marshal
+2017-01-17 11:42:12.669  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Exiting  marshal
+2017-01-17 11:42:15.509  INFO 572 --- [http-nio-5000-exec-1] com.modern.democracy.util.FopUtil        : Entering getConfigFile
+2017-01-17 11:42:28.188  INFO 572 --- [http-nio-5000-exec-1] com.modern.democracy.util.FopUtil        : Exiting getConfigFile
+2017-01-17 11:42:31.866  INFO 572 --- [http-nio-5000-exec-1] org.apache.fop.apps.FopConfParser        : Default page-height set to: 11.00in
+2017-01-17 11:42:31.867  INFO 572 --- [http-nio-5000-exec-1] org.apache.fop.apps.FopConfParser        : Default page-width set to: 8.50in
+2017-01-17 11:42:35.268  WARN 572 --- [http-nio-5000-exec-1] org.apache.fop.apps.FOUserAgent          : Font "Symbol,normal,700" not found. Substituting with "Symbol,normal,400".
+2017-01-17 11:42:35.268  WARN 572 --- [http-nio-5000-exec-1] org.apache.fop.apps.FOUserAgent          : Font "ZapfDingbats,normal,700" not found. Substituting with "ZapfDingbats,normal,400".
+2017-01-17 11:42:35.676  INFO 572 --- [http-nio-5000-exec-1] org.apache.fop.apps.FOUserAgent          : Rendered page #1.
+2017-01-17 11:42:35.684  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Exiting createRepor
+2017-01-17 11:42:35.685  INFO 572 --- [http-nio-5000-exec-1] c.m.d.controller.PdfDownloadController   : Exiting provisionalResult
+2017-01-17 12:03:30.468  INFO 13112 --- [main] c.m.democracy.CountManagerApplication    : Starting CountManagerApplication on DESKTOP-2TS06AD with PID 13112 (C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web\target\classes started by Sean McElroy in C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web)
+2017-01-17 12:03:30.472  INFO 13112 --- [main] c.m.democracy.CountManagerApplication    : No active profile set, falling back to default profiles: default
+2017-01-17 12:03:30.823  INFO 13112 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a7ae497: startup date [Tue Jan 17 12:03:30 GMT 2017]; root of context hierarchy
+2017-01-17 12:03:32.416  INFO 13112 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 5000 (http)
+2017-01-17 12:03:32.428  INFO 13112 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-01-17 12:03:32.430  INFO 13112 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-01-17 12:03:32.535  INFO 13112 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-01-17 12:03:32.536  INFO 13112 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1717 ms
+2017-01-17 12:03:32.727  INFO 13112 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-17 12:03:32.732  INFO 13112 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-17 12:03:32.733  INFO 13112 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-17 12:03:32.733  INFO 13112 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-17 12:03:32.734  INFO 13112 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-17 12:03:33.040  INFO 13112 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a7ae497: startup date [Tue Jan 17 12:03:30 GMT 2017]; root of context hierarchy
+2017-01-17 12:03:33.119  INFO 13112 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.util.Map<java.lang.String, java.lang.String> com.modern.democracy.controller.ExampleController.test()
+2017-01-17 12:03:33.121  INFO 13112 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/provisionalresult],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.provisionalResult(java.lang.String)
+2017-01-17 12:03:33.122  INFO 13112 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/forma],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.formA(java.lang.String)
+2017-01-17 12:03:33.125  INFO 13112 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-17 12:03:33.125  INFO 13112 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-17 12:03:33.144  INFO 13112 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2017-01-17 12:03:33.159  INFO 13112 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 12:03:33.159  INFO 13112 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 12:03:33.202  INFO 13112 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 12:03:33.848  INFO 13112 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-01-17 12:03:33.948  INFO 13112 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 5000 (http)
+2017-01-17 12:03:33.955  INFO 13112 --- [main] c.m.democracy.CountManagerApplication    : Started CountManagerApplication in 4.089 seconds (JVM running for 8.259)
+2017-01-17 12:09:26.450  INFO 10824 --- [main] c.m.democracy.CountManagerApplication    : Starting CountManagerApplication on DESKTOP-2TS06AD with PID 10824 (C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web\target\classes started by Sean McElroy in C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web)
+2017-01-17 12:09:26.454  INFO 10824 --- [main] c.m.democracy.CountManagerApplication    : No active profile set, falling back to default profiles: default
+2017-01-17 12:09:26.817  INFO 10824 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@66437afd: startup date [Tue Jan 17 12:09:26 GMT 2017]; root of context hierarchy
+2017-01-17 12:09:28.494  INFO 10824 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 5000 (http)
+2017-01-17 12:09:28.509  INFO 10824 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-01-17 12:09:28.510  INFO 10824 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-01-17 12:09:28.607  INFO 10824 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-01-17 12:09:28.608  INFO 10824 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1795 ms
+2017-01-17 12:09:28.783  INFO 10824 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-17 12:09:28.792  INFO 10824 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-17 12:09:28.793  INFO 10824 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-17 12:09:28.794  INFO 10824 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-17 12:09:28.796  INFO 10824 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-17 12:09:29.199  INFO 10824 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@66437afd: startup date [Tue Jan 17 12:09:26 GMT 2017]; root of context hierarchy
+2017-01-17 12:09:29.270  INFO 10824 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.util.Map<java.lang.String, java.lang.String> com.modern.democracy.controller.ExampleController.test()
+2017-01-17 12:09:29.272  INFO 10824 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/provisionalresult],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.provisionalResult(java.lang.String)
+2017-01-17 12:09:29.272  INFO 10824 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/forma],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.formA(java.lang.String)
+2017-01-17 12:09:29.275  INFO 10824 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-17 12:09:29.275  INFO 10824 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-17 12:09:29.294  INFO 10824 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2017-01-17 12:09:29.309  INFO 10824 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 12:09:29.309  INFO 10824 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 12:09:29.352  INFO 10824 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 12:09:29.959  INFO 10824 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-01-17 12:09:30.031  INFO 10824 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 5000 (http)
+2017-01-17 12:09:30.042  INFO 10824 --- [main] c.m.democracy.CountManagerApplication    : Started CountManagerApplication in 4.195 seconds (JVM running for 8.313)
+2017-01-17 12:14:18.075  INFO 5576 --- [main] c.m.democracy.CountManagerApplication    : Starting CountManagerApplication on DESKTOP-2TS06AD with PID 5576 (C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web\target\classes started by Sean McElroy in C:\Development\count-manager-workspace\count-manager-project\count-manager\cm-web)
+2017-01-17 12:14:18.079  INFO 5576 --- [main] c.m.democracy.CountManagerApplication    : No active profile set, falling back to default profiles: default
+2017-01-17 12:14:18.495  INFO 5576 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@36a24209: startup date [Tue Jan 17 12:14:18 GMT 2017]; root of context hierarchy
+2017-01-17 12:14:20.159  INFO 5576 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 5000 (http)
+2017-01-17 12:14:20.177  INFO 5576 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2017-01-17 12:14:20.179  INFO 5576 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-01-17 12:14:20.316  INFO 5576 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-01-17 12:14:20.317  INFO 5576 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1824 ms
+2017-01-17 12:14:20.624  INFO 5576 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-17 12:14:20.633  INFO 5576 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-17 12:14:20.634  INFO 5576 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-17 12:14:20.635  INFO 5576 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-17 12:14:20.636  INFO 5576 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-17 12:14:20.997  INFO 5576 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@36a24209: startup date [Tue Jan 17 12:14:18 GMT 2017]; root of context hierarchy
+2017-01-17 12:14:21.069  INFO 5576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.util.Map<java.lang.String, java.lang.String> com.modern.democracy.controller.ExampleController.test()
+2017-01-17 12:14:21.070  INFO 5576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/forma],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.formA(java.lang.String)
+2017-01-17 12:14:21.072  INFO 5576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/provisionalresult],methods=[POST]}" onto public org.springframework.http.ResponseEntity<byte[]> com.modern.democracy.controller.PdfDownloadController.provisionalResult(java.lang.String)
+2017-01-17 12:14:21.078  INFO 5576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-17 12:14:21.078  INFO 5576 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-17 12:14:21.099  INFO 5576 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2017-01-17 12:14:21.133  INFO 5576 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 12:14:21.133  INFO 5576 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 12:14:21.220  INFO 5576 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-17 12:14:21.923  INFO 5576 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-01-17 12:14:21.984  INFO 5576 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 5000 (http)
+2017-01-17 12:14:21.989  INFO 5576 --- [main] c.m.democracy.CountManagerApplication    : Started CountManagerApplication in 4.812 seconds (JVM running for 8.848)
